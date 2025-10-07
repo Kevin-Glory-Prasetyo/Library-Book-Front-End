@@ -1,0 +1,366 @@
+/* === GENERAL RESET === */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background-color: #fff;
+  color: #000;
+}
+
+/* ===== Header Utama (Desktop) ===== */
+header.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 60px;
+  background: #fff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+
+.logo img {
+  height: 35px;
+  width: auto;
+  /* display: block; */
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #000;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #093FB4;
+}
+
+/* === PROFILE SECTION === */
+.profile {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.profile img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.profile-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-info h4 {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.profile-info p {
+  margin: 0;
+  font-size: 13px;
+  color: gray;
+}
+
+/* ===== Header Utama (Desktop) ===== */
+header.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 60px;
+  background: #fff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+
+.logo img {
+  height: 35px;
+  width: auto;
+  /* display: block; */
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #000;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #093FB4;
+}
+/* ----- Tombol Navigasi Mobile ----- */
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+  padding: 5px;
+  background: transparent;
+  border: none;
+  z-index: 1001;
+}
+
+.nav-toggle .bar {
+  width: 25px;
+  height: 3px;
+  background-color: #3700ff;
+  border-radius: 2px;
+  transition: all 0.3s;
+}
+
+.nav-toggle.is-open .bar:nth-child(1) {
+  transform: rotate(45deg) translate(8px, 8px);
+}
+
+.nav-toggle.is-open .bar:nth-child(2) {
+  opacity: 0;
+}
+
+.nav-toggle.is-open .bar:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -7px);
+}
+
+/* === MAIN SECTION === */
+section {
+  padding: 40px 60px;
+}
+
+h2 {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 5px;
+  margin-top: 10px;
+}
+
+/* === BOOK SECTION === */
+.book-section {
+  position: relative;
+  overflow: hidden; /* supaya card tidak keluar dari area */
+  padding: 0 40px; /* beri ruang untuk tombol kiri kanan */
+}
+
+/* === BOOK CONTAINER === */
+.book-container {
+  display: flex;
+  gap: 25px;
+  justify-content: flex-start;
+  align-items: center;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 20px 0;
+  scroll-snap-type: x mandatory;
+}
+
+.book-container::-webkit-scrollbar {
+  height: 8px;
+}
+
+
+.book-container::-webkit-scrollbar-track {
+  background-color: #f1f1f1;
+}
+
+/* === BOOK CARD === */
+.book-card {
+  flex: 0 0 auto;
+  width: 230px;
+  height: 350px; /* tinggi tetap agar seragam */
+  scroll-snap-align: start;
+  background: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  padding: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 2px solid rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between; /* menjaga jarak antar elemen di dalam card */
+}
+
+.book-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+.book-card img {
+  width: 120px;
+  height: 160px;
+  object-fit: cover;
+}
+
+.book-card h3 {
+  /* font-size: 16px;
+  font-weight: 600;
+  color: #000;
+  margin-bottom: 5px; */
+  font-size: 16px;
+  font-weight: bold;
+  margin: 10px 0;
+  height: 45px; /* agar tinggi teks judul seragam */
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.book-card p {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 15px;
+  height: 20px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.book-card button {
+  background-color: #021122;
+  color: white;
+  border: none;
+  padding: 8px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.book-card button:hover {
+  background-color: #0766cc;
+}
+
+.book-slider {
+  position: relative;
+}
+
+/* === SCROLL BUTTONS === */
+.scroll-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #333;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  z-index: 10;
+  opacity: 0.8;
+  transition: background-color 0.3s ease, opacity 0.3s ease;
+}
+
+.scroll-btn:hover {
+  background-color: #143b67;
+  opacity: 1;
+}
+
+/* Tombol sedikit masuk ke area card */
+.scroll-btn.left {
+  left: 10px;
+}
+
+.scroll-btn.right {
+  right: 10px;
+}
+
+
+
+/* === RESPONSIVE === */
+@media (max-width: 1024px) {
+  section {
+    padding: 30px;
+  }
+  .book-section {
+    padding: 0 20px;
+  }
+  .book-card {
+    width: 220px;
+  }
+}
+
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    padding: 15px;
+  }
+  .navbar {
+    gap: 15px;
+  }
+  section {
+    padding: 20px;
+  }
+  .book-section {
+    padding: 0 15px;
+  }
+  .book-card {
+    width: 200px;
+  }
+  .scroll-btn {
+    width: 35px;
+    height: 35px;
+  }
+}
+
+/* ===== RESPONSIVE DESIGN (DIREVISI TOTAL) ===== */
+@media (max-width: 768px) {
+  header.navbar {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 10px 20px;
+  }
+
+  /* Menggunakan .nav-links (nama baru) */
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 65px;
+    left: 0;
+    background-color: white;
+    width: 100%;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  }
+
+  .nav-links.is-open {
+    display: flex;
+  }
+
+  .nav-links a {
+    padding: 15px;
+    border-bottom: 1px solid #f0f0f0;
+  }
+
+  /* Menggunakan .profile (nama baru) */
+  .profile {
+    display: none;
+  }
+
+  .nav-toggle {
+    display: flex;
+  }
+}
