@@ -1,0 +1,123 @@
+/* ===== Global ===== */
+body {
+  font-family: Arial, sans-serif;
+  background: #efe6e0;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* ===== Top Section: 6 Box + Pie Chart ===== */
+.top-section {
+  display: grid;
+  grid-template-columns: 2fr 1fr; /* kiri box, kanan chart */
+  gap: 20px;
+  align-items: stretch; /* biar sejajar tingginya */
+  margin-bottom: 25px;
+}
+
+/* ===== 6 Box ===== */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 kolom */
+  grid-template-rows: repeat(3, 1fr);    /* 3 baris */
+  gap: 15px;
+}
+
+.card {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.card span {
+  display: block;
+  margin-top: 10px;
+  font-size: 22px;
+  font-weight: 900;
+  color: black;
+}
+
+/* Warna background */
+.light-blue { background: #e3f2fd; }
+.light-green { background: #e8f5e9; }
+.light-green2 { background: #f1fdf1; }
+.light-yellow { background: #fffde7; }
+.light-red { background: #ffebee; }
+
+/* ===== Chart Cards ===== */
+.chart-card {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.chart-card h2 {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.chart-container {
+  position: relative;
+  height: 100%;
+  min-height: 300px;
+  width: 100%;
+}
+
+.pie-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* ===== Responsif ===== */
+@media (max-width: 900px) {
+  .top-section {
+    grid-template-columns: 1fr; /* stack jadi 1 kolom */
+  }
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ==== Fix untuk ukuran Pie Chart + Legend ==== */
+#peminjamanChart {
+  max-width: 350px;   /* batasi lebar pie */
+  margin: auto;
+}
+
+.chart-card .chart-container {
+  height: 100% !important;
+  min-height: 350px;  /* cukup tinggi biar pie & legend muat */
+}
+
+.chartjs-legend ul {
+  display: flex !important;
+  flex-wrap: wrap !important; /* biar legend bisa turun ke bawah */
+  gap: 10px;
+  justify-content: flex-start !important;
+}

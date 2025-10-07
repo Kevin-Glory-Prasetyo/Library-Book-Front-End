@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard Perpustakaan</title>
+  <link rel="stylesheet" href="../css/dashboard_admin.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="container">
+    <h1>Dashboard Perpustakaan</h1>
+
+    <!-- Bagian atas: 6 box + Pie chart -->
+    <div class="top-section">
+      <!-- Grid 6 box -->
+      <div class="stats-grid">
+        <div class="card light-blue">Jumlah Anggota <span>50</span></div>
+        <div class="card light-green">Jumlah Buku Perpustakaan <span>100</span></div>
+        <div class="card light-green2">Total Peminjaman <span>350</span></div>
+        <div class="card light-yellow">Stok Buku Tersedia <span>55</span></div>
+        <div class="card light-blue">Peminjaman Aktif <span>45</span></div>
+        <div class="card light-red">Peminjaman Terlambat Belum Kembali <span>10</span></div>
+      </div>
+
+      <!-- Pie chart -->
+      <div class="chart-card pie-card">
+        <h2>Statistik Peminjaman Bulan Ini</h2>
+        <div class="chart-container">
+          <canvas id="peminjamanChart"></canvas>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bagian bawah: Line chart -->
+    <div class="chart-card">
+      <h2>Riwayat Peminjaman 6 Bulan Terakhir</h2>
+      <div class="chart-container">
+        <canvas id="lineChart"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <script src="../js/dashboard_admin.js"></script>
+</body>
+</html>

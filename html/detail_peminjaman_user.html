@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Detail Peminjaman</title>
+  <link rel="stylesheet" href="../css/detail_peminjaman_user.css" />
+</head>
+<body>
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <div class="logo">
+      <img src="../image/Xcode.png" alt="Logo">
+    </div>
+
+    <button class="nav-toggle" aria-label="toggle navigation">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </button>
+
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="profile.html">Profile</a>
+      <a href="#">Favorite</a>
+      <a href="kategori.html">Categories</a>
+    </nav>
+
+    <div class="profile" id="profileBtn">
+      <img src="../image/bahlil.png" alt="Profil">
+      <div>
+        <h4>Kevin Glory</h4>
+        <p>Kevin@gmail.com</p>
+      </div>
+    </div>
+  </header>
+
+  <!-- Back Button -->
+  <div class="back-section">
+    <button class="back-button" onclick="window.history.back()"></button>
+  </div>
+
+  <!-- Main Content -->
+  <main class="container">
+    <div class="book-section">
+      <div class="book-cover">
+        <img src="../image/sampulbuku.jpg" alt="Sampul Buku" />
+      </div>
+
+      <div class="book-info">
+        <h3>Peminjaman</h3>
+
+        <div class="form-group">
+          <label for="tgl-pinjam">Tanggal Peminjaman</label>
+          <input type="date" id="tgl-pinjam" />
+        </div>
+
+        <div class="form-group">
+          <label for="tgl-kembali">Tanggal Pengembalian</label>
+          <input type="date" id="tgl-kembali" />
+        </div>
+
+        <div class="form-group">
+          <label for="nomor">Nomor yang bisa dihubungi</label>
+          <input type="text" id="nomor" value="+62082312131231" />
+        </div>
+
+        <div class="form-group">
+          <label for="ktm">KTM (Kartu Tanda Mahasiswa)</label>
+          <input type="file" id="ktm" />
+        </div>
+
+        <button class="btn-ajukan">AJUKAN</button>
+      </div>
+    </div>
+  </main>
+
+  <script src="../js/detail_peminjaman_user.js"></script>
+</body>
+</html>
