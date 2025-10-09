@@ -1,22 +1,3 @@
-// // Fungsi scroll horizontal untuk container buku
-// function scrollBooks(direction) {
-//   const container = document.getElementById("bookContainer");
-//   const scrollAmount = container.clientWidth * 0.9; // geser 90% lebar container
-//   container.scrollBy({
-//     left: direction * scrollAmount,
-//     behavior: "smooth"
-//   });
-// }
-
-// // Event tombol panah kiri dan kanan
-// document.getElementById("scrollLeft").addEventListener("click", () => scrollBooks(-1));
-// document.getElementById("scrollRight").addEventListener("click", () => scrollBooks(1));
-
-// // Klik profil menuju halaman profil
-// document.getElementById("profileBtn").addEventListener("click", () => {
-//   window.location.href = "profile.html";
-// });
-
 
 // Ambil semua slider kategori
 document.querySelectorAll(".book-slider").forEach(slider => {
@@ -42,6 +23,16 @@ document.querySelectorAll(".book-slider").forEach(slider => {
 document.addEventListener('DOMContentLoaded', () => {
   const navToggle = document.querySelector('.nav-toggle');
   const mainNav = document.querySelector('.nav-links');
+  const profileBtn = document.getElementById('profileBtn');
+  const dropdownMenu = document.getElementById('dropdownMenu');
+
+
+  // Klik profil untuk buka dropdown
+  profileBtn.addEventListener('click', (event) => {
+    event.stopPropagation();
+    dropdownMenu.classList.toggle('show');
+    profileBtn.classList.toggle('active');
+  });
 
   // 1. Logika untuk membuka/menutup menu saat tombol di-klik
   navToggle.addEventListener('click', (event) => {
@@ -60,6 +51,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // 3. Logika untuk menutup menu saat meng-klik di luar area menu
   document.addEventListener('click', (event) => {
+    if (!profileBtn.contains(event.target) && dropdownMenu.classList.contains('show'))  {
+      dropdownMenu.classList.remove('show');
+      profileBtn.classList.remove('active');
+    }
     if (mainNav.classList.contains('is-open') &&
         !mainNav.contains(event.target) &&
         !navToggle.contains(event.target)) {
