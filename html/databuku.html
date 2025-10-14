@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XCODE - Data Buku</title>
+    <link rel="stylesheet" href="databuku-style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-right">
+            <img src="https://cdn-icons-png.flaticon.com/512/281/281769.png" alt="Gmail" class="gmail-icon">
+            <div class="user-profile">
+                <img src="https://via.placeholder.com/40" alt="User" class="user-avatar">
+                <div class="user-info">
+                    <span class="user-name">Dion Dandi</span>
+                    <span class="user-email">dion@gmail.com</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo-sidebar">
+                <img src="x-code.png" alt="XCODE Logo" class="logo">
+            </div>
+            <nav class="nav-menu">
+                <a href="#" class="nav-item">Dashboard</a>
+                <a href="#" class="nav-item">Data Peminjaman</a>
+                <a href="#" class="nav-item active">Data Buku</a>
+                <a href="#" class="nav-item">Dashboard</a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="content-header">
+                <h1>Data Buku</h1>
+                <div class="header-actions">
+                    <input type="text" class="search-input" placeholder="Search">
+                    <button class="btn-tambah">Tambah Buku</button>
+                </div>
+            </div>
+
+            <!-- Table -->
+            <div class="table-container">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Judul Buku</th>
+                            <th>Penulis</th>
+                            <th>Kategori</th>
+                            <th>Penerbit</th>
+                            <th>Stok</th>
+                            <th></th>                                                                  
+                        </tr>
+                    </thead>
+                    <tbody id="tableBody">
+                        <tr>
+                            <td>1</td>
+                            <td>Pemrograman Web Modern</td>
+                            <td>Ahmad Sutisna</td>
+                            <td>Teknologi</td>
+                            <td>Informatika Press</td>
+                            <td>Tersedia</td>
+                            <td class="action-btns">
+                                <button class="btn-edit">Edit</button>
+                                <button class="btn-hapus">Hapus</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Algoritma dan Struktur Data</td>
+                            <td>Budi Raharjo</td>
+                            <td>Teknologi</td>
+                            <td>Gramedia</td>
+                            <td>Tersedia</td>
+                            <td class="action-btns">
+                                <button class="btn-edit">Edit</button>
+                                <button class="btn-hapus">Hapus</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>Database Management</td>
+                            <td>Citra Dewi</td>
+                            <td>Teknologi</td>
+                            <td>Elex Media</td>
+                            <td>Dipinjam</td>
+                            <td class="action-btns">
+                                <button class="btn-edit">Edit</button>
+                                <button class="btn-hapus">Hapus</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>Machine Learning Dasar</td>
+                            <td>Doni Prasetyo</td>
+                            <td>Teknologi</td>
+                            <td>Informatika Press</td>
+                            <td>Tersedia</td>
+                            <td class="action-btns">
+                                <button class="btn-edit">Edit</button>
+                                <button class="btn-hapus">Hapus</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>Jaringan Komputer</td>
+                            <td>Eko Wijaya</td>
+                            <td>Teknologi</td>
+                            <td>Andi Publisher</td>
+                            <td>Tersedia</td>
+                            <td class="action-btns">
+                                <button class="btn-edit">Edit</button>
+                                <button class="btn-hapus">Hapus</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+
+    <script src="databuku-script.js"></script>
+</body>
+</html>

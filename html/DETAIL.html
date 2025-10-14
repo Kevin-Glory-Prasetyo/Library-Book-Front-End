@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detail Buku - Mumtaz Bahasa Arab</title>
+    <link rel="stylesheet" href="DETAIL-STYLE.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="navbar-brand">
+            <img src="x-code.png" alt="Profile" class="navbar-img">
+        </div>
+       
+        <nav class="navbar-links">
+            <a href="#" class="active">Home</a>
+            <a href="#">Profile</a>
+            <a href="#">Favorite</a>
+            <a href="#">Categories</a>
+            <a href="#">Status</a>
+        </nav>
+
+        <div class="navbar-right">
+            <!-- Hamburger Menu -->
+            <div class="hamburger" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+            <div class="navbar-profile">
+                <img src="https://i.pravatar.cc/40?u=Elen" alt="User Profile">
+                <span>Elen Dowd</span>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="#">Home</a>
+            <a href="#">Profile</a>
+            <a href="#">Favorite</a>
+            <a href="#">Categories</a>
+            <a href="#">Status</a>
+        </div>
+    </header>
+
+    <main class="container">
+        <a href="#" class="back-button">&lt; Back</a>
+
+        <section class="book-detail-grid">
+            <div class="left-column">
+                <img src="image.png" alt="Cover Buku Mumtaz Bahasa Arab" class="book-cover">
+                <div class="author-card">
+                    <div class="author-info">
+                        <h4>Erlangga</h4>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum, odio saepe, autem quibusdam praesentium amet soluta itaque velit commodi repudiandae harum sit in voluptas, ex tempora? Illo ipsum voluptate commodi.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="right-column">
+                <div class="book-main-info">
+                    <h1 class="animate-text">Mumtaz Bahasa Arab</h1>
+                    <p class="author animate-text">By Erlangga | Full Edisi</p>
+                    <div class="tags animate-text">
+                        <span>Edukasi</span>
+                        <span>Pelajaran</span>
+                    </div>
+                    <p class="synopsis animate-text">
+                        BUKU INI MEMBAHAS TENTANG BAHASA AWAL DARI ABJAD HINGGA KATA KATA DAN LAIN LAIN DIBANKUM BLA.
+                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Commodi, modi iure placeat quos mollitia non, itaque quo sed odit, dignissimos delectus! Ut, odit culpa? Beatae vitae adipisci sequi in debitis!
+                    </p>
+                    <p class="publisher animate-text">-Erlangga</p>
+                    <div class="action-buttons animate-text">
+                        <button class="btn-secondary">⭐ Favorite</button>
+                        <button class="btn-secondary">📙 Tandai Dibaca</button>
+                        <button class="btn-primary">PINJAM</button>
+                    </div>
+                </div>
+
+                <div class="detailed-description animate-text">
+                    <p>BUKU INI MEMBAHAS TENTANG BAHASA AWAL DARI ABJAD HINGGA KATA, KATA DAN LAIN LAIN DIBANKUM BLA.
+                       Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim maiores magnam, esse, officia veritatis nam excepturi modi pariatur facere similique mollitia facilis velit quasi doloribus voluptas! Excepturi eum quasi officiis.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="references">
+            <h2 class="animate-text">Referensi</h2>
+            <div class="slider-container">
+                <button id="slideLeft" class="arrow">&lt;</button>
+                <div id="slider" class="book-slider">
+                    <div class="book-card"><img src="download (10).jpeg" alt="Buku Referensi 1"><p>Dasar-Dasar Teknik Informatika</p><span>FREE</span></div>
+                    <div class="book-card"><img src="download (10).jpeg" alt="Buku Referensi 2"><p>Informatika</p><span>FREE</span></div>
+                    <div class="book-card"><img src="download (10).jpeg" alt="Buku Referensi 3"><p>Buku Panduan Guru Informatika</p><span>FREE</span></div>
+                    <div class="book-card"><img src="download (10).jpeg" alt="Buku Referensi 4"><p>Informatika</p><span>FREE</span></div>
+                    <div class="book-card"><img src="download (10).jpeg" alt="Buku Referensi 5"><p>Dasar-Dasar Teknik Informatika</p><span>FREE</span></div>
+                    <div class="book-card"><img src="download (10).jpeg" alt="Buku Referensi 6"><p>Dasar-Dasar Teknik Informatika</p><span>FREE</span></div>
+                    <div class="book-card"><img src="download (10).jpeg" alt="Buku Referensi 7"><p>Dasar-Dasar Teknik Informatika</p><span>FREE</span></div>
+                </div>
+                <button id="slideRight" class="arrow">&gt;</button>
+            </div>
+        </section>
+    </main>
+
+    <script src="DETAIL-SCRIPT.js"></script>
+</body>
+</html>

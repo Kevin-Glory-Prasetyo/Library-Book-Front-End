@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XCODE - Edit Data Buku</title>
+    <link rel="stylesheet" href="EditDataBuku.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-right">
+            <img src="https://cdn-icons-png.flaticon.com/512/281/281769.png" alt="Gmail" class="gmail-icon">
+            <div class="user-profile">
+                <img src="https://via.placeholder.com/40" alt="User" class="user-avatar">
+                <div class="user-info">
+                    <span class="user-name">Glen Daud</span>
+                    <span class="user-email">glen@gmail.com</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo-sidebar">
+                <img src="x-code.png" alt="XCODE Logo" class="logo">
+            </div>
+            <nav class="nav-menu">
+                <a href="#" class="nav-item">Dashboard</a>
+                <a href="#" class="nav-item">Data Peminjaman</a>
+                <a href="#" class="nav-item active">Data Buku</a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Edit Form Card -->
+            <div class="edit-card">
+                <div class="edit-card-header">
+                    Edit Data Buku
+                </div>
+                <div class="edit-card-body">
+                    <form id="editBookForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="judulBuku">Judul Buku</label>
+                                <input type="text" id="judulBuku" placeholder="Masukkan judul buku">
+                            </div>
+                            <div class="form-group">
+                                <label for="kategori">Kategori</label>
+                                <select id="kategori">
+                                    <option value="">Pilih Kategori</option>
+                                    <option value="Fiksi">Fiksi</option>
+                                    <option value="Non-Fiksi">Non-Fiksi</option>
+                                    <option value="Sains">Sains</option>
+                                    <option value="Teknologi">Teknologi</option>
+                                    <option value="Sejarah">Sejarah</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="penulis">Penulis</label>
+                                <input type="text" id="penulis" placeholder="Masukkan nama penulis">
+                            </div>
+                            <div class="form-group">
+                                <label for="penerbit">Penerbit</label>
+                                <input type="text" id="penerbit" placeholder="Masukkan nama penerbit">
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="stokBuku">Stok Buku</label>
+                                <input type="number" id="stokBuku" placeholder="Masukkan jumlah stok" min="0">
+                            </div>
+                            <div class="form-group">
+                                <label for="gambar">Gambar</label>
+                                <div class="upload-area" id="uploadArea">
+                                    <div class="upload-icon">📤</div>
+                                    <p>Drag and Drop File</p>
+                                    <p class="upload-info">PNG & JPG up to 10 MB</p>
+                                    <input type="file" id="fileInput" accept="image/png,image/jpeg" hidden>
+                                    <button type="button" class="browse-btn" id="browseBtn">Browse File</button>
+                                </div>
+                                <div class="preview-container" id="previewContainer" style="display: none;">
+                                    <img id="imagePreview" src="" alt="Preview">
+                                    <button type="button" class="remove-image" id="removeImage">✕</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="submit" class="btn-tambah">Tambah</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="EditDataBuku.js"></script>
+</body>
+</html>

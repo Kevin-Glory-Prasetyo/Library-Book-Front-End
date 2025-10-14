@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Profile - X-CODE</title>
+    <link rel="stylesheet" href="EDIT-PROFILE-STYLE.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="navbar-brand">
+            <img src="x-code.png" alt="Profile" class="navbar-img">
+        </div>
+        
+        <nav class="navbar-links">
+            <a href="#">Book</a>
+            <a href="#">Home</a>
+            <a href="#" class="active">Profile</a>
+            <a href="#">Favorite</a>
+            <a href="#">Categories</a>
+        </nav>
+
+        <div class="navbar-right">
+            <div class="hamburger" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+            <div class="navbar-profile">
+                <img src="https://i.pravatar.cc/40?u=Elen" alt="User Profile">
+                <span>Elen Dowd<br><small>elen@gmail.com</small></span>
+            </div>
+        </div>
+
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="#">Book</a>
+            <a href="#">Home</a>
+            <a href="#">Profile</a>
+            <a href="#">Favorite</a>
+            <a href="#">Categories</a>
+        </div>
+    </header>
+
+    <main class="profile-container">
+        <div class="cover-section"></div>
+
+        <div class="profile-card">
+            <h1>EDIT PROFIL</h1>
+            
+            <div class="profile-content">
+                <div class="profile-picture-section">
+                    <div class="profile-picture">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=300&fit=crop" alt="Profile Picture" id="profilePicture">
+                        <div class="picture-overlay" onclick="document.getElementById('profileInput').click()">
+                            <i class="fas fa-camera"></i> <span>Change Photo</span>
+                        </div>
+                    </div>
+                    <input type="file" id="profileInput" accept="image/png, image/jpeg, image/jpg" style="display: none;">
+                </div>
+
+                <div class="profile-form">
+                    <div class="form-group">
+                        <label for="namaAwal">Nama awal</label>
+                        <input type="text" id="namaAwal" placeholder="Masukkan nama awal">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" placeholder="Masukkan email">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="noHp">No. HP</label>
+                        <input type="tel" id="noHp" placeholder="Masukkan nomor HP">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="jenisKelamin">Jenis Kelamin</label>
+                        <select id="jenisKelamin">
+                            <option value="">Pilih jenis kelamin</option>
+                            <option value="laki-laki">Laki-laki</option>
+                            <option value="perempuan">Perempuan</option>
+                        </select>
+                    </div>
+
+                    <button class="btn-update">UPDATE</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="EDIT-PROFILE-SCRIPT.js"></script>
+</body>
+</html>
