@@ -42,8 +42,8 @@ body {
 }
 
 .logo-sidebar .logo {
-    width: 86%;
-    height: 49px;
+    width: 70%;
+    height: 50px;
 
     /* Border putih tipis dan proporsional */
     border: 1.5px solid #ffffff;
@@ -51,7 +51,7 @@ body {
     background-color: #ffffff;
     
     /* Ruang kecil di dalam border */
-    padding: 3px;
+    padding: 10px;
 
     /* Agar tidak membuat tinggi area logo terlalu besar */
     box-sizing: border-box;
