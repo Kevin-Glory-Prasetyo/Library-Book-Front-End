@@ -29,20 +29,32 @@ body {
 }
 
 /* Logo di Sidebar */
+/* Logo di Sidebar */
 .logo-sidebar {
-    padding: 7.7px;
-    text-align: center;
+    background-color: #3d4f6d;
+    border-bottom: 3px solid #f0f0f0;
     
-    /* Ini yang membuat background-nya jadi PUTIH */
-    background-color: #3d4f6d; 
-    
-    /* Ini garis pemisah tipis di bawah logo */
-    border-bottom: 2px solid #f0f0f0; 
+    /* Lebih ramping dan seimbang */
+    padding: 10px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .logo-sidebar .logo {
-    max-width: 150px;
-    height: auto;
+    width: 86%;
+    height: 49px;
+
+    /* Border putih tipis dan proporsional */
+    border: 1.5px solid #ffffff;
+    border-radius: 6px;
+    background-color: #ffffff;
+    
+    /* Ruang kecil di dalam border */
+    padding: 3px;
+
+    /* Agar tidak membuat tinggi area logo terlalu besar */
+    box-sizing: border-box;
 }
 
 
