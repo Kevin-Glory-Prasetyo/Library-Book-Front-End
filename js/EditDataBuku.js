@@ -18,6 +18,28 @@ const removeImageBtn = document.getElementById('removeImage');
 // Initialize
 document.addEventListener('DOMContentLoaded', function() {
     initializeUpload();
+    const navItems = document.querySelectorAll('.nav-item');
+    navItems.forEach(item => {
+        item.addEventListener('click', function(event) {
+            
+            // 1. Hapus 'active' dari item lama
+            const currentActive = document.querySelector(".nav-item.active");
+            if (currentActive) {
+                currentActive.classList.remove("active");
+            }
+            
+            // 2. Tambahkan 'active' ke item yang diklik
+            this.classList.add("active");
+
+            // 3. (Opsional) Jika linknya bukan '#', pindah halaman
+            // Ini penting jika Anda ingin link-nya benar-benar berfungsi
+            const targetUrl = this.getAttribute('href');
+            if (targetUrl && targetUrl !== '#') {
+                event.preventDefault(); // Hentikan klik default
+                window.location.href = targetUrl; // Pindah halaman
+            }
+        });
+    });
 });
 
 // Form Submit

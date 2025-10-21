@@ -30,11 +30,19 @@ body {
 }
 
 /* Logo di Sidebar */
+/* === BAGIAN LOGO === */
+
+/* === BAGIAN LOGO === */
+
 .logo-sidebar {
-   
-    padding: 20px;
+    padding: 7.7px;
     text-align: center;
     
+    /* Ini yang membuat background-nya jadi PUTIH */
+    background-color: #3d4f6d; 
+    
+    /* Ini garis pemisah tipis di bawah logo */
+    border-bottom: 2px solid #f0f0f0; 
 }
 
 .logo-sidebar .logo {
@@ -42,29 +50,84 @@ body {
     height: auto;
 }
 
+
+/* === BAGIAN MENU NAVIGASI === */
+
 .nav-menu {
     display: flex;
     flex-direction: column;
     flex: 1;
-    border-top: 1px solid rgba(255,255,255,0.2);
+    
+    /* BARU: Memberi jarak/padding untuk semua item menu */
+    padding: 15px; 
+    
+    /* HAPUS: border-top (sudah diganti border-bottom di logo) */
+    border-top: none; 
 }
 
 .nav-item {
-    padding: 15px 30px;
-    color: white;
     text-decoration: none;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s, color 0.3s;
     font-size: 14px;
-    border-bottom: 1px solid rgba(255,255,255,0.1);
+    font-weight: 500;
+    
+    /* BARU: Menggunakan Flexbox untuk ikon dan teks */
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Jarak antara ikon dan teks */
+    
+    /* BARU: Warna teks default (putih) */
+    color: #ffffff; 
+    
+    /* BARU: Padding di dalam item */
+    padding: 12px 20px; 
+    
+    /* BARU: Jarak antar item */
+    margin-bottom: 5px; 
+    
+    /* BARU: Sudut tumpul untuk semua item */
+    border-radius: 8px; 
+    
+    /* HAPUS: border-bottom (tidak ada di desain baru) */
+    border-bottom: none; 
 }
 
-.nav-item:hover {
-    background-color: rgba(255,255,255,0.1);
+/* BARU: Style untuk ikon di dalam nav-item */
+.nav-icon {
+    width: 20px;
+    height: 20px;
+    
+    /* Trik CSS: Membuat ikon (asli warna hitam) menjadi PUTIH */
+    filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(200%) contrast(100%);
+    transition: filter 0.3s;
 }
+
+
+/* === STYLE UNTUK ITEM AKTIF (SESUAI GAMBAR) === */
 
 .nav-item.active {
-    background-color: #2c3e56;
-    border-left: 4px solid #2c3e56;
+    /* BARU: Background putih */
+    background-color: #ffffff; 
+    
+    /* BARU: Warna teks gelap */
+    color: #3d4f6d; 
+    font-weight: 600;
+    
+    /* HAPUS: border-left (tidak ada di desain baru) */
+    border-left: none; 
+}
+
+/* BARU: Mengembalikan warna ikon ke aslinya (hitam/gelap) saat aktif */
+.nav-item.active .nav-icon {
+    filter: none;
+}
+
+
+/* === STYLE UNTUK HOVER (SAAT DISENTUH MOUSE) === */
+
+/* Hanya beri efek hover pada item yang TIDAK aktif */
+.nav-item:not(.active):hover {
+    background-color: rgba(255, 255, 255, 0.1);
 }
 
 /* Header Styles */
@@ -98,7 +161,7 @@ body {
 }
 
 .gmail-icon {
-    width: 30px;
+    width: 50px;
     height: 30px;
     cursor: pointer;
     padding-right: 20px;
