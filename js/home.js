@@ -56,3 +56,18 @@ rightBtn.addEventListener("click", () => {
   bookSlider.scrollBy({ left: 300, behavior: 'smooth' });
 });
 
+document.addEventListener("DOMContentLoaded", () => {
+  // Tombol lihat sekarang
+  const seeNowBtn = document.getElementById("seeNowBtn");
+
+  if (seeNowBtn) {
+    seeNowBtn.addEventListener("click", () => {
+      console.log("Tombol Lihat Sekarang diklik!"); // Debug
+      window.location.href = "/Library-Book-Front-End/html/kategori.html";
+    });
+  } else {
+    console.warn("Tombol #seeNowBtn tidak ditemukan di halaman ini.");
+  }
+});
+
+
