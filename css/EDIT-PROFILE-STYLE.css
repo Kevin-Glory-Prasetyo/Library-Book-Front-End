@@ -13,162 +13,205 @@ body {
 }
 
 /* --- NAVBAR RESPONSIVE --- */
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 8px 10px;
-    background-color: #fff;
-    border-bottom: 1px solid #e0e0e0;
-    position: relative;
+header.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 60px;
+  background: #fff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
-.navbar-brand {
-    background-color: #ffffff;
-    padding: 5px 15px;
-    border-radius: 5px;
-    height: 50px;
-    display: flex;
-    align-items: center;
+
+.logo img {
+  height: 35px;
+  width: auto;
+  /* display: block; */
 }
 
-.navbar-img {
-    height: 150%;
-    width: auto;
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 20px;
 }
 
-/* Desktop Navigation */
-.navbar-links {
-    display: flex;
-    gap: 60px;
-    align-items: center;
+.nav-links a {
+  text-decoration: none;
+  color: #000;
+  font-weight: 500;
+  transition: color 0.3s ease;
 }
 
-.navbar-links a {
-    text-decoration: none;
-    color: #555;
-    font-weight: 600;
-    font-size: 0.95rem;
-    transition: color 0.3s;
+.nav-links a:hover {
+  color: #093FB4;
 }
 
-.navbar-links a:hover {
-    color: #000;
+/* === PROFILE SECTION === */
+.profile {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  position: relative;
+  transition: background-color 0.3s ease;
+  padding: 5px 10px;
+  border-radius: 8px;
 }
 
-.navbar-links a.active {
-    color: #000;
-    font-weight: 700;
+.profile:hover {
+  background-color: #f7f7f7;
 }
 
-/* Right side container for hamburger and profile */
-.navbar-right {
-    display: flex;
-    align-items: center;
-    gap: 15px;
+.profile img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
 }
 
-.navbar-profile {
-    display: flex;
-    align-items: center;
-    gap: 10px;
+.profile .arrow-down {
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 6px solid #000;
+  margin-left: 5px;
+  transition: transform 0.3s ease;
 }
 
-.navbar-profile img {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    object-fit: cover;
+.profile.active .arrow-down {
+  transform: rotate(180deg);
 }
 
-.navbar-profile span {
-    font-weight: 500;
-    color: #333;
-    line-height: 1.3;
+.profile-info {
+  display: flex;
+  flex-direction: column;
 }
 
-.navbar-profile small {
-    font-size: 0.75rem;
-    color: #777;
-    font-weight: 400;
+.profile-info h4 {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 600;
 }
 
-/* Hamburger Menu (hidden on desktop) */
-.hamburger {
-    display: none;
-    flex-direction: column;
-    cursor: pointer;
-    gap: 5px;
-    padding: 5px;
-    z-index: 1001;
+.profile-info p {
+  margin: 0;
+  font-size: 13px;
+  color: gray;
 }
 
-.hamburger span {
-    width: 25px;
-    height: 3px;
-    background-color: #ff0000;
-    border-radius: 2px;
-    transition: all 0.3s;
+/* ===== Dropdown Profile ===== */
+.dropdown-menu {
+  position: absolute;
+  top: 80px;
+  right: 60px;
+  background: rgb(255, 255, 255);
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  display: none;
+  flex-direction: column;
+  overflow: hidden;
+  z-index: 200;
+  /* transform: translateY(-10px); */
+  /* pointer-events: none;
+  transition: all 0.3s ease; */
 }
 
-.hamburger.active span:nth-child(1) {
-    transform: rotate(45deg) translate(8px, 8px);
+.dropdown-menu a {
+  padding: 10px 55px;
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  transition: background 0.3s ease;
 }
 
-.hamburger.active span:nth-child(2) {
-    opacity: 0;
+.dropdown-menu a:hover {
+  background-color: #e4e4e4;
+  /* transform: translateX(4px); */
 }
 
-.hamburger.active span:nth-child(3) {
-    transform: rotate(-45deg) translate(7px, -7px);
+/* Saat aktif */
+.dropdown-menu.show {
+  display: flex;
 }
 
-/* Mobile Menu */
-.mobile-menu {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    background-color: #fff;
-    border-bottom: 1px solid #e0e0e0;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    z-index: 1000;
-    animation: slideDown 0.3s ease-out;
+/* Responsif: pastikan dropdown tetap rapi di mobile */
+@media (max-width: 768px) {
+  .dropdown-menu {
+    right: 20px;
+    top: 70px;
+  }
 }
 
-@keyframes slideDown {
-    from {
-        opacity: 0;
-        transform: translateY(-10px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+/* ===== Header Utama (Desktop) ===== */
+header.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 60px;
+  background: #fff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
-.mobile-menu.active {
-    display: block;
+
+
+.logo img {
+  height: 35px;
+  width: auto;
+  /* display: block; */
 }
 
-.mobile-menu a {
-    display: block;
-    padding: 15px 40px;
-    text-decoration: none;
-    color: #555;
-    font-weight: 600;
-    border-bottom: 1px solid #f0f0f0;
-    transition: background-color 0.3s;
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 20px;
 }
 
-.mobile-menu a:hover {
-    background-color: #f8f9fa;
-    color: #000;
+.nav-links a {
+  text-decoration: none;
+  color: #000;
+  font-weight: 500;
+  transition: color 0.3s ease;
 }
 
-.mobile-menu a:last-child {
-    border-bottom: none;
+.nav-links a:hover {
+  color: #093FB4;
+}
+/* ----- Tombol Navigasi Mobile ----- */
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+  padding: 5px;
+  background: transparent;
+  border: none;
+  z-index: 1001;
+}
+
+.nav-toggle .bar {
+  width: 25px;
+  height: 3px;
+  background-color: #3700ff;
+  border-radius: 2px;
+  transition: all 0.3s;
+}
+
+.nav-toggle.is-open .bar:nth-child(1) {
+  transform: rotate(45deg) translate(8px, 8px);
+}
+
+.nav-toggle.is-open .bar:nth-child(2) {
+  opacity: 0;
+}
+
+.nav-toggle.is-open .bar:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -7px);
 }
 
 /* --- PROFILE CONTAINER --- */

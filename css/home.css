@@ -182,7 +182,7 @@ header.navbar {
 .seeNow {
   text-align: center;
   padding: 50px 20px;
-  background: url(/Library-Book-Front-End/image/Bg8.jpg) center/cover no-repeat;
+  background: url(/image/Bg8.jpg) center/cover no-repeat;
 }
 
 .seeNow h2 {
@@ -195,17 +195,22 @@ header.navbar {
   margin-bottom: 20px;
 }
 
-.seeNow button {
+.seeNow #seeNowBtn {
   color: #f0f0f0;
   padding: 10px 20px;
-  /* border-radius: 5px; */
   border: none;
   cursor: pointer;
   font-size: 14px;
   font-weight: lighter;
   background-color: #000;
+  text-decoration: none; 
+  display: inline-block; 
+  
+  /* TAMBAHKAN DUA BARIS INI */
+  margin-top: 15px;
+  margin-bottom: 15px; 
 }
-.seeNow button:hover {
+.seeNow #seeNowBtn:hover {
   transform: scale(1.1);
 }
 
@@ -288,7 +293,7 @@ header.navbar {
 /* QUOTE */
 .quote {
   position: relative;
-  background: url('/Library-Book-Front-End/image/books.jpg') center/cover no-repeat;
+  background: url('/image/books.jpg') center/cover no-repeat;
   color: #edeaea;
   padding: 80px 20px;
   text-align: center;

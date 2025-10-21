@@ -1,36 +1,47 @@
-// Mobile menu toggle
-function toggleMenu() {
-    const mobileMenu = document.getElementById('mobileMenu');
-    const hamburger = document.querySelector('.hamburger');
-    
-    mobileMenu.classList.toggle('active');
-    hamburger.classList.toggle('active');
-}
+// --- AWAL KODE NAVBAR ---
+document.addEventListener('DOMContentLoaded', () => {
+    const navToggle = document.querySelector('.nav-toggle');
+    const mainNav = document.querySelector('.nav-links');
+    const profileBtn = document.getElementById('profileBtn');
+    const dropdownMenu = document.getElementById('dropdownMenu');
 
-// Close mobile menu when clicking on a menu item
-document.querySelectorAll('.mobile-menu a').forEach(link => {
-    link.addEventListener('click', function() {
-        const mobileMenu = document.getElementById('mobileMenu');
-        const hamburger = document.querySelector('.hamburger');
-        mobileMenu.classList.remove('active');
-        hamburger.classList.remove('active');
+    // ---- INI UNTUK DROPDOWN PROFIL (YANG HILANG) ----
+    if (profileBtn) {
+        profileBtn.addEventListener('click', (event) => {
+            event.stopPropagation(); // Hentikan event agar tidak langsung ditutup
+            dropdownMenu.classList.toggle('show');
+            profileBtn.classList.toggle('active');
+        });
+    }
+
+    // ---- INI UNTUK MOBILE MENU (HAMBURGER) ----
+    if (navToggle) {
+        navToggle.addEventListener('click', (event) => {
+            event.stopPropagation();
+            navToggle.classList.toggle('is-open');
+            mainNav.classList.toggle('is-open');
+        });
+    }
+
+    // ---- LOGIKA UNTUK MENUTUP MENU SAAT KLIK DI LUAR ----
+    document.addEventListener('click', (event) => {
+        
+        // Tutup dropdown profil jika klik di luar
+        if (dropdownMenu && profileBtn && !profileBtn.contains(event.target) && dropdownMenu.classList.contains('show'))  {
+            dropdownMenu.classList.remove('show');
+            profileBtn.classList.remove('active');
+        }
+
+        // Tutup mobile nav jika klik di luar
+        if (mainNav && navToggle && mainNav.classList.contains('is-open') &&
+            !mainNav.contains(event.target) &&
+            !navToggle.contains(event.target)) {
+            navToggle.classList.remove('is-open');
+            mainNav.classList.remove('is-open');
+        }
     });
 });
-
-// Close mobile menu when clicking outside
-document.addEventListener('click', function(event) {
-    const mobileMenu = document.getElementById('mobileMenu');
-    const hamburger = document.querySelector('.hamburger');
-    const navbar = document.querySelector('.navbar');
-    
-    // Check if the click is outside the navbar and mobile menu is active
-    if (mobileMenu.classList.contains('active') && 
-        !navbar.contains(event.target) && 
-        !hamburger.contains(event.target)) { // Tambahkan pengecekan hamburger juga
-        mobileMenu.classList.remove('active');
-        hamburger.classList.remove('active');
-    }
-});
+// --- AKHIR KODE NAVBAR ---
 
 
 // Change Profile Picture
