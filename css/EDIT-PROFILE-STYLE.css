@@ -46,7 +46,7 @@ header.navbar {
 }
 
 .nav-links a:hover {
-  color: #093FB4;
+  color: #3d4f6d;
 }
 
 /* === PROFILE SECTION === */
@@ -180,7 +180,7 @@ header.navbar {
 }
 
 .nav-links a:hover {
-  color: #093FB4;
+  color: #3d4f6d;
 }
 /* ----- Tombol Navigasi Mobile ----- */
 .nav-toggle {
@@ -197,7 +197,7 @@ header.navbar {
 .nav-toggle .bar {
   width: 25px;
   height: 3px;
-  background-color: #3700ff;
+  background-color: #3d4f6d;
   border-radius: 2px;
   transition: all 0.3s;
 }
@@ -224,9 +224,9 @@ header.navbar {
 /* --- COVER SECTION --- */
 .cover-section {
     position: relative;
-    width: 100%;
+    width: 135%;
     height: 200px;
-    background-color: #093FB4;
+    background-color: #3d4f6d;
 }
 
 /* --- PROFILE CARD --- */
@@ -345,7 +345,7 @@ header.navbar {
 .btn-update {
     width: 100%;
     padding: 12px;
-    background-color: #0066ff;
+    background-color: #3d4f6d;
     color: #fff;
     border: none;
     border-radius: 5px;
@@ -357,7 +357,7 @@ header.navbar {
 }
 
 .btn-update:hover {
-    background-color: #0052cc;
+    background-color: #2a3549;
     transform: translateY(-2px);
     box-shadow: 0 4px 8px rgba(0,102,255,0.3);
 }

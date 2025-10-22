@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard XCODE</title>
-    <link rel="stylesheet" href="../css/datauser.css">
+    <link rel="stylesheet" href="../css/datapeminjaman_admin.css">
     </head>
 <body>
 
@@ -39,10 +39,10 @@
     <div class="main-container">
         
         <header>
-            <div class="user-info">
+            <div class="pinjam-info">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Gmail_Icon.png" alt="Gmail Logo" class="gmail-logo">
                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVPrRy3QGMsQx92-UXkawthuYtVcCUur3PQw&s" alt="Avatar" class="avatar">
-                <div class="user-details">
+                <div class="pinjam-details">
                     <strong>Dito Abod</strong>
                     <span>gild@gmail.com</span>
                 </div>
@@ -50,7 +50,7 @@
         </header>
 
         <main class="content">
-            <h1>Data User</h1>
+            <h1>Data Peminjaman</h1>
 
             <div class="content-header">
                 <div class="filters">
@@ -80,9 +80,9 @@
                         <span>Export</span>
                     </button>
                     
-                    <button class="btn-primary" id="tambahUserBtn">
+                    <button class="btn-primary" id="tambahPinjamBtn">
                         <img src="https://png.pngtree.com/png-clipart/20190705/original/pngtree-vector-add-icon-png-image_4184841.jpg" class="btn-icon" alt="Tambah">
-                        <span>Tambah User</span>
+                        <span>Tambah Peminjaman</span>
                     </button>
 
                 </div>
@@ -91,23 +91,22 @@
                 <table>
                     <thead>
                         <tr>
-                            <th>ID</th>
+                            <th>No</th>
                             <th>Nama lengkap</th>
-                            <th>Email</th>
-                            <th>password</th>
-                            <th>tanggal bergabung</th>
-                            <th>Role</th>
+                            <th>Judul Buku</th>
+                            <th>Tanggal Pinjam</th>
+                            <th>Tanggal Kembali</th>
+                            
                             <th class="action-header">Aksi</th> 
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <td>1</td>
-                            <td>Budi Santoso</td>
-                            <td>budi.s@example.com</td>
-                            <td>budisan3434</td>
-                            <td>19 Oktober 2025</td>
-                            <td>User</td>
+                            <td>Kevin Glory</td>
+                            <td>Glory Manchester United</td>
+                            <td>15/10/2025</td>
+                            <td>21/10/2025</td>
                             <td class="action-cell">
                                 <button class="btn-edit">Edit</button>
                                 <button class="btn-hapus">Hapus</button>
@@ -115,11 +114,10 @@
                         </tr>
                         <tr>
                             <td>2</td>
-                            <td>Citra Lestari</td>
-                            <td>citra.l@example.com</td>
-                            <td>budisan3434</td>
-                            <td>19 Oktober 2025</td>
-                            <td>User</td>
+                            <td>Yosua Sutanto</td>
+                            <td>100 Cara Sukses jadi Admin Hotel</td>
+                            <td>17/10/2025</td>
+                            <td>25/10/2025</td>
                             <td class="action-cell">
                                 <button class="btn-edit">Edit</button>
                                 <button class="btn-hapus">Hapus</button>
@@ -127,11 +125,10 @@
                         </tr>
                         <tr>
                             <td>3</td>
-                            <td>Ahmad Dahlan</td>
-                            <td>ahmad@example.com</td>
-                            <td>budisan3434</td>
-                            <td>19 Oktober 2025</td>
-                            <td>User</td>
+                            <td>Bambang Manjalita</td>
+                            <td>Tutorial Hacking WiFi Tetangga</td>
+                            <td>18/10/2025</td>
+                            <td>25/10/2025</td>
                             <td class="action-cell">
                                 <button class="btn-edit">Edit</button>
                                 <button class="btn-hapus">Hapus</button>
@@ -139,11 +136,10 @@
                         </tr>
                         <tr>
                             <td>4</td>
-                            <td>Dewi Kania</td>
-                            <td>dewi.kania@example.com</td>
-                            <td>budisan3434</td>
-                            <td>19 Oktober 2025</td>
-                            <td>User</td>
+                            <td>Sugeng Hartanu</td>
+                            <td>Tutorial Hacking Password HP</td>
+                            <td>19/10/2025</td>
+                            <td>26/10/2025</td>
                             <td class="action-cell">
                                 <button class="btn-edit">Edit</button>
                                 <button class="btn-hapus">Hapus</button>
@@ -151,11 +147,10 @@
                         </tr>
                         <tr>
                             <td>5</td>
-                            <td>Eka Permana</td>
-                            <td>eka.p@example.com</td>
-                            <td>budisan3434</td>
-                            <td>19 Oktober 2025</td>
-                            <td>User</td>
+                            <td>Eva Sukesti</td>
+                            <td>Tutorial Main Grock MLBB</td>
+                            <td>20/10/2025</td>
+                            <td>27/10/2025</td>
                             <td class="action-cell">
                                 <button class="btn-edit">Edit</button>
                                 <button class="btn-hapus">Hapus</button>
@@ -167,6 +162,6 @@
         </main>
     </div>
 
-    <script src="../js/datauser.js"></script>
+    <script src="../js/datapeminjaman_admin.js"></script>
 </body>
 </html>
