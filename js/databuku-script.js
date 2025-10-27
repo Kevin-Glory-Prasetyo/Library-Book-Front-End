@@ -1,52 +1,22 @@
-// Data buku (simulasi data dari database)
+// ============================
+// DATA BUKU (SIMULASI DATABASE)
+// ============================
 let bookData = [
-    {
-        id: 1,
-        judul: 'Pemrograman Web Modern',
-        penulis: 'Ahmad Sutisna',
-        kategori: 'Teknologi',
-        penerbit: 'Informatika Press',
-        stok: 'Tersedia'
-    },
-    {
-        id: 2,
-        judul: 'Algoritma dan Struktur Data',
-        penulis: 'Budi Raharjo',
-        kategori: 'Teknologi',
-        penerbit: 'Gramedia',
-        stok: 'Tersedia'
-    },
-    {
-        id: 3,
-        judul: 'Database Management',
-        penulis: 'Citra Dewi',
-        kategori: 'Teknologi',
-        penerbit: 'Elex Media',
-        stok: 'Dipinjam'
-    },
-    {
-        id: 4,
-        judul: 'Machine Learning Dasar',
-        penulis: 'Doni Prasetyo',
-        kategori: 'Teknologi',
-        penerbit: 'Informatika Press',
-        stok: 'Tersedia'
-    },
-    {
-        id: 5,
-        judul: 'Jaringan Komputer',
-        penulis: 'Eko Wijaya',
-        kategori: 'Teknologi',
-        penerbit: 'Andi Publisher',
-        stok: 'Tersedia'
-    }
+    { id: 1, judul: 'Pemrograman Web Modern', penulis: 'Ahmad Sutisna', kategori: 'Teknologi', penerbit: 'Informatika Press', stok: 'Tersedia' },
+    { id: 2, judul: 'Algoritma dan Struktur Data', penulis: 'Budi Raharjo', kategori: 'Teknologi', penerbit: 'Gramedia', stok: 'Tersedia' },
+    { id: 3, judul: 'Database Management', penulis: 'Citra Dewi', kategori: 'Teknologi', penerbit: 'Elex Media', stok: 'Dipinjam' },
+    { id: 4, judul: 'Machine Learning Dasar', penulis: 'Doni Prasetyo', kategori: 'Teknologi', penerbit: 'Informatika Press', stok: 'Tersedia' },
+    { id: 5, judul: 'Jaringan Komputer', penulis: 'Eko Wijaya', kategori: 'Teknologi', penerbit: 'Andi Publisher', stok: 'Tersedia' }
 ];
 
-// Fungsi untuk menampilkan data ke tabel
+// ============================
+// FUNGSI RENDER TABEL
+// ============================
 function renderTable(data) {
     const tableBody = document.getElementById('tableBody');
+    if (!tableBody) return;
+
     tableBody.innerHTML = '';
-    
     data.forEach((book, index) => {
         const row = document.createElement('tr');
         row.innerHTML = `
@@ -65,25 +35,27 @@ function renderTable(data) {
     });
 }
 
-// Fungsi untuk search/filter data
+// ============================
+// SEARCH / FILTER
+// ============================
 function searchBooks(query) {
-    const filteredData = bookData.filter(book => {
-        return book.judul.toLowerCase().includes(query.toLowerCase()) ||
-               book.penulis.toLowerCase().includes(query.toLowerCase()) ||
-               book.kategori.toLowerCase().includes(query.toLowerCase()) ||
-               book.penerbit.toLowerCase().includes(query.toLowerCase());
-    });
+    const filteredData = bookData.filter(book =>
+        book.judul.toLowerCase().includes(query.toLowerCase()) ||
+        book.penulis.toLowerCase().includes(query.toLowerCase()) ||
+        book.kategori.toLowerCase().includes(query.toLowerCase()) ||
+        book.penerbit.toLowerCase().includes(query.toLowerCase())
+    );
     renderTable(filteredData);
 }
 
-// Fungsi untuk edit buku
+// ============================
+// EDIT & HAPUS
+// ============================
 function editBook(index) {
     const book = bookData[index];
     alert(`Edit Buku:\n\nJudul: ${book.judul}\nPenulis: ${book.penulis}\nKategori: ${book.kategori}\nPenerbit: ${book.penerbit}\nStok: ${book.stok}`);
-    // Implementasi form edit bisa ditambahkan di sini
 }
 
-// Fungsi untuk hapus buku
 function deleteBook(index) {
     const book = bookData[index];
     if (confirm(`Apakah Anda yakin ingin menghapus buku "${book.judul}"?`)) {
@@ -93,43 +65,64 @@ function deleteBook(index) {
     }
 }
 
-// Fungsi untuk tambah buku
+// ============================
+// TAMBAH BUKU
+// ============================
 function addBook() {
     alert('Fitur tambah buku akan dibuka dalam form modal');
-    // Implementasi form tambah bisa ditambahkan di sini
 }
 
-// Event listener untuk search input
-document.addEventListener('DOMContentLoaded', function() {
-    // Render tabel pertama kali
-    renderTable(bookData);
-    
-    // Search functionality
-    const searchInput = document.querySelector('.search-input');
-    searchInput.addEventListener('input', function(e) {
-        searchBooks(e.target.value);
-    });
-    
-    // Tambah buku button
-    const btnTambah = document.querySelector('.btn-tambah');
-    btnTambah.addEventListener('click', addBook);
-    
-    // Mobile menu toggle (opsional)
-    const navItems = document.querySelectorAll('.nav-item');
-    navItems.forEach(item => {
-        item.addEventListener('click', function() {
-            navItems.forEach(nav => nav.classList.remove('active'));
+// ============================
+// AKTIFKAN SIDEBAR BERDASARKAN URL
+// ============================
+function activateSidebar() {
+    const sidebarLinks = document.querySelectorAll('.nav-item');
+    const currentPage = window.location.pathname.split('/').pop(); // contoh: dashboard.html
+
+    sidebarLinks.forEach(link => {
+        const linkPage = link.getAttribute('href');
+        if (linkPage === currentPage) {
+            link.classList.add('active');
+        } else {
+            link.classList.remove('active');
+        }
+
+        // Tambahkan event klik agar langsung aktif tanpa reload (opsional)
+        link.addEventListener('click', function() {
+            navLinks.forEach(nav => nav.classList.remove('active'));
             this.classList.add('active');
         });
     });
+}
+
+// ============================
+// EVENT DOMContentLoaded
+// ============================
+document.addEventListener('DOMContentLoaded', function() {
+    renderTable(bookData);
+
+    // Search event
+    const searchInput = document.querySelector('.search-input');
+    if (searchInput) {
+        searchInput.addEventListener('input', e => searchBooks(e.target.value));
+    }
+
+    // Tambah buku
+    const btnTambah = document.querySelector('.btn-tambah');
+    if (btnTambah) {
+        btnTambah.addEventListener('click', addBook);
+    }
+
+    // Aktifkan sidebar sesuai halaman
+    activateSidebar();
 });
 
-// Fungsi untuk responsive table scroll
+// ============================
+// RESPONSIVE TABLE
+// ============================
 window.addEventListener('resize', function() {
     const tableContainer = document.querySelector('.table-container');
-    if (window.innerWidth < 768) {
-        tableContainer.style.overflowX = 'scroll';
-    } else {
-        tableContainer.style.overflowX = 'auto';
+    if (tableContainer) {
+        tableContainer.style.overflowX = window.innerWidth < 768 ? 'scroll' : 'auto';
     }
 });

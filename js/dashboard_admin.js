@@ -1,3 +1,24 @@
+// === AKTIFKAN SIDEBAR SESUAI HALAMAN ===
+document.addEventListener("DOMContentLoaded", function() {
+    const sidebarItems = document.querySelectorAll('.nav-item');
+    const currentPage = window.location.pathname.split('/').pop(); // ambil nama file dari URL, contoh: "databuku.html"
+
+    sidebarItems.forEach(item => {
+        const linkPage = item.getAttribute('href');
+        if (linkPage === currentPage) {
+            item.classList.add('active');  // tambahkan class active di halaman yang sesuai
+        } else {
+            item.classList.remove('active');
+        }
+
+        // Tambahkan event klik agar langsung aktif tanpa reload (opsional)
+        link.addEventListener('click', function() {
+            navLinks.forEach(nav => nav.classList.remove('active'));
+            this.classList.add('active');
+        });
+    });
+});
+
 // === PIE CHART (Statistik bulan ini) ===
 const ctxPie = document.getElementById('peminjamanChart').getContext('2d');
 new Chart(ctxPie, {

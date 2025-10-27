@@ -316,10 +316,8 @@ header {
     color: white;
 }
 
-/* Khusus ikon export, warnanya gelap, tidak perlu di-filter */
-.btn-export .btn-icon {
-    /* tidak ada filter */
-}
+Khusus ikon export, warnanya gelap, tidak perlu di-filter
+
 
 .btn-primary {
     background-color: #3B5580;

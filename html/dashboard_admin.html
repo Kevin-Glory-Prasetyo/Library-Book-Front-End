@@ -3,42 +3,85 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dashboard Perpustakaan</title>
+  <title>Dashboard XCODE</title>
   <link rel="stylesheet" href="../css/dashboard_admin.css">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-  <div class="container">
-    <h1>Dashboard Perpustakaan</h1>
 
-    <!-- Bagian atas: 6 box + Pie chart -->
-    <div class="top-section">
-      <!-- Grid 6 box -->
-      <div class="stats-grid">
-        <div class="card light-blue">Jumlah Anggota <span>50</span></div>
-        <div class="card light-green">Jumlah Buku Perpustakaan <span>100</span></div>
-        <div class="card light-green2">Total Peminjaman <span>350</span></div>
-        <div class="card light-yellow">Stok Buku Tersedia <span>55</span></div>
-        <div class="card light-blue">Peminjaman Aktif <span>45</span></div>
-        <div class="card light-red">Peminjaman Terlambat Belum Kembali <span>10</span></div>
-      </div>
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="logo-sidebar">
+      <img src="../image/Xcode.png" alt="XCODE Logo" class="logo">
+    </div>
+    <nav class="nav-menu">
+      <a href="dashboard_admin.html" class="nav-item active">
+        <img src="https://cdn-icons-png.flaticon.com/512/25/25694.png" alt="icon" class="nav-icon">
+        <span>Dashboard</span>
+      </a>
+      <a href="dataadmin.html" class="nav-item">
+        <img src="https://cdn-icons-png.flaticon.com/512/4794/4794936.png" alt="icon" class="nav-icon">
+        <span>Data Admin</span>
+      </a>
+      <a href="datauser.html" class="nav-item">
+        <img src="https://cdn-icons-png.flaticon.com/512/1077/1077114.png" alt="icon" class="nav-icon">
+        <span>Data User</span>
+      </a>
+      <a href="databuku.html" class="nav-item">
+        <img src="https://cdn-icons-png.flaticon.com/512/29/29302.png" alt="icon" class="nav-icon">
+        <span>Data Buku</span>
+      </a>
+      <a href="datapeminjaman_admin.html" class="nav-item">
+        <img src="https://cdn-icons-png.flaticon.com/512/2693/2693507.png" alt="icon" class="nav-icon">
+        <span>Data Peminjaman</span>
+      </a>
+    </nav>
+  </aside>
 
-      <!-- Pie chart -->
-      <div class="chart-card pie-card">
-        <h2>Statistik Peminjaman Bulan Ini</h2>
-        <div class="chart-container">
-          <canvas id="peminjamanChart"></canvas>
+  <!-- Main Dashboard -->
+  <div class="main-container">
+    <header>
+      <div class="admin-info">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Gmail_Icon.png" alt="Gmail Logo" class="gmail-logo">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVPrRy3QGMsQx92-UXkawthuYtVcCUur3PQw&s" alt="Avatar" class="avatar">
+        <div class="admin-details">
+          <strong>Dito Abod</strong>
+          <span>gild@gmail.com</span>
         </div>
       </div>
-    </div>
+    </header>
 
-    <!-- Bagian bawah: Line chart -->
-    <div class="chart-card">
-      <h2>Riwayat Peminjaman 6 Bulan Terakhir</h2>
-      <div class="chart-container">
-        <canvas id="lineChart"></canvas>
+    <main class="content">
+      <h1>Dashboard Perpustakaan</h1>
+
+      <!-- Bagian atas: 6 box + Pie chart -->
+      <div class="top-section">
+        <div class="stats-grid">
+          <div class="card light-blue">Jumlah Anggota <span>50</span></div>
+          <div class="card light-green">Jumlah Buku Perpustakaan <span>100</span></div>
+          <div class="card light-green2">Total Peminjaman <span>350</span></div>
+          <div class="card light-yellow">Stok Buku Tersedia <span>55</span></div>
+          <div class="card light-blue">Peminjaman Aktif <span>45</span></div>
+          <div class="card light-red">Peminjaman Terlambat Belum Kembali <span>10</span></div>
+        </div>
+
+        <!-- Pie chart -->
+        <div class="chart-card pie-card">
+          <h2>Statistik Peminjaman Bulan Ini</h2>
+          <div class="chart-container">
+            <canvas id="peminjamanChart"></canvas>
+          </div>
+        </div>
       </div>
-    </div>
+
+      <!-- Bagian bawah: Line chart -->
+      <div class="chart-card">
+        <h2>Riwayat Peminjaman 6 Bulan Terakhir</h2>
+        <div class="chart-container">
+          <canvas id="lineChart"></canvas>
+        </div>
+      </div>
+    </main>
   </div>
 
   <script src="../js/dashboard_admin.js"></script>

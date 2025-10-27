@@ -1,36 +1,167 @@
-/* ===== Global ===== */
+/* Layout utama */
+*{
+  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
 body {
-  font-family: Arial, sans-serif;
-  background: #efe6e0;
-  margin: 0;
-  padding: 0;
+ font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    display: flex;
+    background-color: #f8f9fa;
+    color: #333;
+    line-height: 1.6;
+    min-height: 100vh;
 }
 
-.container {
-  max-width: 1200px;
-  margin: auto;
-  padding: 20px;
+/* Sidebar (ambil dari dataadmin.css agar seragam) */
+.sidebar {
+  width: 250px;
+  background-color: #3d4f6d;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
 }
 
-h1 {
-  text-align: center;
+.logo-sidebar {
+  background-color: #3d4f6d;
+  border-bottom: 3px solid #f0f0f0;
+  padding: 10px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo-sidebar .logo {
+  width: 70%;
+  height: 50px;
+  border: 1.5px solid #ffffff;
+  border-radius: 6px;
+  background-color: #ffffff;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.nav-menu {
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+  flex: 1;
+  border-top: none;
+}
+
+.nav-item {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  font-weight: 500;
+  gap: 15px;
+  text-decoration: none;
+  color: #ffffff;
+  padding: 12px 20px;
+  border-radius: 8px;
+  margin-bottom: 5px;
+  transition: 0.3s;
+  border-bottom: none;
+}
+
+/* .nav-item:hover {
+  background-color: rgba(255,255,255,0.1);
+} */
+
+.nav-icon {
+  width: 20px;
+  height: 20px;
+  
+  /* Trik CSS: Membuat ikon (asli warna hitam) menjadi PUTIH */
+    filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(200%) contrast(100%);
+    transition: filter 0.3s;
+}
+
+.nav-item.active {
+  background-color: #ffffff;
+  color: #3d4f6d;
+  font-weight: bold;
+}
+
+.nav-item.active .nav-icon {
+  filter: none;
+}
+
+/* Bagian kanan */
+.main-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow-y: auto;
+}
+
+/* Header atas */
+header {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  background-color: white;
+  height: 75px;
+  padding: 0 30px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.admin-info {
+  display: flex;
+  align-items: center;
+}
+
+.admin-info .gmail-logo {
+  width: 24px;
+  margin-right: 15px;
+}
+
+.admin-info .avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+  object-fit: cover;
+}
+
+.admin-details strong {
+  display: block;
+  font-size: 14px;
+}
+
+.admin-details span {
+  font-size: 12px;
+  color: #888;
+}
+
+/* Konten Dashboard */
+.content {
+  padding: 30px;
+  flex: 1;
+}
+
+.content h1 {
+  color: #3B5580;
   margin-bottom: 20px;
+  font-size: 26px;
+  text-align: center;
 }
 
-/* ===== Top Section: 6 Box + Pie Chart ===== */
+/* Grid dan chart */
 .top-section {
   display: grid;
-  grid-template-columns: 2fr 1fr; /* kiri box, kanan chart */
+  grid-template-columns: 2fr 1fr;
   gap: 20px;
-  align-items: stretch; /* biar sejajar tingginya */
   margin-bottom: 25px;
 }
 
-/* ===== 6 Box ===== */
 .stats-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* 2 kolom */
-  grid-template-rows: repeat(3, 1fr);    /* 3 baris */
+  grid-template-columns: repeat(2, 1fr);
   gap: 15px;
 }
 
@@ -39,30 +170,23 @@ h1 {
   padding: 20px;
   border-radius: 12px;
   text-align: center;
-  font-size: 16px;
   font-weight: bold;
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
 }
 
 .card span {
   display: block;
   margin-top: 10px;
   font-size: 22px;
-  font-weight: 900;
   color: black;
 }
 
-/* Warna background */
 .light-blue { background: #e3f2fd; }
 .light-green { background: #e8f5e9; }
 .light-green2 { background: #f1fdf1; }
 .light-yellow { background: #fffde7; }
 .light-red { background: #ffebee; }
 
-/* ===== Chart Cards ===== */
 .chart-card {
   background: white;
   padding: 20px;
@@ -70,54 +194,13 @@ h1 {
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }
 
-.chart-card h2 {
-  text-align: center;
-  margin-bottom: 15px;
-}
-
 .chart-container {
   position: relative;
-  height: 100%;
   min-height: 300px;
-  width: 100%;
 }
 
-.pie-card {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-/* ===== Responsif ===== */
 @media (max-width: 900px) {
   .top-section {
-    grid-template-columns: 1fr; /* stack jadi 1 kolom */
-  }
-  .stats-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 600px) {
-  .stats-grid {
     grid-template-columns: 1fr;
   }
-}
-
-/* ==== Fix untuk ukuran Pie Chart + Legend ==== */
-#peminjamanChart {
-  max-width: 350px;   /* batasi lebar pie */
-  margin: auto;
-}
-
-.chart-card .chart-container {
-  height: 100% !important;
-  min-height: 350px;  /* cukup tinggi biar pie & legend muat */
-}
-
-.chartjs-legend ul {
-  display: flex !important;
-  flex-wrap: wrap !important; /* biar legend bisa turun ke bawah */
-  gap: 10px;
-  justify-content: flex-start !important;
 }
