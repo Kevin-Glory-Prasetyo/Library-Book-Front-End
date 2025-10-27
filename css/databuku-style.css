@@ -263,7 +263,11 @@ body {
 .btn-tambah:hover {
     background-color: #2c3e56;
 }
-
+h1{
+    color: #2c496f;
+    font-size: 30px;
+    padding: 10px;
+}
 /* Table */
 .table-container {
     background-color: white;

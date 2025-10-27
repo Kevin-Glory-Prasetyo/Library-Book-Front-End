@@ -32,15 +32,44 @@ document.querySelectorAll('.mobile-menu a').forEach(link => {
     });
 });
 
-// Close mobile menu when clicking outside
+
+// === BAGIAN BARU UNTUK PROFILE DROPDOWN ===
+const profileToggle = document.getElementById('profileToggle');
+const profileDropdown = document.getElementById('profileDropdown');
+
+if (profileToggle && profileDropdown) {
+    profileToggle.addEventListener('click', function(event) {
+        // Menghentikan event agar tidak langsung ditangkap oleh 'document'
+        event.stopPropagation(); 
+        
+        profileDropdown.classList.toggle('active');
+        profileToggle.classList.toggle('active'); // Untuk memutar panah via CSS
+    });
+}
+// === AKHIR BAGIAN BARU ===
+
+
+// === EVENT LISTENER 'CLICK OUTSIDE' DIPERBARUI ===
+// Menutup mobile menu DAN profile dropdown saat klik di luar
 document.addEventListener('click', function(event) {
     const mobileMenu = document.getElementById('mobileMenu');
     const hamburger = document.querySelector('.hamburger');
     const navbar = document.querySelector('.navbar');
     
-    if (mobileMenu.classList.contains('active') && 
+    // Logika untuk menutup Mobile Menu (sudah ada)
+    if (mobileMenu && mobileMenu.classList.contains('active') && 
         !navbar.contains(event.target)) {
         mobileMenu.classList.remove('active');
         hamburger.classList.remove('active');
+    }
+
+    // Logika baru untuk menutup Profile Dropdown
+    if (profileDropdown && profileDropdown.classList.contains('active')) {
+        const profileContainer = document.querySelector('.navbar-profile-container');
+        // Cek apakah klik terjadi di luar container profile
+        if (!profileContainer.contains(event.target)) {
+            profileDropdown.classList.remove('active');
+            profileToggle.classList.remove('active');
+        }
     }
 });

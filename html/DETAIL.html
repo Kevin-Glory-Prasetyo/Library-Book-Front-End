@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Detail Buku - Mumtaz Bahasa Arab</title>
-    <link rel="stylesheet" href="../css/DETAIL-STYLE.css">
+    <link rel="stylesheet" href="../css/DETAIL-STYLE.css"> 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -13,41 +13,45 @@
 
     <header class="navbar">
         <div class="navbar-brand">
-            <img src="../image/x-code.png" alt="Profile" class="navbar-img">
+            <img src="../image/x-code.png" alt="XCODE Logo" class="navbar-img">
         </div>
        
         <nav class="navbar-links">
-            <a href="#" class="active">Home</a>
-            <a href="#">Profile</a>
+            <a href="Home.html" class="active">Home</a>
+            <a href="EDIT-PROFILE.html">Profile</a>
             <a href="#">Favorite</a>
-            <a href="#">Categories</a>
-            <a href="#">Status</a>
-        </nav>
-
+            <a href="kategori.html">Categories</a>
+            </nav>
+    
         <div class="navbar-right">
-            <!-- Hamburger Menu -->
             <div class="hamburger" onclick="toggleMenu()">
                 <span></span>
                 <span></span>
                 <span></span>
             </div>
-
-            <div class="navbar-profile">
-                <img src="https://i.pravatar.cc/40?u=Elen" alt="User Profile">
-                <span>Elen Dowd</span>
-            </div>
+    
+            <div class="navbar-profile-container"> 
+                <div class="navbar-profile" id="profileToggle"> 
+                    <img src="https://i.pravatar.cc/40?u=KevinGlory" alt="User Profile">
+                    <div class="navbar-profile-info">
+                        <span>Kevin Glory</span>
+                        <small>Kevin@gmail.com</small>
+                    </div>
+                    <span class="navbar-profile-arrow">▼</span> 
+                </div>
+                
+                <div class="profile-dropdown" id="profileDropdown">
+                    <a href="EDIT-PROFILE.html">Profile</a> <a href="login.html">Logout</a>        </div>
+                </div>
         </div>
-
-        <!-- Mobile Menu -->
+    
         <div class="mobile-menu" id="mobileMenu">
             <a href="#">Home</a>
             <a href="#">Profile</a>
             <a href="#">Favorite</a>
             <a href="#">Categories</a>
-            <a href="#">Status</a>
-        </div>
+            </div>
     </header>
-
     <main class="container">
         <a href="#" class="back-button">&lt; Back</a>
 
