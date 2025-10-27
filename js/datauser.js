@@ -17,10 +17,7 @@ document.addEventListener("DOMContentLoaded", function() {
         }
 
         // Event klik (optional, jika kamu ingin efek langsung di SPA)
-        link.addEventListener('click', function() {
-            navLinks.forEach(nav => nav.classList.remove('active'));
-            this.classList.add('active');
-        });
+
     });
 
     // ===============================

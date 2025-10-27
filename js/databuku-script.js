@@ -87,11 +87,6 @@ function activateSidebar() {
             link.classList.remove('active');
         }
 
-        // Tambahkan event klik agar langsung aktif tanpa reload (opsional)
-        link.addEventListener('click', function() {
-            navLinks.forEach(nav => nav.classList.remove('active'));
-            this.classList.add('active');
-        });
     });
 }
 

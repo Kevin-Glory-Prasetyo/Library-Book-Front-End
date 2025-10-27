@@ -18,10 +18,7 @@ document.addEventListener("DOMContentLoaded", function() {
         }
 
         // Tambahkan event klik agar langsung aktif tanpa reload (opsional)
-        link.addEventListener('click', function() {
-            navLinks.forEach(nav => nav.classList.remove('active'));
-            this.classList.add('active');
-        });
+
     });
 
     // Logika untuk tombol "Tambah Admin" (jika ada)
