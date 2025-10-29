@@ -314,16 +314,17 @@ header h1 {
 }
 
 .btn-export {
-    background-color: #3B5580;
+    background-color: #be1111;
     color: white;
 }
 
 Khusus ikon export, warnanya gelap, tidak perlu di-filter
 
-
-.btn-primary {
-    background-color: #3B5580;
-    color: white;
+.btn-primary,
+#tambahAdminBtn {
+  background-color: #11791c;
+  color: #ffffff;
+  border: 1px solid;
 }
 
 /* Ikon plus sudah putih (SVG), tidak perlu filter */
