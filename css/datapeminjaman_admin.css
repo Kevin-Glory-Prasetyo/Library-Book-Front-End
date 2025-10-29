@@ -137,13 +137,13 @@ body {
 /* Header (Atas) */
 header {
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     align-items: center;
     background-color: white;
     flex-shrink: 0;
-    height: 75px; 
-    padding: 0 30px; 
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    height: 70px; 
+    padding: 0px 30px; 
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     z-index: 10;
 }
 
@@ -177,15 +177,17 @@ header {
 }
 
 /* Area Konten Utama */
+
+
 .content {
-    padding: 30px;
-    flex: 1;
+padding: 30px;
+flex: 1;
 }
 
-.content h1 {
-    font-size: 28px;
-    margin-bottom: 20px;
-    color: #3B5580;
+header h1 {
+   color: #3B5580;
+    font-size: 26px;
+
 }
 
 /* Header Konten (Filter & Aksi) */
