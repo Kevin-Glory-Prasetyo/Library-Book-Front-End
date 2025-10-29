@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     if (tambahUserButton) {
         tambahUserButton.addEventListener('click', function() {
-            alert('Fungsi untuk "Tambah User" akan dijalankan di sini!');
+            alert('Fungsi untuk "Tambah Buku" akan dijalankan di sini!');
             // Di aplikasi nyata, ini bisa membuka modal atau redirect ke form input
         });
     }

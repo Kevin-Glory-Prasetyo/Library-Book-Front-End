@@ -57,15 +57,20 @@
     <main class="content">
       <div class="content-header">
         <div class="filters">
-          <div class="filter-wrapper">
-            <img src="https://cdn.pixabay.com/photo/2021/07/02/04/48/search-6380865_640.png" class="filter-icon search-icon" alt="Search">
-            <input type="search" placeholder="Search">
-          </div>
-
-          <a href="EditDataBuku.html" class="btn-primary" id="tambahUserBtn">
-            <img src="../image/icontambah.svg" class="btn-icon" alt="Tambah">
-            <span>Tambah Buku</span>
-          </a>
+            <div class="filter-wrapper">
+                <img src="https://cdn.pixabay.com/photo/2021/07/02/04/48/search-6380865_640.png" class="filter-icon search-icon" alt="Search">
+                <input type="search" placeholder="Search">
+            </div>
+            <div class="actions">
+                <button class="btn-export">
+                    <img src="../image/export.svg" class="btn-icon" alt="Export">
+                    <span>Export</span>
+                </button>
+                <button onclick="window.location.href='EditDataBuku.html'" class="btn-primary" id="tambahUserBtn">
+                    <img src="../image/icontambah.svg" class="btn-icon" alt="Tambah">
+                    <span>Tambah Buku</span>
+                </button>
+            </div>
         </div>
       </div>
 
