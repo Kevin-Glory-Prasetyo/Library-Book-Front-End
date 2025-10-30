@@ -10,7 +10,7 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background: #efe6e0;
+  background: #132e5c;
   padding: 10px;
 }
 
@@ -83,7 +83,7 @@ body {
   background-image: url(../image/backLogin.jpg);
   background-size: cover;
   background-position: center;
-  color: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
   display: flex;
   justify-content: center;
   align-items: center;
