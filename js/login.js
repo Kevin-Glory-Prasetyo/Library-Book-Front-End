@@ -12,6 +12,46 @@ toLogin.addEventListener("click", (e) => {
   container.classList.remove("sign-up-mode");
 });
 
+
+// Sign Up
+const signUpBtn = document.querySelector(".sign-up button");
+
+signUpBtn.addEventListener("click", async () => {
+  const firstName = document.querySelector(".sign-up input[placeholder='First Name']").value;
+  const lastName = document.querySelector(".sign-up input[placeholder='Last Name']").value;
+  const email = document.querySelector(".sign-up input[type='email']").value;
+  const password = document.querySelector(".sign-up input[type='password']").value;
+
+  try {
+    const res = await axios.post(
+      "http://localhost:8000/auth/userRegister",
+      {
+        first_name: firstName,
+        last_name: lastName,
+        email: email,
+        password: password
+      },
+      { withCredentials: true }
+    );
+
+    const data = res.data;
+
+    if (data.statusCode === 200) {
+      alert(data.message);
+      window.location.href = "login.html";
+    }
+  } catch (err) {
+    if (err.response) {
+      alert(err.response.data.message);
+    } else {
+      alert("Terjadi kesalahan jaringan atau server");
+      console.error(err);
+    }
+  }
+});
+
+
+
 const loginBtn = document.querySelector(".sign-in button");
 
 loginBtn.addEventListener("click", async () => {
@@ -25,24 +65,27 @@ loginBtn.addEventListener("click", async () => {
         email: email,
         password: password,
       },
-      { withCredentials: true } // penting agar cookie terkirim
+      { withCredentials: true } 
     );
 
     const data = res.data;
 
     if (data.statusCode === 200) {
-      alert("Anda Berhasil Login");
+      alert(data.message);
       if (data.user_data.role === "admin") {
         window.location.href = "dashboard_admin.html";
       } else {
         window.location.href = "Home.html";
       }
-    } else {
-      alert(data.message || "Terjadi kesalahan saat login");
-    }
+    } 
+
   } catch (err) {
-    console.error(err);
-    alert("Terjadi kesalahan server atau login gagal.");
+    if (err.response) {
+      alert(err.response.data.message)
+    }else{
+      alert("Terjadi Kesalahan Jaringan atau Server")
+      console.error(err);
+    }
   }
 });
 
