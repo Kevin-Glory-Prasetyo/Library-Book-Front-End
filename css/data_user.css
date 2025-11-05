@@ -137,47 +137,47 @@ body {
 /* Header (Atas) */
 header {
     display: flex;
-    justify-content: space-between;
+    justify-content:space-between;
     align-items: center;
     background-color: white;
     flex-shrink: 0;
     height: 70px; 
-    padding: 0px 30px; 
+    padding: 0 30px; 
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     z-index: 10;
 }
 
-.pinjam-info {
+.user-info {
     display: flex;
     align-items: center;
 }
 
-.pinjam-info .gmail-logo {
+.user-info .gmail-logo {
     width: 24px;
     height: auto;
     margin-right: 15px;
 }
 
-.pinjam-info .avatar {
-    width: 40px;
-    height: 40px;
+.user-info .avatar {
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
     margin-right: 10px;
     object-fit: cover; /* Menjaga rasio aspek avatar */
 }
 
-.pinjam-details strong {
+.user-details strong {
     display: block;
     font-size: 14px;
 }
 
-.pinjam-details span {
+.user-details span {
     font-size: 12px;
     color: #888;
 }
 
 /* Area Konten Utama */
-
+/* Konten Dashboard */
 
 .content {
 padding: 30px;

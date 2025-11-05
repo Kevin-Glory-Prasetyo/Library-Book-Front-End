@@ -12,100 +12,57 @@ toLogin.addEventListener("click", (e) => {
   container.classList.remove("sign-up-mode");
 });
 
-const registerBtn = document.querySelector(".sign-up button");
-
-registerBtn.addEventListener("click", async () => {
-  const firstName = document.querySelector(
-    ".sign-up input[placeholder='First Name']"
-  ).value;
-  const lastName = document.querySelector(
-    ".sign-up input[placeholder='Last Name']"
-  ).value;
-  const email = document.querySelector(".sign-up input[type='email']").value;
-  const password = document.querySelector(
-    ".sign-up input[type='password']"
-  ).value;
-
-  try {
-    const res = await fetch("http://localhost:5000/auth/userRegister", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        user_first_name: firstName,
-        user_last_name: lastName,
-        user_email: email,
-        user_password: password,
-      }),
-    });
-
-    const data = await res.json();
-
-    if (data.statusCode === 200) {
-      alert(data.message);
-      window.location.href = "login.html";
-    } else if (data.statusCode === 400) {
-      alert(data.message);
-    } else if (data.statusCode === 409) {
-      alert(data.message);
-    }
-  } catch (err) {
-    console.error(err);
-    alert("Terjadi kesalahan server.");
-  }
-});
-
 const loginBtn = document.querySelector(".sign-in button");
 
 loginBtn.addEventListener("click", async () => {
   const email = document.querySelector(".sign-in input[type='email']").value;
-  const password = document.querySelector(
-    ".sign-in input[type='password']"
-  ).value;
+  const password = document.querySelector(".sign-in input[type='password']").value;
 
   try {
-    const res = await fetch("http://localhost:5000/auth/userLogin", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
+    const res = await axios.post(
+      "http://localhost:8000/auth/userLogin",
+      {
+        email: email,
+        password: password,
       },
-      body: JSON.stringify({
-        user_email: email,
-        user_password: password,
-      }),
-      credentials: "include",
-    });
+      { withCredentials: true } // penting agar cookie terkirim
+    );
 
-    const data = await res.json();
+    const data = res.data;
 
     if (data.statusCode === 200) {
-      alert(data.message);
-      window.location.href = "filelist.html";
-    } else if (data.statusCode === 400) {
-      alert(data.message);
-    } else if (data.statusCode === 401) {
-      alert(data.message);
-    } else if (data.statusCode === 404) {
-      alert(data.message);
+      alert("Anda Berhasil Login");
+      if (data.user_data.role === "admin") {
+        window.location.href = "dashboard_admin.html";
+      } else {
+        window.location.href = "Home.html";
+      }
+    } else {
+      alert(data.message || "Terjadi kesalahan saat login");
     }
   } catch (err) {
     console.error(err);
-    alert("Terjadi kesalahan server.");
+    alert("Terjadi kesalahan server atau login gagal.");
   }
 });
 
 document.addEventListener("DOMContentLoaded", async () => {
   try {
-    const res = await fetch("http://localhost:5000/auth/checkLogin", {
-      method: "GET",
-      credentials: "include",
+    const res = await axios.get("http://localhost:8000/auth/checkLogout", {
+      withCredentials: true,
     });
 
-    if (res.ok) {
-      window.location.href = "filelist.html";
+    if (res.status === 200 && res.data.user) {
+      const { user } = res.data;
+
+      if (user.role === "admin") {
+        window.location.href = "dashboard_admin.html";
+      } else {
+        window.location.href = "home.html";
+      }
     }
   } catch (err) {
     console.log("Belum login atau token tidak valid");
   }
 });
+

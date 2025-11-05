@@ -19,25 +19,25 @@
         <img src="https://cdn-icons-png.flaticon.com/512/25/25694.png" alt="icon" class="nav-icon">
         <span>Dashboard</span>
       </a>
-      <a href="dataadmin.html" class="nav-item">
+      <a href="data_admin.html" class="nav-item">
         <img src="https://cdn-icons-png.flaticon.com/512/4794/4794936.png" alt="icon" class="nav-icon">
         <span>Data Admin</span>
       </a>
-      <a href="datauser.html" class="nav-item">
+      <a href="data_user.html" class="nav-item">
         <img src="https://cdn-icons-png.flaticon.com/512/1077/1077114.png" alt="icon" class="nav-icon">
         <span>Data User</span>
       </a>
-      <a href="databuku.html" class="nav-item">
+      <a href="data_buku.html" class="nav-item">
         <img src="https://cdn-icons-png.flaticon.com/512/29/29302.png" alt="icon" class="nav-icon">
         <span>Data Buku</span>
       </a>
-      <a href="datapeminjaman_admin.html" class="nav-item">
+      <a href="data_peminjaman_admin.html" class="nav-item">
         <img src="https://cdn-icons-png.flaticon.com/512/2693/2693507.png" alt="icon" class="nav-icon">
         <span>Data Peminjaman</span>
       </a>
-      <a href="login.html" class="nav-item">
+      <a href="#" class="nav-item">
         <img src="../image/logout.svg" alt="icon" class="nav-icon">
-        <span>Logout</span>
+        <span id="logoutBtn">Logout</span>
       </a>
     </nav>
   </aside>
@@ -48,11 +48,11 @@
       <h1>Dashboard Perpustakaan</h1>
 
       <div class="admin-info">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Gmail_Icon.png" alt="Gmail Logo" class="gmail-logo">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVPrRy3QGMsQx92-UXkawthuYtVcCUur3PQw&s" alt="Avatar" class="avatar">
+        <!-- <img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Gmail_Icon.png" alt="Gmail Logo" class="gmail-logo"> -->
+        <img src="../image/profile.svg" alt="Avatar" class="avatar">
         <div class="admin-details">
-          <strong>Dito Abod</strong>
-          <span>gild@gmail.com</span>
+          <strong id="nama-pengguna">Dito Abod</strong>
+          <span id="email-pengguna">gild@gmail.com</span>
         </div>
       </div>
     </header>
@@ -89,6 +89,7 @@
     </main>
   </div>
 
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <script src="../js/dashboard_admin.js"></script>
 </body>
 </html>
