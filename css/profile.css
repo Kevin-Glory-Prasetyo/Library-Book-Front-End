@@ -1,0 +1,331 @@
+/* Reset dasar yang mungkin diperlukan header */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+/* ===== Header Utama (Desktop) ===== */
+header.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 60px;
+  background: #fff;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.logo img {
+  height: 35px;
+  width: auto;
+  /* display: block; */
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 50px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #000;
+  font-weight:500;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #093FB4;
+}
+
+
+/* === PROFILE SECTION === */
+.profile {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  position: relative;
+  transition: background-color 0.3s ease;
+  padding: 5px 10px;
+  border-radius: 8px;
+}
+
+.profile:hover {
+  background-color: #f7f7f7;
+}
+
+.profile img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+}
+
+.profile .arrow-down {
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 6px solid #000;
+  margin-left: 5px;
+  transition: transform 0.3s ease;
+}
+
+.profile.active .arrow-down {
+  transform: rotate(180deg);
+}
+
+.profile-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-info h4 {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.profile-info p {
+  margin: 0;
+  font-size: 13px;
+  color: gray;
+}
+
+/* ===== Dropdown Profile ===== */
+.dropdown-menu {
+  position: absolute;
+  top: 80px;
+  right: 60px;
+  background: rgb(255, 255, 255);
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  display: none;
+  flex-direction: column;
+  overflow: hidden;
+  z-index: 200;
+  /* transform: translateY(-10px); */
+  /* pointer-events: none;
+  transition: all 0.3s ease; */
+}
+
+.dropdown-menu a {
+  padding: 10px 55px;
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  transition: background 0.3s ease;
+}
+
+.dropdown-menu a:hover {
+  background-color: #e4e4e4;
+  /* transform: translateX(4px); */
+}
+
+/* Saat aktif */
+.dropdown-menu.show {
+  display: flex;
+}
+
+/* Responsif: pastikan dropdown tetap rapi di mobile */
+@media (max-width: 768px) {
+  .dropdown-menu {
+    right: 20px;
+    top: 70px;
+  }
+}
+
+
+/* ----- Tombol Navigasi Mobile ----- */
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+  padding: 5px;
+  background: transparent;
+  border: none;
+  z-index: 1001;
+}
+
+.nav-toggle .bar {
+  width: 25px;
+  height: 3px;
+  background-color: #3700ff;
+  border-radius: 2px;
+  transition: all 0.3s;
+}
+
+.nav-toggle.is-open .bar:nth-child(1) {
+  transform: rotate(45deg) translate(8px, 8px);
+}
+
+.nav-toggle.is-open .bar:nth-child(2) {
+  opacity: 0;
+}
+
+.nav-toggle.is-open .bar:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -7px);
+}
+
+/* ===== RESPONSIVE DESIGN (DIREVISI TOTAL) ===== */
+@media (max-width: 768px) {
+  header.navbar {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 10px 20px;
+  }
+
+  /* Menggunakan .nav-links (nama baru) */
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 65px;
+    left: 0;
+    background-color: white;
+    width: 100%;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  }
+
+  .nav-links.is-open {
+    display: flex;
+  }
+
+  .nav-links a {
+    padding: 15px;
+    border-bottom: 1px solid #f0f0f0;
+    background-color: red;
+  }
+
+  /* Menggunakan .profile (nama baru) */
+  .profile {
+    display: none;
+  }
+
+  .nav-toggle {
+    display: flex;
+  }
+}
+
+/* Reset dasar yang mungkin diperlukan */
+* {
+  box-sizing: border-box;
+}
+
+/* Style body untuk konteks */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background-color: #f0f2f5;
+}
+
+/* MAIN */
+main {
+  /* Padding-top ini mengasumsikan Anda memiliki header 
+     setinggi 100px dengan position: fixed. 
+     Sesuaikan jika header Anda berbeda.
+  */
+  padding-top: 100px;
+  width: 90%;
+  max-width: 900px;
+  margin: 0 auto 80px auto;
+}
+
+.profile-card {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  padding: 40px;
+}
+
+.profile-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.user-info-left {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+#profile-preview {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  object-fit: cover;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+#profile-preview:hover {
+  opacity: 0.8;
+}
+
+.user-details h3 {
+  margin: 0 0 5px 0;
+  font-size: 18px;
+  color: #333;
+}
+
+.user-details p {
+  margin: 0;
+  font-size: 14px;
+  color: #777;
+}
+
+.save-btn {
+  background-color: #3b5580;
+  color: white;
+  border: none;
+  padding: 10px 25px;
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.save-btn:hover {
+  background-color: #2a3d5c;
+}
+
+/* FORM */
+.profile-form .form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: #555;
+  margin-bottom: 8px;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  font-size: 14px;
+}
+
+.form-group input::placeholder {
+  color: #aaa;
+}
