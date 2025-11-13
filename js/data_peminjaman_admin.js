@@ -94,3 +94,47 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
 });
+
+function formatTanggal(tanggal) {
+  if (!tanggal) return "-";
+  const date = new Date(tanggal);
+  const day = String(date.getDate()).padStart(2, "0");
+  const month = String(date.getMonth() + 1).padStart(2, "0");
+  const year = date.getFullYear();
+  return `${day}/${month}/${year}`;
+}
+
+
+document.addEventListener("DOMContentLoaded", async () => {
+  const tableBody = document.querySelector("tbody");
+
+  try {
+    const response = await axios.get("http://localhost:8000/peminjaman/peminjaman");
+
+    const data = response.data.peminjaman;
+    
+    tableBody.innerHTML = "";
+
+    data.forEach((pinjam, index) => {
+      const row = document.createElement("tr");
+      row.innerHTML = `
+        <td>${index + 1}</td>
+        <td>${pinjam.judul_buku}</td>
+        <td>${pinjam.nama_depan + " " + pinjam.nama_belakang}</td>
+        <td>${formatTanggal(pinjam.tanggal_pinjam)}</td>
+        <td>${formatTanggal(pinjam.tanggal_kembali)}</td>
+        <td>${formatTanggal(pinjam.tanggal_pengembalian)}</td>
+        <td>${pinjam.status_peminjaman}</td>
+        <td class="action-cell" style="display: flex; gap: 5px;">
+          <button class="btn-edit"><i class="bi bi-pencil-square"></i></button>
+          <button class="btn-hapus"><i class="bi bi-trash"></i></button>
+        </td>
+      `;
+      tableBody.appendChild(row);
+    });
+
+  } catch (error) {
+    console.error("Gagal mengambil data peminjaman:", error);
+  }
+});
+

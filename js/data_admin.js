@@ -96,3 +96,43 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
 });
+
+
+const tableBody = document.querySelector("table tbody");
+
+async function loadAdmins() {
+  try {
+
+    const response = await axios.get("http://localhost:8000/users/admin", {
+      withCredentials: true,
+    });
+
+    const admins = response.data.dataAdmin;
+    tableBody.innerHTML = "";
+
+
+    admins.forEach((admin, index) => {
+      const row = document.createElement("tr");
+      row.innerHTML = `
+        <td>${index + 1}</td> <!-- nomor urut -->
+        <td>${admin.first_name}</td>
+        <td>${admin.last_name}</td>
+        <td>${admin.email}</td>
+        <td>******</td>
+        <td>${admin.role}</td>
+        <td class="action-cell">
+          <button class="btn-edit"><i class="bi bi-pencil-square"></i></button>
+          <button class="btn-hapus"><i class="bi bi-trash"></i></button>
+        </td>
+      `;
+      tableBody.appendChild(row);
+    });
+
+
+  } catch (error) {
+    console.error("Gagal memuat data admin:", error);
+  }
+}
+
+// Jalankan setelah halaman siap
+document.addEventListener("DOMContentLoaded", loadAdmins);

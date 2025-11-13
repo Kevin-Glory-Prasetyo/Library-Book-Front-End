@@ -1,173 +1,137 @@
 <!DOCTYPE html>
 <html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Dashboard XCODE</title>
-    <link rel="stylesheet" href="../css/data_peminjaman_admin.css">
-    </head>
-<body>
-
+    <link rel="stylesheet" href="../css/data_peminjaman_admin.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  </head>
+  <body>
     <aside class="sidebar">
-        <div class="logo-sidebar">
-            <img src="../image/Xcode.png" alt="XCODE Logo" class="logo">
-        </div>
-        <nav class="nav-menu">
-            <a href="dashboard_admin.html" class="nav-item ">
-                <img src="https://cdn-icons-png.flaticon.com/512/25/25694.png" alt="icon" class="nav-icon">
-                <span>Dashboard</span>
-            </a>
-            <a href="data_admin.html" class="nav-item">
-                <img src="https://cdn-icons-png.flaticon.com/512/4794/4794936.png" alt="icon" class="nav-icon">
-                <span>Data Admin</span>
-            </a>
-            <a href="data_user.html" class="nav-item">
-                <img src="https://cdn-icons-png.flaticon.com/512/1077/1077114.png" alt="icon" class="nav-icon">
-                <span>Data User</span>
-            </a>
-            <a href="data_buku.html" class="nav-item">
-                <img src="https://cdn-icons-png.flaticon.com/512/29/29302.png" alt="icon" class="nav-icon">
-                <span>Data Buku</span>
-            </a>
-            <a href="data_peminjaman_admin.html" class="nav-item">
-                <img src="https://cdn-icons-png.flaticon.com/512/2693/2693507.png" alt="icon" class="nav-icon">
-                <span>Data Peminjaman</span> 
-            </a>
-            <a href="#" class="nav-item">
-                <img src="../image/logout.svg" alt="icon" class="nav-icon">
-                <span id="logoutBtn">Logout</span>
-            </a>
-        </nav>
+      <div class="logo-sidebar">
+        <img src="../image/Xcode.png" alt="XCODE Logo" class="logo" />
+      </div>
+      <nav class="nav-menu">
+        <a href="dashboard_admin.html" class="nav-item">
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/25/25694.png"
+            alt="icon"
+            class="nav-icon"
+          />
+          <span>Dashboard</span>
+        </a>
+        <a href="data_admin.html" class="nav-item">
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/4794/4794936.png"
+            alt="icon"
+            class="nav-icon"
+          />
+          <span>Data Admin</span>
+        </a>
+        <a href="data_user.html" class="nav-item">
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/1077/1077114.png"
+            alt="icon"
+            class="nav-icon"
+          />
+          <span>Data User</span>
+        </a>
+        <a href="data_buku.html" class="nav-item">
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/29/29302.png"
+            alt="icon"
+            class="nav-icon"
+          />
+          <span>Data Buku</span>
+        </a>
+        <a href="data_peminjaman_admin.html" class="nav-item">
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/2693/2693507.png"
+            alt="icon"
+            class="nav-icon"
+          />
+          <span>Data Peminjaman</span>
+        </a>
+        <a href="#" class="nav-item">
+          <img src="../image/logout.svg" alt="icon" class="nav-icon" />
+          <span id="logoutBtn">Logout</span>
+        </a>
+      </nav>
     </aside>
 
     <div class="main-container">
-        
-        <header>
-            <h1>Data Peminjaman</h1>
-            <div class="pinjam-info">
-                <!-- <img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Gmail_Icon.png" alt="Gmail Logo" class="gmail-logo"> -->
-                <img src="../image/profile.svg" alt="Avatar" class="avatar">
-                <div class="pinjam-details">
-                    <strong id="nama-pengguna">Dito Abod</strong>
-                    <span id="email-pengguna">gild@gmail.com</span>
-                </div>
+      <header>
+        <h1>Data Peminjaman</h1>
+        <div class="pinjam-info">
+          <!-- <img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Gmail_Icon.png" alt="Gmail Logo" class="gmail-logo"> -->
+          <img src="../image/profile.svg" alt="Avatar" class="avatar" />
+          <div class="pinjam-details">
+            <strong id="nama-pengguna">Dito Abod</strong>
+            <span id="email-pengguna">gild@gmail.com</span>
+          </div>
+        </div>
+      </header>
+
+      <main class="content">
+        <div class="content-header">
+          <div class="filters">
+            <div class="filter-wrapper">
+              <img
+                src="https://cdn.pixabay.com/photo/2021/07/02/04/48/search-6380865_640.png"
+                class="filter-icon search-icon"
+                alt="Search"
+              />
+              <input type="search" placeholder="Search" />
             </div>
-        </header>
 
-        <main class="content">
-            
-
-            <div class="content-header">
-                <div class="filters">
-                    
-                    <div class="filter-wrapper">
-                        <img src="https://cdn.pixabay.com/photo/2021/07/02/04/48/search-6380865_640.png" class="filter-icon search-icon" alt="Search">
-                        <input type="search" placeholder="Search">
-                    </div>
-                    
-                    <div class="filter-wrapper">
-                        <img src="https://www.svgrepo.com/show/324201/status-info-information.svg" class="filter-icon" alt="Status">
-                        <select>
-                            <option value="">Status</option>
-                        </select>
-                    </div>
-
-                    <div class="filter-wrapper">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRnh1Zrhfdxc4a8pgY15AErCaFUAVimGHnwdw&s" class="filter-icon" alt="Date">
-                        <input type="text" placeholder="Calendar" onfocus="(this.type='date')" onblur="(this.type='text')">
-                    </div>
-
-                </div>
-                <div class="actions">
-                    
-                    <button class="btn-export">
-                        <img src="../image/export.svg" class="btn-icon" alt="Export">
-                        <span>Export</span>
-                    </button>
-                    
-                    <button class="btn-primary" id="tambahPinjamBtn">
-                        <img src="../image/icontambah.svg" class="btn-icon" alt="Tambah">
-                        <span>Tambah Peminjaman</span>
-                    </button>
-
-                </div>
+            <div class="filter-wrapper">
+              <img
+                src="https://www.svgrepo.com/show/324201/status-info-information.svg"
+                class="filter-icon"
+                alt="Status"
+              />
+              <select>
+                <option value="">----Pilih Status----</option>
+                <option value="">Dipinjam</option>
+                <option value="">Dikembalikan</option>
+                <option value="">Terlambat</option>
+              </select>
             </div>
-            <div class="table-container">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>No</th>
-                            <th>Nama lengkap</th>
-                            <th>Judul Buku</th>
-                            <th>Tanggal Pinjam</th>
-                            <th>Tanggal Kembali</th>
-                            
-                            <th class="action-header">Aksi</th> 
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Kevin Glory</td>
-                            <td>Glory Manchester United</td>
-                            <td>15/10/2025</td>
-                            <td>21/10/2025</td>
-                            <td class="action-cell">
-                                <button class="btn-edit">Edit</button>
-                                <button class="btn-hapus">Hapus</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>Yosua Sutanto</td>
-                            <td>100 Cara Sukses jadi Admin Hotel</td>
-                            <td>17/10/2025</td>
-                            <td>25/10/2025</td>
-                            <td class="action-cell">
-                                <button class="btn-edit">Edit</button>
-                                <button class="btn-hapus">Hapus</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>Bambang Manjalita</td>
-                            <td>Tutorial Hacking WiFi Tetangga</td>
-                            <td>18/10/2025</td>
-                            <td>25/10/2025</td>
-                            <td class="action-cell">
-                                <button class="btn-edit">Edit</button>
-                                <button class="btn-hapus">Hapus</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>4</td>
-                            <td>Sugeng Hartanu</td>
-                            <td>Tutorial Hacking Password HP</td>
-                            <td>19/10/2025</td>
-                            <td>26/10/2025</td>
-                            <td class="action-cell">
-                                <button class="btn-edit">Edit</button>
-                                <button class="btn-hapus">Hapus</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>5</td>
-                            <td>Eva Sukesti</td>
-                            <td>Tutorial Main Grock MLBB</td>
-                            <td>20/10/2025</td>
-                            <td>27/10/2025</td>
-                            <td class="action-cell">
-                                <button class="btn-edit">Edit</button>
-                                <button class="btn-hapus">Hapus</button>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </main>
+
+          </div>
+          <div class="actions">
+            <button class="btn-export">
+              <span>Export</span>
+              <i class="bi bi-file-earmark-excel"></i>
+            </button>
+          </div>
+        </div>
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>No</th>
+                <th>Judul Buku</th>
+                <th>Nama Peminjam</th>
+                <th>Tanggal Pinjam</th>
+                <th>Tanggal Kembali</th>
+                <th>Tanggal Pengembalian</th>
+                <th>Status Peminjamaman</th>
+                <th class="action-header">Aksi</th>
+              </tr>
+            </thead>
+            <tbody>
+            </tbody>
+          </table>
+        </div>
+      </main>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="../js/data_peminjaman_admin.js"></script>
-</body>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js" integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y" crossorigin="anonymous"></script>
+  </body>
 </html>

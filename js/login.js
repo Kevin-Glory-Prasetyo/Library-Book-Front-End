@@ -24,7 +24,7 @@ signUpBtn.addEventListener("click", async () => {
 
   try {
     const res = await axios.post(
-      "http://localhost:5000/auth/userRegister",
+      "http://localhost:8000/auth/userRegister",
       {
         first_name: firstName,
         last_name: lastName,
@@ -60,7 +60,7 @@ loginBtn.addEventListener("click", async () => {
 
   try {
     const res = await axios.post(
-      "http://localhost:5000/auth/userLogin",
+      "http://localhost:8000/auth/userLogin",
       {
         email: email,
         password: password,
@@ -91,7 +91,7 @@ loginBtn.addEventListener("click", async () => {
 
 document.addEventListener("DOMContentLoaded", async () => {
   try {
-    const res = await axios.get("http://localhost:5000/auth/checkLogout", {
+    const res = await axios.get("http://localhost:8000/auth/checkLogout", {
       withCredentials: true,
     });
 

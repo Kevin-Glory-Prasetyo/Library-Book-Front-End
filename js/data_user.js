@@ -96,3 +96,39 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
 });
+
+
+const tableBody = document.querySelector("table tbody");
+
+async function loadUsers() {
+  try {
+    const response = await axios.get("http://localhost:8000/users/user", {
+      withCredentials: true 
+    });
+
+    const users = response.data.dataUser;
+
+    tableBody.innerHTML = "";
+
+    users.forEach((user,index) => {
+      const row = document.createElement("tr");
+      row.innerHTML = `
+        <td>${index + 1}</td>
+        <td>${user.first_name}</td>
+        <td>${user.last_name}</td>
+        <td>${user.email}</td>
+        <td>*****</td>
+        <td>${user.role}</td>
+        <td class="action-cell">
+          <button class="btn-edit"><i class="bi bi-pencil-square"></i></button>
+          <button class="btn-hapus"><i class="bi bi-trash"></i></button>
+        </td>
+      `;
+      tableBody.appendChild(row);
+    });
+  } catch (error) {
+    console.error("Gagal memuat data user:", error);
+  }
+}
+
+document.addEventListener("DOMContentLoaded", loadUsers);

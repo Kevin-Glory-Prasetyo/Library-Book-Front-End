@@ -97,3 +97,39 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
 });
+
+document.addEventListener("DOMContentLoaded", async () => {
+  const tableBody = document.querySelector("tbody");
+
+  try {
+    const response = await axios.get("http://localhost:8000/buku/buku");
+
+    const data = response.data.dataBuku;
+    
+    tableBody.innerHTML = "";
+
+    data.forEach((buku, index) => {
+      const row = document.createElement("tr");
+      row.innerHTML = `
+        <td>${index + 1}</td>
+        <td>${buku.judul_buku}</td>
+        <td>${buku.penulis_buku}</td>
+        <td>${buku.kategori_buku}</td>
+        <td>${buku.penerbit_buku}</td>
+        <td>${buku.stok_buku}</td>
+        <td>
+          <img src="#" alt="Gambar Buku">
+        </td>
+        <td class="action-cell" style="display: flex; gap: 5px;">
+          <button class="btn-edit"><i class="bi bi-pencil-square"></i></button>
+          <button class="btn-hapus"><i class="bi bi-trash"></i></button>
+        </td>
+      `;
+      tableBody.appendChild(row);
+    });
+
+  } catch (error) {
+    console.error("Gagal mengambil data buku:", error);
+  }
+});
+
