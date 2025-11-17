@@ -1,93 +1,130 @@
 <!DOCTYPE html>
 <html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>XCODE - Tambah Data Admin</title>
-    <link rel="stylesheet" href="../css/tambah_admin.css">
-</head>
-<body>
-    <header class="header">
-        <div class="header-right">
-            <img src="https://cdn-icons-png.flaticon.com/512/281/281769.png" alt="Gmail" class="gmail-icon">
-            <div class="user-profile">
-                <img src="https://via.placeholder.com/40" alt="User" class="user-avatar">
-                <div class="user-info">
-                    <span class="user-name">Glen Daud</span>
-                    <span class="user-email">glen@gmail.com</span>
-                </div>
-            </div>
+    <link rel="stylesheet" href="../css/tambah_admin.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Data Admin</h1>
+      <div class="admin-info">
+        <img src="../image/profile.svg" alt="Avatar" class="avatar" />
+        <div class="admin-details">
+          <strong id="nama-pengguna">Dito Abod</strong>
+          <span id="email-pengguna">gild@gmail.com</span>
         </div>
+      </div>
     </header>
 
     <div class="container">
-        <aside class="sidebar">
-            <div class="logo-sidebar">
-                <img src="../image/Xcode.png" alt="XCODE Logo" class="logo">
-            </div>
-            <nav class="nav-menu">
-                <a href="dashboard_admin.html" class="nav-item active">
-                    <img src="https://cdn-icons-png.flaticon.com/512/25/25694.png" alt="icon" class="nav-icon">
-                    <span>Dashboard</span>
-                </a>
-                <a href="data_admin.html" class="nav-item">
-                    <img src="https://cdn-icons-png.flaticon.com/512/4794/4794936.png" alt="icon" class="nav-icon">
-                    <span>Data Admin</span>
-                </a>
-                <a href="data_user.html" class="nav-item">
-                    <img src="https://cdn-icons-png.flaticon.com/512/1077/1077114.png" alt="icon" class="nav-icon">
-                    <span>Data User</span>
-                </a>
-                <a href="data_buku.html" class="nav-item">
-                    <img src="https://cdn-icons-png.flaticon.com/512/29/29302.png" alt="icon" class="nav-icon">
-                    <span>Data Buku</span>
-                </a>
-                <a href="data_peminjaman_admin.html" class="nav-item">
-                    <img src="https://cdn-icons-png.flaticon.com/512/2693/2693507.png" alt="icon" class="nav-icon">
-                    <span>Peminjaman</span>
-                </a>
-            </nav>
-        </aside>
+      <aside class="sidebar">
+        <div class="logo-sidebar">
+          <img src="../image/Xcode.png" alt="XCODE Logo" class="logo" />
+        </div>
+        <nav class="nav-menu">
+          <a href="dashboard_admin.html" class="nav-item">
+            <img
+              src="https://cdn-icons-png.flaticon.com/512/25/25694.png"
+              alt="icon"
+              class="nav-icon"
+            />
+            <span>Dashboard</span>
+          </a>
+          <a href="data_admin.html" class="nav-item active">
+            <img
+              src="https://cdn-icons-png.flaticon.com/512/4794/4794936.png"
+              alt="icon"
+              class="nav-icon"
+            />
+            <span>Data Admin</span>
+          </a>
+          <a href="data_user.html" class="nav-item">
+            <img
+              src="https://cdn-icons-png.flaticon.com/512/1077/1077114.png"
+              alt="icon"
+              class="nav-icon"
+            />
+            <span>Data User</span>
+          </a>
+          <a href="data_buku.html" class="nav-item">
+            <img
+              src="https://cdn-icons-png.flaticon.com/512/29/29302.png"
+              alt="icon"
+              class="nav-icon"
+            />
+            <span>Data Buku</span>
+          </a>
+          <a href="data_peminjaman_admin.html" class="nav-item">
+            <img
+              src="https://cdn-icons-png.flaticon.com/512/2693/2693507.png"
+              alt="icon"
+              class="nav-icon"
+            />
+            <span>Peminjaman</span>
+          </a>
+        </nav>
+      </aside>
 
-        <main class="main-content">
-            <div class="form-card"> 
-                <div class="form-card-header">
-                    Tambah Admin
+      <main class="main-content">
+        <div class="form-card">
+          <div class="form-card-header">Tambah Admin</div>
+          <div class="form-card-body">
+            <form id="addAdminForm">
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="namaAwal">Nama Awal</label>
+                  <input
+                    type="text"
+                    id="namaAwal"
+                    placeholder="Masukkan nama awal"
+                    required
+                  />
                 </div>
-                <div class="form-card-body">
-                    <form id="addAdminForm">
-                        
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="namaAwal">Nama Awal</label>
-                                <input type="text" id="namaAwal" placeholder="Masukkan nama awal" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="namaAkhir">Nama Akhir</label>
-                                <input type="text" id="namaAkhir" placeholder="Masukkan nama akhir" required>
-                            </div>
-                        </div>
+                <div class="form-group">
+                  <label for="namaAkhir">Nama Akhir</label>
+                  <input
+                    type="text"
+                    id="namaAkhir"
+                    placeholder="Masukkan nama akhir"
+                    required
+                  />
+                </div>
+              </div>
 
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="email">Email</label>
-                                <input type="email" id="email" placeholder="Masukkan email" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="password">Password</label>
-                                <input type="password" id="password" placeholder="Masukkan password" required minlength="6">
-                            </div>
-                        </div>
-                        
-                        <div class="form-actions">
-                            <button type="submit" class="btn-tambah">Tambah</button>
-                        </div>
-                    </form>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="email">Email</label>
+                  <input
+                    type="email"
+                    id="email"
+                    placeholder="Masukkan email"
+                    required
+                  />
                 </div>
-            </div>
-        </main>
+                <div class="form-group">
+                  <label for="password">Password</label>
+                  <input
+                    type="password"
+                    id="password"
+                    placeholder="Masukkan password"
+                    required
+                    minlength="6"
+                  />
+                </div>
+              </div>
+
+              <div class="form-actions">
+                <button type="submit" class="btn-tambah">Tambah</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </main>
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="../js/tambah_admin.js"></script>
-</body>
+  </body>
 </html>

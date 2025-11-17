@@ -88,13 +88,6 @@ document.addEventListener("DOMContentLoaded", function() {
     // Logika untuk tombol "Tambah Admin" (jika ada)
     const tambahAdminButton = document.getElementById('tambahAdminBtn');
 
-    if (tambahAdminButton) {
-        tambahAdminButton.addEventListener('click', function() {
-            alert('Fungsi untuk "Tambah Admin" akan dijalankan di sini!');
-            // Di aplikasi nyata, ini akan membuka modal atau halaman baru
-        });
-    }
-
 });
 
 
