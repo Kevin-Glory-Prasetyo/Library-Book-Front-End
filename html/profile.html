@@ -8,7 +8,6 @@
 </head>
 <body>
 
-  <!-- NAVBAR -->
   <header class="navbar">
     <div class="logo">
       <img src="../image/xcode.png" alt="Logo">
@@ -36,62 +35,61 @@
       <span class="arrow-down"></span>
     </div>
 
-    <!-- DROPDOWN PROFILE -->
     <div class="dropdown-menu" id="dropdownMenu">
-      <a href="EDIT-PROFILE.html">Profile</a>
+      <a href="profile.html">Profile</a>
       <a href="#" id="logoutBtn">Logout</a>
     </div>
   </header>
   <main>
-  <div class="profile-card">
-    <div class="profile-card-header">
-      <div class="user-info-left">
-        <form id="uploadForm" enctype="multipart/form-data">
-          <label for="user_image">
-            <img id="profile-preview" src="../image/profile.png" alt="Foto Profil" />
-          </label>
-          <input type="file" id="user_image" name="user_image" accept="image/*" hidden />
-        </form>
-        <div class="user-details">
-          <h3>Glen Daud</h3>
-          <p>glendaud@gmail.com</p>
+    <div class="profile-card">
+      <div class="profile-card-header">
+        <div class="user-info-left">
+          <form id="uploadForm" enctype="multipart/form-data">
+            <label for="user_image">
+              <img id="profile-preview" src="../image/profile.png" alt="Foto Profil" />
+            </label>
+            <input type="file" id="user_image" name="user_image" accept="image/*" hidden />
+          </form>
+          <div class="user-details">
+            <h3 id="display-name">Glen Daud</h3>
+            <p id="display-email">glendaud@gmail.com</p>
+          </div>
         </div>
+        <button type="button" id="saveProfileBtn" class="save-btn">Simpan</button>
       </div>
-      <button type="submit" form="editProfileForm" class="save-btn">Simpan</button>
+
+      <form id="editProfileForm" enctype="multipart/form-data" class="profile-form">
+        <div class="form-grid">
+          <div class="form-column">
+            <div class="form-group">
+              <label for="user_first_name">Nama Depan</label>
+              <input type="text" id="user_first_name" name="user_first_name" placeholder="Nama Depan" />
+            </div>
+
+            <div class="form-group">
+              <label for="user_last_name">Nama Belakang</label>
+              <input type="text" id="user_last_name" name="user_last_name" placeholder="Nama Belakang" />
+            </div>
+            <div class="form-group">
+              <label for="user_phone">Nomor Telepon</label>
+              <input type="text" id="user_phone" name="user_phone" placeholder="Nomor Telepon" />
+            </div>
+          </div>
+
+          <div class="form-column">
+            <div class="form-group">
+              <label for="user_email">Email</label>
+              <input type="email" id="user_email" name="user_email" placeholder="Alamat Email" />
+            </div>
+
+            <div class="form-group">
+              <label for="user_password">Password Baru</label>
+              <input type="password" id="user_password" name="user_password" placeholder="Masukkan Password Baru" />
+            </div>
+          </div>
+        </div>
+      </form>
     </div>
-
-    <form id="editProfileForm" enctype="multipart/form-data" class="profile-form">
-      <div class="form-grid">
-        <div class="form-column">
-          <div class="form-group">
-            <label for="user_first_name">Nama Depan</label>
-            <input type="text" id="user_first_name" name="user_first_name" placeholder="Nama Depan" />
-          </div>
-
-          <div class="form-group">
-            <label for="user_last_name">Nama Belakang</label>
-            <input type="text" id="user_last_name" name="user_last_name" placeholder="Nama Belakang" />
-          </div>
-          <div class="form-group">
-            <label for="user_phone">Nomor Telepon</label>
-            <input type="text" id="user_phone" name="user_phone" placeholder="Nomor Telepon" />
-          </div>
-        </div>
-
-        <div class="form-column">
-          <div class="form-group">
-            <label for="user_email">Email</label>
-            <input type="email" id="user_email" name="user_email" placeholder="Alamat Email" />
-          </div>
-
-          <div class="form-group">
-            <label for="user_password">Password Baru</label>
-            <input type="password" id="user_password" name="user_password" placeholder="Masukkan Password Baru" />
-          </div>
-        </div>
-      </div>
-    </form>
-  </div>
   </main>
 
   
