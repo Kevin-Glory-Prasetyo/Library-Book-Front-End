@@ -82,54 +82,76 @@
       </header>
 
       <main class="content">
-        <div class="content-header">
-          <div class="filters">
-            <div class="filter-wrapper">
-              <img
-                src="https://cdn.pixabay.com/photo/2021/07/02/04/48/search-6380865_640.png"
-                class="filter-icon search-icon"
-                alt="Search"
-              />
-              <input type="search" placeholder="Search" />
+        <div class="container mt-4">
+          <div class="card shadow-sm">
+            <div class="card-header bg-primary text-white">
+              <h5 class="mb-0">Form Tambah Admin</h5>
+            </div>
+
+            <div class="card-body">
+              <form class="row g-4">
+                <div class="col-md-6">
+                  <div class="mb-3">
+                    <label class="form-label">Nama Depan</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="Masukkan nama depan"
+                      id="first_name"
+                    />
+                  </div>
+
+                  <div class="mb-3">
+                    <label class="form-label">Nama Belakang</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="Masukkan nama belakang"
+                      id="last_name"
+                    />
+                  </div>
+                </div>
+
+                <!-- SISI KANAN -->
+                <div class="col-md-6">
+                  <div class="mb-3">
+                    <label class="form-label">Email</label>
+                    <input
+                      type="email"
+                      class="form-control"
+                      placeholder="Masukkan email"
+                      id="email"
+                    />
+                  </div>
+
+                  <div class="mb-3">
+                    <label class="form-label">Password</label>
+                    <input
+                      type="password"
+                      class="form-control"
+                      placeholder="Masukkan password"
+                      id="password"
+                    />
+                  </div>
+
+                <!-- TOMBOL -->
+                <div class="col-12 text-end">
+                  <button type="submit" class="btn btn-success px-4">
+                    Simpan
+                  </button>
+                  <button type="reset" class="btn btn-secondary px-4">
+                    Reset
+                  </button>
+                </div>
+              </form>
             </div>
           </div>
-          <div class="actions">
-            <button class="btn-export">
-              <span>Export</span>
-              <i class="bi bi-file-earmark-excel"></i>
-            </button>
-
-            <button
-              class="btn btn-primary"
-              id="tambahAdminBtn"
-              onclick="window.location.href='insert_data_admin.html'"
-            >
-              <span>Tambah Admin</span>
-              <i class="bi bi-plus-lg"></i>
-            </button>
-          </div>
-        </div>
-        <div class="table-container">
-          <table>
-            <thead>
-              <tr>
-                <th>ID</th>
-                <th>Nama Depan</th>
-                <th>Nama Belakang</th>
-                <th>Email</th>
-                <th>Password</th>
-                <th>Role</th>
-                <!-- <th class="action-header">Aksi</th> -->
-              </tr>
-            </thead>
-            <tbody></tbody>
-          </table>
         </div>
       </main>
     </div>
 
-    <script src="../js/data_admin.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="../js/insert_data_admin.js"></script>
     <script
       src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
       integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"

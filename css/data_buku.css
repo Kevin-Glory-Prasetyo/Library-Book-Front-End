@@ -379,3 +379,8 @@ tbody tr:hover {
 .btn-hapus {
   background-color: #dc3545;
 }
+
+.action-btn{
+  display: flex;
+  gap: 10px;
+}

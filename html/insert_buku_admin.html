@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard XCODE</title>
+
+    <link rel="stylesheet" href="../css/data_buku.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
+    />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <div class="logo-sidebar">
+        <img src="../image/Xcode.png" alt="XCODE Logo" class="logo" />
+      </div>
+
+      <nav class="nav-menu">
+        <a href="dashboard_admin.html" class="nav-item">
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/25/25694.png"
+            class="nav-icon"
+          />
+          <span>Dashboard</span>
+        </a>
+
+        <a href="data_admin.html" class="nav-item">
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/4794/4794936.png"
+            class="nav-icon"
+          />
+          <span>Data Admin</span>
+        </a>
+
+        <a href="data_user.html" class="nav-item">
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/1077/1077114.png"
+            class="nav-icon"
+          />
+          <span>Data User</span>
+        </a>
+
+        <a href="data_buku.html" class="nav-item active">
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/29/29302.png"
+            class="nav-icon"
+          />
+          <span>Data Buku</span>
+        </a>
+
+        <a href="data_peminjaman_admin.html" class="nav-item">
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/2693/2693507.png"
+            class="nav-icon"
+          />
+          <span>Data Peminjaman</span>
+        </a>
+
+        <a href="#" class="nav-item">
+          <img src="../image/logout.svg" class="nav-icon" />
+          <span id="logoutBtn">Logout</span>
+        </a>
+      </nav>
+    </aside>
+
+    <!-- MAIN -->
+    <div class="main-container">
+      <header>
+        <h1>Tambah Data Buku</h1>
+
+        <div class="user-info">
+          <img src="../image/profile.svg" class="avatar" />
+          <div class="user-details">
+            <strong id="nama-pengguna">Dito Abod</strong>
+            <span id="email-pengguna">gild@gmail.com</span>
+          </div>
+        </div>
+      </header>
+
+      <!-- CONTENT -->
+      <main class="content">
+        <div class="container mt-4">
+          <div class="card shadow-sm">
+            <div class="card-header bg-primary text-white">
+              <h5 class="mb-0">Form Tambah Buku</h5>
+            </div>
+
+            <div class="card-body">
+              <form class="row g-4">
+                <div class="col-md-6">
+                  <div class="mb-3">
+                    <label class="form-label">Judul Buku</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="Masukkan judul buku"
+                      id="judul_buku"
+                    />
+                  </div>
+
+                  <div class="mb-3">
+                    <label class="form-label">Penulis Buku</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="Masukkan penulis buku"
+                      id="penulis_buku"
+                    />
+                  </div>
+
+                  <div class="mb-3">
+                    <label class="form-label">Kategori Buku</label>
+                    <select class="form-select" id="kategori-select">
+                      <option value="">-- Pilih Kategori --</option>
+                    </select>
+                  </div>
+
+                  <div class="mb-3">
+                    <label class="form-label">Penerbit Buku</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="Masukkan penerbit buku"
+                      id="penerbit_buku"
+                    />
+                  </div>
+                </div>
+
+                <!-- SISI KANAN -->
+                <div class="col-md-6">
+                  <div class="mb-3">
+                    <label class="form-label">Tahun Terbit</label>
+                    <input
+                      type="number"
+                      class="form-control"
+                      placeholder="Masukkan tahun terbit"
+                      id="tahun_terbit"
+                    />
+                  </div>
+
+                  <div class="mb-3">
+                    <label class="form-label">Deskripsi</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="Masukkan deskripsi"
+                      id="deskripsi_buku"
+                    />
+                  </div>
+
+                  <div class="mb-3">
+                    <label class="form-label">Stok</label>
+                    <input
+                      type="number"
+                      class="form-control"
+                      placeholder="Masukkan stok"
+                      id="total_stock"
+                    />
+                  </div>
+
+                  <div class="mb-3">
+                    <label class="form-label">Gambar</label>
+                    <input type="file" class="form-control" id="gambar_buku" />
+                  </div>
+                </div>
+
+                <!-- TOMBOL -->
+                <div class="col-12 text-end">
+                  <button type="submit" class="btn btn-success px-4">
+                    Simpan
+                  </button>
+                  <button type="reset" class="btn btn-secondary px-4">
+                    Reset
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <!-- JS -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="../js/insert_buku_admin.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js"></script>
+  </body>
+</html>

@@ -1,39 +1,39 @@
 
-document.addEventListener("DOMContentLoaded", async () => {
-  try {
-    const res = await axios.get("http://localhost:8000/auth/checkLogin", {
-      withCredentials: true, 
-    });
+// document.addEventListener("DOMContentLoaded", async () => {
+//   try {
+//     const res = await axios.get("http://localhost:8000/auth/checkLogin", {
+//       withCredentials: true, 
+//     });
 
-    const data = res.data;
+//     const data = res.data;
 
 
-    if (res.status === 401 || res.status === 403) {
-      window.location.href = "login.html";
-      return;
-    }
+//     if (res.status === 401 || res.status === 403) {
+//       window.location.href = "login.html";
+//       return;
+//     }
 
-    if (data.user.role !== "admin") {
-      window.location.href = "home.html";
-      return;
-    }
+//     if (data.user.role !== "admin") {
+//       window.location.href = "home.html";
+//       return;
+//     }
 
-    // Jika berhasil
-    if (res.status === 200) {
-      const namaPengguna = document.getElementById("nama-pengguna");
-      const emailPengguna = document.getElementById("email-pengguna");
+//     // Jika berhasil
+//     if (res.status === 200) {
+//       const namaPengguna = document.getElementById("nama-pengguna");
+//       const emailPengguna = document.getElementById("email-pengguna");
 
-      namaPengguna.textContent = `${data.user.first_name} ${data.user.last_name}`;
-      emailPengguna.textContent = data.user.email;
+//       namaPengguna.textContent = `${data.user.first_name} ${data.user.last_name}`;
+//       emailPengguna.textContent = data.user.email;
 
-    } else {
-      alert(data.message || "Terjadi kesalahan");
-    }
-  } catch (err) {
-    console.error("Fetch gagal:", err);
-    window.location.href = "login.html";
-  }
-});
+//     } else {
+//       alert(data.message || "Terjadi kesalahan");
+//     }
+//   } catch (err) {
+//     console.error("Fetch gagal:", err);
+//     window.location.href = "login.html";
+//   }
+// });
 
 
 const logoutBtn = document.getElementById("logoutBtn");
@@ -119,10 +119,6 @@ async function loadUsers() {
         <td>${user.email}</td>
         <td>*****</td>
         <td>${user.role}</td>
-        <td class="action-cell">
-          <button class="btn-edit"><i class="bi bi-pencil-square"></i></button>
-          <button class="btn-hapus"><i class="bi bi-trash"></i></button>
-        </td>
       `;
       tableBody.appendChild(row);
     });

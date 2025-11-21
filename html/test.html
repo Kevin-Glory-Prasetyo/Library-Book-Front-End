@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Upload Buku</title>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+  <h1>Form Tambah Buku</h1>
+  <form id="formBuku">
+    <label>Judul Buku: <input type="text" name="judul_buku" required></label><br>
+    <label>Penulis Buku: <input type="text" name="penulis_buku" required></label><br>
+    <label>ID Kategori: <input type="text" name="id_kategori" required></label><br>
+    <label>Penerbit Buku: <input type="text" name="penerbit_buku" required></label><br>
+    <label>Tahun Terbit: <input type="text" name="tahun_terbit" required></label><br>
+    <label>Deskripsi Buku: <input type="text" name="deskripsi_buku" required></label><br>
+    <label>Total Stock: <input type="number" name="total_stock" required></label><br>
+    <label>Gambar: <input type="file" name="gambar" required></label><br><br>
+    <button type="submit">Submit</button>
+  </form>
+
+  <script>
+    const form = document.getElementById('formBuku');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const formData = new FormData(form);
+
+      try {
+        const response = await axios.post('http://localhost:8000/buku/tambahbuku', formData, {
+          headers: {
+            'Content-Type': 'multipart/form-data'
+          }
+        });
+        console.log(response.data);
+        alert("Buku berhasil diupload!");
+      } catch (err) {
+        console.error(err.response ? err.response.data : err);
+        alert("Error saat upload buku!");
+      }
+    });
+  </script>
+</body>
+</html>
