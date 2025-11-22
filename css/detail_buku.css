@@ -468,6 +468,7 @@ body {
 
 .animate-text {
     animation: zoomIn 0.7s ease-out forwards;
+    text-align: justify;
 }
 
 /* --- RESPONSIVE DESIGN --- */
