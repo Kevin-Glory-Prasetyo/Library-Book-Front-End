@@ -1,8 +1,7 @@
 document.addEventListener("DOMContentLoaded", async () => {
-
   try {
     const res = await axios.get("http://localhost:8000/auth/checkLogin", {
-      withCredentials: true
+      withCredentials: true,
     });
 
     const data = res.data;
@@ -13,18 +12,17 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
 
     if (res.status === 200) {
-
       const namaPengguna = document.getElementById("nama-pengguna");
       const emailPengguna = document.getElementById("email-pengguna");
 
       namaPengguna.textContent = `${data.user.first_name} ${data.user.last_name}`;
       emailPengguna.textContent = data.user.email;
-    } else{
+    } else {
       alert(data.message || "Terjadi kesalahan");
     }
-
   } catch (err) {
-     if (res.status === 401 || res.status === 403) {
+    console.error("Fetch gagal:", err);
+    if (err.status === 401 || err.status === 403) {
       window.location.href = "login.html";
       return;
     }
@@ -82,10 +80,10 @@ document.addEventListener("DOMContentLoaded", () => {
   axios
     .get(`http://localhost:8000/buku/detailbuku/${id}`)
     .then((res) => {
-      const book = res.data.data
-      document.getElementById("judul").value = `${book.judul_buku}`
-      const gambar = document.getElementById("gambar")
-      gambar.src = `http://localhost:8000${book.gambar_buku}`
+      const book = res.data.data;
+      document.getElementById("judul").value = `${book.judul_buku}`;
+      const gambar = document.getElementById("gambar");
+      gambar.src = `http://localhost:8000${book.gambar_buku}`;
     })
     .catch((err) => {
       console.error(err);
@@ -95,7 +93,6 @@ document.addEventListener("DOMContentLoaded", () => {
 const btnAjukan = document.getElementById("ajukan");
 
 btnAjukan.addEventListener("click", async () => {
-
   const params = new URLSearchParams(window.location.search);
   const id = params.get("id");
 
@@ -103,7 +100,7 @@ btnAjukan.addEventListener("click", async () => {
   const tgl_kembali = document.getElementById("tgl-kembali").value;
 
   const res = await axios.get("http://localhost:8000/auth/checkLogin", {
-    withCredentials: true
+    withCredentials: true,
   });
 
   const user_id = res.data.user.id;
@@ -112,14 +109,16 @@ btnAjukan.addEventListener("click", async () => {
     id_buku: id,
     id_user: user_id,
     tanggal_pinjam: tgl_pinjam,
-    tanggal_kembali: tgl_kembali
+    tanggal_kembali: tgl_kembali,
   };
 
   try {
-    await axios.post("http://localhost:8000/peminjaman/tambahpeminjaman", data, {
-    });
+    await axios.post(
+      "http://localhost:8000/peminjaman/tambahpeminjaman",
+      data,
+      {}
+    );
     alert("Buku Berhasil Dipinjam");
-
   } catch (err) {
     console.error(err);
     alert("Gagal Pinjam");

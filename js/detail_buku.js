@@ -77,46 +77,155 @@ document.addEventListener("click", function (event) {
   }
 });
 
+document.addEventListener("DOMContentLoaded", async () => {
+  try {
+    const res = await axios.get("http://localhost:8000/auth/checkLogin", {
+      withCredentials: true,
+    });
+
+    const data = res.data;
+
+    if (data.user.role !== "user") {
+      window.location.href = "dashboard_admin.html";
+      return;
+    }
+
+    if (res.status === 200) {
+      const namaPengguna = document.getElementById("nama-pengguna");
+      const emailPengguna = document.getElementById("email-pengguna");
+
+      namaPengguna.textContent = `${data.user.first_name} ${data.user.last_name}`;
+      emailPengguna.textContent = data.user.email;
+    } else {
+      alert(data.message || "Terjadi kesalahan");
+    }
+  } catch (err) {
+    console.error("Fetch gagal:", err);
+    if (err.status === 401 || err.status === 403) {
+      window.location.href = "login.html";
+      return;
+    }
+  }
+});
+
+// document.addEventListener("DOMContentLoaded", () => {
+//   const params = new URLSearchParams(window.location.search);
+//   const id = params.get("id");
+
+//   axios
+//     .get("http://localhost:8000/auth/checkLogin", { withCredentials: true })
+//     .then((res) => {
+//       const data = res.data.user.id
+//     });
+
+//   axios
+//     .get(`http://localhost:8000/buku/detailbuku/${id}`)
+//     .then((res) => {
+//       const book = res.data.data;
+//       const detail = document.getElementById("detail");
+//       const judul = document.getElementById("judul_buku");
+//       const penulis = document.getElementById("penulis_buku");
+//       const kategori = document.getElementById("kategori_buku");
+//       const deskripsi = document.getElementById("deskripsi_buku");
+//       const stok = document.getElementById("stok");
+//       const dipinjam = document.getElementById("dipinjam");
+//       const ajukan = document.getElementById("ajukan");
+
+//       let pinjam = parseInt(book.total_stock) - parseInt(book.available_stock);
+
+//       detail.src = `http://localhost:8000${book.gambar_buku}`;
+//       detail.alt = `${book.judul_buku}`;
+
+//       judul.innerHTML = `${book.judul_buku}`;
+//       penulis.innerHTML = `By ${book.penulis_buku}`;
+//       kategori.innerHTML = `${book.name}`;
+//       deskripsi.innerHTML = `${book.deskripsi_buku}`;
+//       stok.innerHTML = `Stok Tersedia: ${book.available_stock}`;
+//       dipinjam.innerHTML = `Dipinjam: ${pinjam}`;
+
+//       if (book.available_stock === 0) {
+//         ajukan.disabled = true;
+//         ajukan.style.cursor = "not-allowed";
+//         ajukan.innerHTML = "Stok Kosong";
+//       } else if (condition) {
+//       } else {
+//         ajukan.addEventListener("click", () => {
+//           window.location.href = `detail_peminjaman_user.html?id=${book.id_buku}`;
+//         });
+//       }
+//     })
+//     .catch((err) => {
+//       console.error(err);
+//     });
+// });
+
 document.addEventListener("DOMContentLoaded", () => {
   const params = new URLSearchParams(window.location.search);
-  const id = params.get("id");
+  const idBuku = params.get("id");
 
   axios
-    .get(`http://localhost:8000/buku/detailbuku/${id}`)
-    .then((res) => {
-      const book = res.data.data;
-      const detail = document.getElementById("detail");
-      const judul = document.getElementById("judul_buku");
-      const penulis = document.getElementById("penulis_buku");
-      const kategori = document.getElementById("kategori_buku");
-      const deskripsi = document.getElementById("deskripsi_buku");
-      const stok = document.getElementById("stok");
-      const dipinjam = document.getElementById("dipinjam");
-      const ajukan = document.getElementById("ajukan");
+    .get("http://localhost:8000/auth/checkLogin", { withCredentials: true })
+    .then((resUser) => {
+      const userId = resUser.data.user.id;
 
-      let pinjam = parseInt(book.total_stock) - parseInt(book.available_stock);
+      return axios
+        .get(`http://localhost:8000/buku/detailbuku/${idBuku}`)
+        .then((res) => {
+          const book = res.data.data;
 
-      detail.src = `http://localhost:8000${book.gambar_buku}`;
-      detail.alt = `${book.judul_buku}`;
+          const detail = document.getElementById("detail");
+          const judul = document.getElementById("judul_buku");
+          const penulis = document.getElementById("penulis_buku");
+          const kategori = document.getElementById("kategori_buku");
+          const deskripsi = document.getElementById("deskripsi_buku");
+          const stok = document.getElementById("stok");
+          const dipinjam = document.getElementById("dipinjam");
+          const ajukan = document.getElementById("ajukan");
 
-      judul.innerHTML = `${book.judul_buku}`;
-      penulis.innerHTML = `By ${book.penulis_buku}`;
-      kategori.innerHTML = `${book.name}`;
-      deskripsi.innerHTML = `${book.deskripsi_buku}`;
-      stok.innerHTML = `Stok Tersedia: ${book.available_stock}`;
-      dipinjam.innerHTML = `Dipinjam: ${pinjam}`;
+          const pinjam =
+            parseInt(book.total_stock) - parseInt(book.available_stock);
 
-      if (book.available_stock === 0) {
-        ajukan.disabled = true;
-        ajukan.style.cursor = "not-allowed";
-        ajukan.innerHTML = "Stok Kosong";
-      } else {
-        ajukan.addEventListener("click", () => {
-          window.location.href = `detail_peminjaman_user.html?id=${book.id_buku}`;
+          detail.src = `http://localhost:8000${book.gambar_buku}`;
+          detail.alt = book.judul_buku;
+
+          judul.innerHTML = book.judul_buku;
+          penulis.innerHTML = `By ${book.penulis_buku}`;
+          kategori.innerHTML = book.name;
+          deskripsi.innerHTML = book.deskripsi_buku;
+          stok.innerHTML = `Stok Tersedia: ${book.available_stock}`;
+          dipinjam.innerHTML = `Dipinjam: ${pinjam}`;
+
+          if (book.available_stock === 0) {
+            ajukan.disabled = true;
+            ajukan.style.cursor = "not-allowed";
+            ajukan.innerHTML = "Stok Kosong";
+          } else {
+            // Cek apakah user sudah pinjam buku ini
+            axios
+              .get(`http://localhost:8000/peminjaman/peminjaman`)
+              .then((res) => {
+                const peminjaman = res.data.peminjaman;
+                const id_user = userId;
+                const id_buku = book.id_buku;
+
+                const sudahPinjam = peminjaman.some(
+                  (item) =>
+                    item.id_user === id_user &&
+                    item.id_buku === id_buku &&
+                    ( item.status_peminjaman === "menunggu" || item.status_peminjaman === "dipinjam")
+                );
+                if (sudahPinjam) {
+                  ajukan.disabled = true;
+                  ajukan.style.cursor = "not-allowed";
+                  ajukan.innerHTML = "Anda Sudah Pinjam ";
+                } else {
+                  ajukan.addEventListener("click", () => {
+                    window.location.href = `detail_peminjaman_user.html?id=${book.id_buku}`;
+                  });
+                }
+              });
+          }
         });
-      }
     })
-    .catch((err) => {
-      console.error(err);
-    });
+    .catch((err) => console.error(err));
 });

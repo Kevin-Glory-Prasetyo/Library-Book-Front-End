@@ -7,11 +7,6 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     const data = res.data;
 
-    if (res.status === 401 || res.status === 403) {
-      window.location.href = "login.html";
-      return;
-    }
-
     if (data.user.role !== "user") {
       window.location.href = "dashboard_admin.html";
       return;
@@ -30,7 +25,10 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   } catch (err) {
     console.error("Fetch gagal:", err);
-    window.location.href = "login.html";
+    if (err.status === 401 || err.status === 403) {
+      window.location.href = "login.html";
+      return;
+    }
   }
 });
 
