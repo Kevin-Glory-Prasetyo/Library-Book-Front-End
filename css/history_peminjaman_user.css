@@ -1,0 +1,234 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f5f5f5;
+}
+
+
+/* Main container */
+.main-container { width:100%; min-height:100vh; }
+
+/* ===== Header Utama (Desktop) ===== */
+header.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 60px;
+  background: #fff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  /* NAIKKAN z-index supaya header + dropdown tampil di atas thead (thead z-index:9998) */
+  z-index: 10050;
+  /* pastikan dropdown tidak dipotong */
+  overflow: visible;
+}
+
+.logo img {
+  height: 35px;
+  width: auto;
+  /* display: block; */
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #000;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #093FB4;
+}
+
+
+/* === PROFILE SECTION === */
+.profile {
+  /* pastikan konteks posisi untuk dropdown */
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  padding: 5px 10px;
+  border-radius: 8px;
+}
+
+.profile:hover {
+  background-color: #f7f7f7;
+}
+
+.profile img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+}
+
+.profile .arrow-down {
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 6px solid #000;
+  margin-left: 5px;
+  transition: transform 0.3s ease;
+}
+
+.profile.active .arrow-down {
+  transform: rotate(180deg);
+}
+
+.profile-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-info h4 {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.profile-info p {
+  margin: 0;
+  font-size: 13px;
+  color: gray;
+}
+
+/* ===== Dropdown Profile ===== */
+.dropdown-menu {
+  /* relatif ke .profile sehingga posisinya selalu tepat di bawah tombol profil */
+  position: absolute;
+  top: calc(100% + 8px);
+  right : 0%;
+  transform: translateX(-50%);
+  min-width: 160px;
+  max-width: 220px; /* batasi lebar agar tidak melebar ke samping */
+  background: rgb(255, 255, 255);
+  border-radius: 10px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+  display: none;
+  flex-direction: column;
+  overflow: hidden;
+  /* z-index di atas header.navbar (yang sudah dinaikkan) */
+  z-index: 10051;
+  max-height: 320px;
+  overflow-y: auto;
+  padding: 6px 0; /* beri ruang vertikal agar terlihat seperti kartu */
+}
+
+.dropdown-menu a {
+  padding: 12px 22px; /* cukup ruang kiri-kanan, tampil seperti gambar kiri */
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  transition: background 0.15s ease;
+  text-align: center;
+}
+
+.dropdown-menu a:hover {
+  background-color: #f4f6f8;
+}
+
+/* Saat aktif */
+.dropdown-menu.show {
+  display: flex;
+}
+
+.dropdown-menu.show {
+  display: flex;
+}
+
+/* Responsif: pastikan dropdown tetap rapi di mobile */
+@media (max-width: 768px) {
+  .dropdown-menu {
+    /* posisinya tetap relatif ke .profile, namun adjust bila perlu */
+    right: 20px;
+    top: calc(100% + 6px);
+    left: auto;
+  }
+}
+
+
+/* ----- Tombol Navigasi Mobile ----- */
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+  padding: 5px;
+  background: transparent;
+  border: none;
+  z-index: 1001;
+}
+
+.nav-toggle .bar {
+  width: 25px;
+  height: 3px;
+  background-color: #3700ff;
+  border-radius: 2px;
+  transition: all 0.3s;
+}
+
+.nav-toggle.is-open .bar:nth-child(1) {
+  transform: rotate(45deg) translate(8px, 8px);
+}
+
+.nav-toggle.is-open .bar:nth-child(2) {
+  opacity: 0;
+}
+
+.nav-toggle.is-open .bar:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -7px);
+}
+
+
+.page-title {
+  font-family: inherit;
+  color: #2f4e7a;
+  text-align: center;
+  margin: 30px 0;   /* jarak cukup, tidak terlalu tinggi */
+  font-weight: 600;
+  font-size: 20px;
+}
+
+
+
+/* Page inner */
+.page-inner { padding:2px 40px; }
+
+
+
+/* Table */
+.table-container { border-radius:8px; box-shadow:0 6px 18px rgba(15,23,42,0.04);  }
+table { width:100%; border-collapse:collapse; min-width:760px; }
+thead th {
+  background:#2f4e7a; color:#fff; padding:12px 10px; font-size:13px; text-transform:uppercase;
+  position:sticky; top:72px; z-index:9998; text-align:center;
+}
+tbody td { padding:12px 10px; border-bottom:1px solid #eee; text-align:center; color:#222; font-size:14px; }
+tbody tr:nth-child(even) { background:#fbfcfd; }
+
+/* Responsive */
+@media (max-width:900px) {
+  header.navbar { padding:12px 16px; height:auto; }
+  .nav-links { display:none; position:absolute; top:100%; left:0; right:0; background:#fff; flex-direction:column; z-index:99; box-shadow:0 6px 18px rgba(0,0,0,0.08); }
+  .nav-toggle { display:flex; }
+  thead th { top: calc( (var(--hdr, 72px)) + 6px ); }
+  table { min-width:640px; }
+}
