@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HISTORY</title>
+  <link rel="stylesheet" href="../css/history_peminjaman_user.css" />
+</head>
+<body>
+
+  <div class="main-container">
+
+    <!-- NAVBAR -->
+    <header class="navbar" role="banner">
+      <div class="logo">
+        <img src="../image/xcode.png" alt="Logo">
+      </div>
+
+      <button class="nav-toggle" aria-label="toggle navigation">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+
+      <nav class="nav-links" role="navigation" aria-label="Main">
+        <a href="Home.html">Home</a>
+        <a href="EDIT-PROFILE.html">Profile</a>
+        <a href="#">Favorite</a>
+        <a href="kategori.html">Categories</a>
+        <a href="histori_peminjaman_user.html">History</a>
+      </nav>
+
+      <div id="profileBtn" class="profile" aria-haspopup="true" aria-expanded="false">
+        <img src="../image/kevinstiker.png" alt="Profil">
+        <div>
+          <h4 id="nama-pengguna">Kevin Glory</h4>
+          <p id="email-pengguna">Kevin@gmail.com</p>
+        </div>
+        <span class="arrow-down"></span>
+      </div>
+
+      <div class="dropdown-menu" id="dropdownMenu" role="menu" aria-hidden="true">
+        <a href="EDIT-PROFILE.html">Profile</a>
+        
+        <a href="#" id="logoutBtn">Logout</a>
+      </div>
+    </header>
+
+    <!-- PAGE CONTENT -->
+    <h1 class="page-title">Histori Peminjaman Buku</h1>
+    <main class="page-inner" role="main">
+      
+
+      <div class="table-container" aria-live="polite">
+        <table>
+          <thead>
+            <tr>
+              <th>No</th>
+              <th>Judul Buku</th>
+              <th>Tanggal Pinjam</th>
+              <th>Tanggal Kembali</th>
+              <th>Tanggal Pengembalian</th>
+              <th>Status Peminjamaman</th>
+              <th>Status Pengembalian</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- rows akan diisi oleh histori_peminjaman_user.js -->
+            <tr><td colspan="7" style="text-align:center;color:#666;padding:22px 0">Memuat data...</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </main>
+
+  </div>
+
+  <!-- SCRIPTS: pastikan urutan ini (axios dulu, lalu script custom) -->
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="../js/histori_peminjaman_user.js"></script>
+</body>
+</html>
