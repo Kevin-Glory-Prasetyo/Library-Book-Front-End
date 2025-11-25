@@ -103,15 +103,26 @@ body {
   overflow-y: auto;
 }
 
+/* --- PERBAIKAN HEADER DI SINI --- */
 header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   background-color: white;
+  
+  /* Kunci Tinggi Header */
   height: 70px;
+  min-height: 70px; /* Mencegah mengecil di laptop kecil */
+  max-height: 70px; /* Mencegah membesar */
+  flex-shrink: 0;   /* Mencegah tertekan oleh konten lain */
+  
   padding: 0 30px;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
   z-index: 10;
+  
+  /* Opsional: Agar header tetap nempel di atas saat scroll */
+  position: sticky;
+  top: 0;
 }
 
 .user-info {
@@ -176,7 +187,6 @@ header h1 {
   display: flex;
   gap: 15px;
   align-items: center;
-  /* --- Perubahan di sini --- */
   width: 100%;
   justify-content: space-between;
 }
@@ -237,11 +247,10 @@ header h1 {
 }
 
 .actions button {
-    /* KUNCI: Gunakan flexbox untuk menata ikon + teks */
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 8px; /* Jarak antara ikon dan teks */
+    gap: 8px; 
     
     padding: 10px 18px;
     border: none;
@@ -263,7 +272,7 @@ header h1 {
 
 
 .btn-primary .btn-icon {
-    width: 14px; /* Sedikit lebih kecil agar pas */
+    width: 14px; 
     height: 14px;
 }
 .btn-primary {
@@ -284,7 +293,7 @@ header h1 {
   border: 1px solid;
 }
 
-/* Tombol Tambah User (Abu-Abu) */
+/* Tombol Tambah User */
 #tambahUserBtn {
   background-color: #11791c;
   color: #ffffff;
