@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Detail Buku - Mumtaz Bahasa Arab</title>
+    <title>Detail Buku </title>
     <link rel="stylesheet" href="../css/detail_buku.css"> 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -21,59 +21,55 @@
 </head>
 <body>
 
-    <header class="navbar">
-        <div class="navbar-brand">
-            <img src="../image/x-code.png" alt="XCODE Logo" class="navbar-img">
-        </div>
-       
-        <nav class="navbar-links">
-            <a href="Home.html" class="active">Home</a>
-            <a href="edit_profile_user.html">Profile</a>
-            <a href="#">Favorite</a>
-            <a href="kategori.html">Categories</a>
-            <a href="histori_peminjaman_user.html">History</a>
-            </nav>
-    
-        <div class="navbar-right">
-            <div class="hamburger" onclick="toggleMenu()">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-    
-            <div class="navbar-profile-container"> 
-                <div class="navbar-profile" id="profileToggle"> 
-                    <img src="https://i.pravatar.cc/40?u=KevinGlory" alt="User Profile">
-                    <div class="navbar-profile-info">
-                        <span id="nama-pengguna">Kevin Glory</span>
-                        <small id="email-pengguna">Kevin@gmail.com</small>
-                    </div>
-                    <span class="navbar-profile-arrow">▼</span> 
-                </div>
-                
-                <div class="profile-dropdown" id="profileDropdown">
-                    <a href="EDIT-PROFILE.html">Profile</a> <a href="login.html">Logout</a>        </div>
-                </div>
-        </div>
-    
-        <div class="mobile-menu" id="mobileMenu">
-            <a href="#">Home</a>
-            <a href="#">Profile</a>
-            <a href="#">Favorite</a>
-            <a href="#">Categories</a>
-            </div>
-    </header>
+   <header class="navbar">
+  <div class="logo">
+    <img src="../image/xcode.png" alt="Logo">
+  </div>
+
+  <!-- MOBILE TOGGLE -->
+  <button class="nav-toggle" aria-label="toggle navigation">
+    <span class="bar"></span>
+    <span class="bar"></span>
+    <span class="bar"></span>
+  </button>
+
+  <!-- NAV LINKS SESUAI CSS -->
+  <nav class="nav-links">
+    <a href="Home.html">Home</a>
+    <a href="EDIT-PROFILE.html">Profile</a>
+    <a href="#">Favorite</a>
+    <a href="kategori.html">Categories</a>
+    <a href="histori_peminjaman_user.html">History</a>
+  </nav>
+
+  <!-- PROFILE SESUAI CSS -->
+  <div class="profile" id="profileBtn">
+    <img src="https://i.pravatar.cc/40?u=KevinGlory" alt="Profil">
+
+    <div class="profile-info">
+      <h4 id="nama-pengguna">Kevin Glory</h4>
+      <p id="email-pengguna">Kevin@gmail.com</p>
+    </div>
+
+    <span class="arrow-down"></span>
+  </div>
+
+  <!-- DROPDOWN SESUAI CSS -->
+  <div class="dropdown-menu" id="dropdownMenu">
+    <a href="EDIT-PROFILE.html">Profile</a>
+    <a href="login.html" id="logoutBtn">Logout</a>
+  </div>
+</header>
+
+
+
     <main class="container">
-        <a href="#" class="back-button">&lt; Back</a>
+        <a href="Home.html" class="back-button">&lt; Back</a>
 
         <section class="book-detail-grid">
             <div class="left-column">
                 <img src="" alt="" class="book-cover" id="detail">
                 <div class="author-card">
-                    <!-- <div class="author-info">
-                        <h4>Erlangga</h4>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum, odio saepe, autem quibusdam praesentium amet soluta itaque velit commodi repudiandae harum sit in voluptas, ex tempora? Illo ipsum voluptate commodi.</p>
-                    </div> -->
                 </div>
             </div>
 

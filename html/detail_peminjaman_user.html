@@ -8,33 +8,42 @@
   </head>
   <body>
     <!-- NAVBAR -->
-    <header class="navbar">
-      <div class="logo">
-        <img src="../image/Xcode.png" alt="Logo" />
+  <header class="navbar">
+    <div class="logo">
+      <img src="../image/xcode.png" alt="Logo">
+    </div>
+
+    <button class="nav-toggle" aria-label="toggle navigation">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </button>
+
+    <nav class="nav-links">
+      <a href="Home.html">Home</a>
+      <a href="edit_profile_user.html">Profile</a>
+      <a href="#">Favorite</a>
+      <a href="kategori.html">Categories</a>
+      <a href="histori_peminjaman_user.html">History</a>
+    </nav>
+    
+
+    <div class="profile" id="profileBtn">
+      <img src="../image/kevinstiker.png" alt="Profil">
+      <div>
+        <h4 id="nama-pengguna">Kevin Glory</h4>
+        <p id="email-pengguna">Kevin@gmail.com</p>
       </div>
+      <span class="arrow-down"></span>
+    </div>
 
-      <button class="nav-toggle" aria-label="toggle navigation">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
-      </button>
+    <!-- DROPDOWN PROFILE -->
+    <div class="dropdown-menu" id="dropdownMenu">
+      <a href="EDIT-PROFILE.html">Profile</a>
+      <a href="login.html" id="logoutBtn">Logout</a>
+    </div>
 
-      <nav class="nav-links">
-        <a href="Home.html">Home</a>
-        <a href="edit_profile_user.html">Profile</a>
-        <a href="#">Favorite</a>
-        <a href="kategori.html">Categories</a>
-        <a href="histori_peminjaman_user.html">History</a>
-      </nav>
-
-      <div class="profile" id="profileBtn">
-        <img src="../image/bahlil.png" alt="Profil" />
-        <div>
-          <h4 id="nama-pengguna"></h4>
-          <p id="email-pengguna"></p>
-        </div>
-      </div>
-    </header>
+  </header>
 
     <!-- Back Button -->
     <div class="back-section">

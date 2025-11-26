@@ -32,6 +32,15 @@ document.addEventListener("DOMContentLoaded", async () => {
 document.addEventListener("DOMContentLoaded", () => {
   const navToggle = document.querySelector(".nav-toggle");
   const mainNav = document.querySelector(".nav-links");
+  const profileBtn = document.getElementById("profileBtn");
+  const dropdownMenu = document.getElementById("dropdownMenu");
+
+  // Klik profil untuk buka dropdown
+  profileBtn.addEventListener("click", (event) => {
+    event.stopPropagation();
+    dropdownMenu.classList.toggle("show");
+    profileBtn.classList.toggle("active");
+  });
 
   // 1. Logika untuk membuka/menutup menu saat tombol di-klik
   navToggle.addEventListener("click", (event) => {
@@ -50,6 +59,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // 3. Logika untuk menutup menu saat meng-klik di luar area menu
   document.addEventListener("click", (event) => {
+    if (
+      !profileBtn.contains(event.target) &&
+      dropdownMenu.classList.contains("show")
+    ) {
+      dropdownMenu.classList.remove("show");
+      profileBtn.classList.remove("active");
+    }
     if (
       mainNav.classList.contains("is-open") &&
       !mainNav.contains(event.target) &&

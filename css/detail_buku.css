@@ -3,246 +3,194 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: "poppins", sans-serif;
 }
 
 body {
-    font-family: 'Poppins', sans-serif;
+    font-family: Arial, sans-serif;
     background-color: #f8f9fa;
     color: #333;
-    min-height: 100vh;
+    /* min-height: 100vh; */
+    margin: 0;
 }
 
 .container {
     max-width: 1200px;
     margin: 20px auto;
     padding: 0 20px;
-    min-height: calc(100vh - 100px);
+    /* min-height: calc(100vh - 100px); */
 }
 
-/* --- NAVBAR RESPONSIVE (UPDATED) --- */
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 40px;
-    background-color: #fff;
-    border-bottom: 1px solid #e0e0e0;
-    position: relative;
+/* ===== Header Utama (Desktop) ===== */
+header.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 60px;
+  background: #fff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
-/* === PERUBAHAN 1.A === */
-.navbar-brand {
-    background-color: #ffffff;
-    padding: 10px 15px;
-    border-radius: 5px;
-    /* height: 50px; <-- DIHAPUS */
-    display: flex;
-    align-items: center;
+.logo img {
+  height: 35px;
+  width: auto;
+  /* display: block; */
 }
 
-/* === PERUBAHAN 1.B === */
-.navbar-img {
-    /* height: 100%; <-- DIGANTI */
-    height: 50px; /* <-- MENJADI INI */
-    width: auto;
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 18px;
 }
 
-/* Desktop Navigation */
-.navbar-links {
-   padding: 20px;
-    gap: 20px;
-    align-items: center;
+.nav-links a {
+  text-decoration: none;
+  color: #000;
+  font-weight: 400;
+  transition: color 0.3s ease;
+  
 }
 
-.navbar-links a {
-    text-decoration: none;
-    color: #555;
-    font-weight: 600;
-    font-size: 0.95rem;
-    transition: color 0.3s;
-    padding: 10px;
+.nav-links a:hover {
+  color: #093FB4;
 }
 
-.navbar-links a:hover {
-    color: #000;
+
+/* === PROFILE SECTION === */
+.profile {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  position: relative;
+  transition: background-color 0.3s ease;
+  padding: 5px 10px;
+  border-radius: 8px;
 }
 
-.navbar-links a.active {
-    color: #000;
-    font-weight: 700;
+.profile:hover {
+  background-color: #f7f7f7;
 }
 
-/* Right side container for hamburger and profile */
-.navbar-right {
-    display: flex;
-    align-items: center;
-    gap: 15px;
+.profile img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  transition: transform 0.3s ease;
 }
 
-/* --- STYLING PROFILE BARU --- */
-.navbar-profile {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    cursor: pointer;
+.profile .arrow-down {
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 6px solid #000;
+  margin-left: 5px;
+  transition: transform 0.3s ease;
 }
 
-.navbar-profile img {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    object-fit: cover;
+.profile.active .arrow-down {
+  transform: rotate(180deg);
 }
 
-.navbar-profile-info {
-    display: flex;
-    flex-direction: column;
-    line-height: 1.2;
+.profile-info {
+  display: flex;
+  flex-direction: column;
 }
 
-.navbar-profile-info span {
-    font-weight: 600;
-    color: #333;
-    font-size: 0.9rem;
+.profile-info h4 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 590;
 }
 
-.navbar-profile-info small {
-    font-size: 0.8rem;
-    color: #777;
+.profile-info p {
+  margin: 0;
+  font-size: 13px;
+  color: gray;
 }
 
-.navbar-profile-arrow {
-    font-size: 0.8rem;
-    color: #555;
-    margin-left: 5px;
-    transition: transform 0.3s ease; /* <-- PERUBAHAN 2: Transisi putaran */
-}
-/* --- AKHIR STYLING PROFILE BARU --- */
-
-
-/* === PERUBAHAN 3: BLOK CSS BARU UNTUK DROPDOWN === */
-/* --- STYLING PROFILE DROPDOWN --- */
-.navbar-profile-container {
-    position: relative; /* Konteks untuk dropdown */
-}
-
-/* Tanda panah terbalik saat aktif */
-.navbar-profile.active .navbar-profile-arrow {
-    transform: rotate(180deg);
+/* ===== Dropdown Profile ===== */
+.dropdown-menu {
+  position: absolute;
+  top: 80px;
+  right: 60px;
+  background: rgb(255, 255, 255);
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  display: none;
+  flex-direction: column;
+  overflow: hidden;
+  z-index: 200;
+  /* justify-content: space-around; */
+  width: 10px;
+  
 }
 
-.profile-dropdown {
-    display: none; /* Tersembunyi by default */
-    position: absolute;
-    top: calc(100% + 10px); /* Posisi di bawah profile + 10px jarak */
-    right: 0;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-    min-width: 150px;
-    z-index: 1100; /* Di atas mobile menu (1000) */
-    overflow: hidden; 
-    animation: slideDown 0.2s ease-out; /* Memakai animasi yang sudah ada */
+.dropdown-menu a {
+  padding: 10px 55px;
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  transition: background 0.3s ease;
+  display: flex;
+  align-items: center;
+  
 }
 
-.profile-dropdown.active {
-    display: block; /* Tampil saat aktif */
+.dropdown-menu a:hover {
+  background-color: #e4e4e4;
+  /* transform: translateX(4px); */
 }
 
-.profile-dropdown a {
-    display: block;
-    padding: 12px 20px;
-    text-decoration: none;
-    color: #333;
-    font-size: 0.95rem;
-    transition: background-color 0.2s;
+/* Saat aktif */
+.dropdown-menu.show {
+  display: flex;
 }
 
-.profile-dropdown a:hover {
-    background-color: #f8f9fa;
-}
-/* --- AKHIR STYLING PROFILE DROPDOWN --- */
-/* === AKHIR PERUBAHAN 3 === */
-
-
-/* Hamburger Menu (hidden on desktop) */
-.hamburger {
-    display: none;
-    flex-direction: column;
-    cursor: pointer;
-    gap: 5px;
-    padding: 5px;
-    z-index: 1001;
+/* Responsif: pastikan dropdown tetap rapi di mobile */
+@media (max-width: 768px) {
+  .dropdown-menu {
+    right: 20px;
+    top: 70px;
+  }
 }
 
-.hamburger span {
-    width: 25px;
-    height: 3px;
-    background-color: #ff0000;
-    border-radius: 2px;
-    transition: all 0.3s;
+
+/* ----- Tombol Navigasi Mobile ----- */
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+  padding: 5px;
+  background: transparent;
+  border: none;
+  z-index: 1001;
 }
 
-.hamburger.active span:nth-child(1) {
-    transform: rotate(45deg) translate(8px, 8px);
+.nav-toggle .bar {
+  width: 25px;
+  height: 3px;
+  background-color: #3700ff;
+  border-radius: 2px;
+  transition: all 0.3s;
 }
 
-.hamburger.active span:nth-child(2) {
-    opacity: 0;
+.nav-toggle.is-open .bar:nth-child(1) {
+  transform: rotate(45deg) translate(8px, 8px);
 }
 
-.hamburger.active span:nth-child(3) {
-    transform: rotate(-45deg) translate(7px, -7px);
+.nav-toggle.is-open .bar:nth-child(2) {
+  opacity: 0;
 }
 
-/* Mobile Menu */
-.mobile-menu {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    background-color: #fff;
-    border-bottom: 1px solid #e0e0e0;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    z-index: 1000;
-    animation: slideDown 0.3s ease-out;
+.nav-toggle.is-open .bar:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -7px);
 }
-
-@keyframes slideDown {
-    from {
-        opacity: 0;
-        transform: translateY(-10px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.mobile-menu.active {
-    display: block;
-}
-
-.mobile-menu a {
-    display: block;
-    padding: 15px 40px;
-    text-decoration: none;
-    color: #555;
-    font-weight: 600;
-    border-bottom: 1px solid #f0f0f0;
-    transition: background-color 0.3s;
-}
-
-.mobile-menu a:hover {
-    background-color: #f8f9fa;
-    color: #000;
-}
-
-.mobile-menu a:last-child {
-    border-bottom: none;
-}
-/* --- AKHIR NAVBAR --- */
 
 /* --- Main Content Grid --- */
 .back-button {
@@ -471,39 +419,46 @@ body {
     text-align: justify;
 }
 
-/* --- RESPONSIVE DESIGN --- */
+@media (max-width: 768px) {
+  header.navbar {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 10px 20px;
+  }
 
-/* Desktop Large - 1025px and above */
-@media (min-width: 1025px) {
-    .navbar {
-        padding: 15px 60px;
-    }
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 65px;
+    left: 0;
+    background-color: white;
+    width: 100%;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  }
 
-    .navbar-links {
-        gap: 80px;
-    }
+  .nav-links.is-open {
+    display: flex;
+  }
+
+  .nav-links a {
+    padding: 15px;
+    border-bottom: 1px solid #f0f0f0;
+  }
+
+  .profile {
+    display: none;
+  }
+
+  .nav-toggle {
+    display: flex;
+  }
 }
 
-/* Tablet - 1024px */
-@media (max-width: 1024px) {
-    .navbar {
-        padding: 15px 30px;
-    }
 
-    .navbar-links {
-        gap: 40px;
-    }
 
-    .navbar-links a {
-        font-size: 0.9rem;
-    }
-
-    .container {
-        padding: 0 30px;
-    }
-}
-
-/* Tablet - 768px */
+/* Tablet - 768px
 @media (max-width: 768px) {
     .navbar {
         padding: 12px 20px;
@@ -513,18 +468,6 @@ body {
         display: none;
     }
 
-    .hamburger {
-        display: flex;
-    }
-
-    .navbar-profile-info,
-    .navbar-profile-arrow {
-        display: none;
-    }
-
-    .navbar-right {
-        gap: 15px;
-    }
 
     .container {
         padding: 0 20px;
@@ -573,40 +516,15 @@ body {
     .book-card img {
         height: 220px;
     }
-}
+} */
 
 /* Mobile Large - 425px */
-@media (max-width: 425px) {
+/* @media (max-width: 425px) {
     .navbar {
         padding: 10px 15px;
     }
-
-    .navbar-brand {
-        height: 40px;
-        padding: 8px 12px;
-    }
-    
-    /* Mengembalikan ukuran logo ke semula di mobile */
     .navbar-img {
         height: 100%;
-    }
-
-    .hamburger span {
-        width: 22px;
-    }
-
-    .navbar-profile-info,
-    .navbar-profile-arrow {
-        display: none;
-    }
-
-    .navbar-right {
-        gap: 12px;
-    }
-
-    .mobile-menu a {
-        padding: 12px 20px;
-        font-size: 0.9rem;
     }
 
     .container {
@@ -647,46 +565,22 @@ body {
     .references h2 {
         font-size: 1.3rem;
     }
-}
+} */
 
 /* Mobile Small - 375px */
-@media (max-width: 375px) {
+/* @media (max-width: 375px) {
     .navbar {
         padding: 10px 12px;
-    }
+    } */
 
-    .navbar-brand {
-        height: 35px;
-        padding: 6px 10px;
-    }
-    
     /* Mengembalikan ukuran logo ke semula di mobile */
-    .navbar-img {
+    /* .navbar-img {
         height: 100%;
     }
 
     .navbar-profile img {
         width: 35px;
         height: 35px;
-    }
-
-    .navbar-profile-info,
-    .navbar-profile-arrow {
-        display: none;
-    }
-
-    .navbar-right {
-        gap: 10px;
-    }
-
-    .hamburger span {
-        width: 20px;
-        height: 2.5px;
-    }
-
-    .mobile-menu a {
-        padding: 10px 15px;
-        font-size: 0.85rem;
     }
 
     .container {
@@ -734,4 +628,4 @@ body {
     .book-card p {
         font-size: 0.85rem;
     }
-}
+} */
