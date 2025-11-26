@@ -305,7 +305,7 @@ h2 {
   text-overflow: ellipsis;
 }
 
-.book-card button {
+.pinjam-btn {
   background-color: #021122;
   color: white;
   border: none;
@@ -315,9 +315,10 @@ h2 {
   transition: background 0.3s ease;
 }
 
-.book-card button:hover {
+.pinjam-btn:hover {
   background-color: #0766cc;
 }
+
 
 .book-slider {
   position: relative;
