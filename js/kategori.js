@@ -1,3 +1,52 @@
+document.addEventListener("DOMContentLoaded", () => {
+  axios
+    .get("http://localhost:8000/buku/buku")
+    .then((res) => {
+      const books = res.data.dataBuku;
+
+      // render tiap kategori
+      renderBooksByCategory(1, books); // Teknologi
+      renderBooksByCategory(2, books); // Novel
+      renderBooksByCategory(3, books); // Pendidikan
+      renderBooksByCategory(4, books); // Bisnis
+      renderBooksByCategory(5, books); // Sejarah
+    })
+    .catch((err) => console.error("Error ambil data:", err));
+});
+
+function renderBooksByCategory(categoryId, books) {
+  const container = document.getElementById(`kategori-${categoryId}`);
+  const filtered = books.filter(book => book.id_kategori === categoryId);
+
+  if (!filtered.length) {
+    container.innerHTML = `
+  <div class="no-books">
+      <div class="no-books-icon">📚</div>
+      <h2 class="no-books-text">Belum ada buku pada kategori ini.</h2>
+  </div>
+`;
+    return;
+  }
+
+  container.innerHTML = "";
+
+  filtered.forEach(book => {
+    const imgURL = `http://localhost:8000${book.gambar_buku}`;
+
+    container.innerHTML += `
+      <div class="book-card">
+        <img src="${imgURL}" alt="${book.judul_buku}">
+        <h4>${book.judul_buku}</h4>
+        <a class="pinjam-btn" href="detail_buku.html?id=${book.id_buku}">
+          Pinjam
+        </a>
+      </div>
+    `;
+  });
+}
+
+
+
 
 // Ambil semua slider kategori
 document.querySelectorAll(".book-slider").forEach(slider => {
