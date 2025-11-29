@@ -45,37 +45,7 @@ if (profileToggle && profileDropdown) {
     profileToggle.classList.toggle("active"); // Untuk memutar panah via CSS
   });
 }
-// === AKHIR BAGIAN BARU ===
 
-// // === EVENT LISTENER 'CLICK OUTSIDE' DIPERBARUI ===
-// // Menutup mobile menu DAN profile dropdown saat klik di luar
-// document.addEventListener("click", function (event) {
-//   const mobileMenu = document.getElementById("mobileMenu");
-//   const hamburger = document.querySelector(".hamburger");
-//   const navbar = document.querySelector(".navbar");
-
-//   // Logika untuk menutup Mobile Menu (sudah ada)
-//   if (
-//     mobileMenu &&
-//     mobileMenu.classList.contains("active") &&
-//     !navbar.contains(event.target)
-//   ) {
-//     mobileMenu.classList.remove("active");
-//     hamburger.classList.remove("active");
-//   }
-
-//   // Logika baru untuk menutup Profile Dropdown
-//   if (profileDropdown && profileDropdown.classList.contains("active")) {
-//     const profileContainer = document.querySelector(
-//       ".navbar-profile-container"
-//     );
-//     // Cek apakah klik terjadi di luar container profile
-//     if (!profileContainer.contains(event.target)) {
-//       profileDropdown.classList.remove("active");
-//       profileToggle.classList.remove("active");
-//     }
-//   }
-// });
 
 document.addEventListener("DOMContentLoaded", () => {
   const navToggle = document.querySelector(".nav-toggle");
@@ -156,55 +126,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
 });
 
-// document.addEventListener("DOMContentLoaded", () => {
-//   const params = new URLSearchParams(window.location.search);
-//   const id = params.get("id");
 
-//   axios
-//     .get("http://localhost:8000/auth/checkLogin", { withCredentials: true })
-//     .then((res) => {
-//       const data = res.data.user.id
-//     });
-
-//   axios
-//     .get(`http://localhost:8000/buku/detailbuku/${id}`)
-//     .then((res) => {
-//       const book = res.data.data;
-//       const detail = document.getElementById("detail");
-//       const judul = document.getElementById("judul_buku");
-//       const penulis = document.getElementById("penulis_buku");
-//       const kategori = document.getElementById("kategori_buku");
-//       const deskripsi = document.getElementById("deskripsi_buku");
-//       const stok = document.getElementById("stok");
-//       const dipinjam = document.getElementById("dipinjam");
-//       const ajukan = document.getElementById("ajukan");
-
-//       let pinjam = parseInt(book.total_stock) - parseInt(book.available_stock);
-
-//       detail.src = `http://localhost:8000${book.gambar_buku}`;
-//       detail.alt = `${book.judul_buku}`;
-
-//       judul.innerHTML = `${book.judul_buku}`;
-//       penulis.innerHTML = `By ${book.penulis_buku}`;
-//       kategori.innerHTML = `${book.name}`;
-//       deskripsi.innerHTML = `${book.deskripsi_buku}`;
-//       stok.innerHTML = `Stok Tersedia: ${book.available_stock}`;
-//       dipinjam.innerHTML = `Dipinjam: ${pinjam}`;
-
-//       if (book.available_stock === 0) {
-//         ajukan.disabled = true;
-//         ajukan.style.cursor = "not-allowed";
-//         ajukan.innerHTML = "Stok Kosong";
-//       } else if (condition) {
-//       } else {
-//         ajukan.addEventListener("click", () => {
-//           window.location.href = `detail_peminjaman_user.html?id=${book.id_buku}`;
-//         });
-//       }
-//     })
-//     .catch((err) => {
-//       console.error(err);
-//     });
 // });
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -276,4 +198,40 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     })
     .catch((err) => console.error(err));
+    loadUserProfileHeader();
 });
+
+
+async function loadUserProfileHeader() {
+  const navbarProfileName = document.getElementById("navbarProfileName");
+  const navbarProfileEmail = document.getElementById("navbarProfileEmail");
+  const navbarProfileImg = document.getElementById("navbarProfileImg");
+
+  try {
+    const res = await axios.get("http://localhost:8000/users/profile", {
+      withCredentials: true,
+    });
+
+    const { data } = res.data; // data = user dari backend
+    if (!data) return;
+
+    // === DI SINI NAMA DEPAN, BELAKANG, EMAIL DIUBAH ===
+    if (navbarProfileName) {
+      navbarProfileName.textContent =
+        (data.first_name || "") + " " + (data.last_name || "");
+    }
+    if (navbarProfileEmail) {
+      navbarProfileEmail.textContent = data.email || "";
+    }
+
+    if (data.photo && navbarProfileImg) {
+      const photoUrl = `http://localhost:8000/uploads/${data.photo}?t=${Date.now()}`;
+      navbarProfileImg.src = photoUrl;
+    }
+  } catch (err) {
+    console.error("Gagal load profile header:", err);
+    if (err.response && (err.response.status === 401 || err.response.status === 403)) {
+      window.location.href = "login.html";
+    }
+  }
+}

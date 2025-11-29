@@ -19,10 +19,11 @@ header.navbar {
   align-items: center;
   padding: 20px 60px;
   background: #fff;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   position: sticky;
   top: 0;
   z-index: 100;
+  background-color:red;
 }
 
 
@@ -152,10 +153,11 @@ header.navbar {
   align-items: center;
   padding: 20px 60px;
   background: #fff;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
   position: sticky;
   top: 0;
   z-index: 100;
+  
 }
 
 
@@ -221,27 +223,20 @@ header.navbar {
     padding: 0;
 }
 
-/* --- COVER SECTION --- */
-.cover-section {
-    position: relative;
-    width: 135%;
-    height: 200px;
-    background-color: #3d4f6d;
-}
 
 /* --- PROFILE CARD --- */
 .profile-card {
     background-color:white;
     border-radius: 10px;
     padding: 40px;
-    margin: -120px 20px 40px;
+    margin: 50px 20px 40px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.1);
     position: relative;
 }
 
 .profile-card h1 {
     text-align: center;
-    font-size: 1.8rem;
+    font-size: 20px;
     margin-bottom: 40px;
     color: #333;
 }
@@ -349,7 +344,7 @@ header.navbar {
     color: #fff;
     border: none;
     border-radius: 5px;
-    font-weight: 600;
+    font-weight: 500;
     font-size: 1rem;
     cursor: pointer;
     margin-top: 20px;

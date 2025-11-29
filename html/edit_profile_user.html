@@ -33,28 +33,25 @@
     
 
       <div class="profile" id="profileBtn">
-        <img src="../image/kevinstiker.png" alt="Profil">
+        <img src="../image/kevinstiker.png" alt="Profil" id="navbarProfileImg">
         <div>
           <h4>Kevin Glory</h4>
-          <p>Kevin@gmail.com</p>
+          <!-- <p>Kevin@gmail.com</p> -->
         </div>
         <span class="arrow-down"></span>
       </div>
 
     <!-- DROPDOWN PROFILE -->
       <div class="dropdown-menu" id="dropdownMenu">
-        <a href="EDIT-PROFILE.html">Profile</a>
+        <a href="edit_profile_user.html">Profile</a>
         <a href="#" id="logoutBtn">Logout</a>
       </div>
 
     </header>
-  <div class="cover-section"></div>
     <main class="profile-container">
         
 
         <div class="profile-card">
-            <h1>EDIT PROFILE</h1>
-            
             <div class="profile-content">
                 <div class="profile-picture-section">
                     <div class="profile-picture">
@@ -63,40 +60,36 @@
                             <i class="fas fa-camera"></i> <span>Change Photo</span>
                         </div>
                     </div>
-                    <input type="file" id="profileInput" accept="image/png, image/jpeg, image/jpg" style="display: none;">
+                    <input  type="file"  name= "photo" id="profileInput" accept="image/png, image/jpeg, image/jpg" style="display: none;">
                 </div>
 
                 <div class="profile-form">
                     <div class="form-group">
-                        <label for="namaAwal">Nama awal</label>
+                        <label for="namaAwal">Nama Awal</label>
                         <input type="text" id="namaAwal" placeholder="Masukkan nama awal">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="namaBelakang">Nama Belakang</label>
+                        <input type="text" id="namaBelakang" placeholder="Masukkan nama belakang">
                     </div>
 
                     <div class="form-group">
                         <label for="email">Email</label>
                         <input type="email" id="email" placeholder="Masukkan email">
                     </div>
-
                     <div class="form-group">
-                        <label for="noHp">No. HP</label>
-                        <input type="tel" id="noHp" placeholder="Masukkan nomor HP">
+                        <label for="Password">Password</label>
+                        <input type="password" id="Password" placeholder="Masukkan password">
                     </div>
 
-                    <div class="form-group">
-                        <label for="jenisKelamin">Jenis Kelamin</label>
-                        <select id="jenisKelamin">
-                            <option value="">Pilih jenis kelamin</option>
-                            <option value="laki-laki">Laki-laki</option>
-                            <option value="perempuan">Perempuan</option>
-                        </select>
-                    </div>
 
-                    <button class="btn-update">UPDATE</button>
+                    <button class="btn-update">Simpan</button>
                 </div>
             </div>
         </div>
     </main>
-
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="../js/edit_profile_user.js"></script>
 </body>
 </html>

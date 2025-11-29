@@ -30,6 +30,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       return;
     }
   }
+   loadUserProfileHeader();
 });
 
 // Logout
@@ -201,3 +202,38 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
+
+// ================== LOAD DATA PROFILE UNTUK HEADER ==================
+async function loadUserProfileHeader() {
+  const navbarProfileName = document.getElementById("navbarProfileName");
+  const navbarProfileEmail = document.getElementById("navbarProfileEmail");
+  const navbarProfileImg = document.getElementById("navbarProfileImg");
+
+  try {
+    const res = await axios.get("http://localhost:8000/users/profile", {
+      withCredentials: true,
+    });
+
+    const { data } = res.data; // data = user dari backend
+    if (!data) return;
+
+    if (navbarProfileName) {
+      navbarProfileName.textContent =
+        (data.first_name || "") + " " + (data.last_name || "");
+    }
+    if (navbarProfileEmail) {
+      navbarProfileEmail.textContent = data.email || "";
+    }
+
+    if (data.photo && navbarProfileImg) {
+      const photoUrl = `http://localhost:8000/uploads/${data.photo}?t=${Date.now()}`;
+      navbarProfileImg.src = photoUrl;
+    }
+  } catch (err) {
+    console.error("Gagal load profile header:", err);
+    if (err.response && (err.response.status === 401 || err.response.status === 403)) {
+      // kalau belum login, bisa redirect ke login
+      window.location.href = "login.html";
+    }
+  }
+}
