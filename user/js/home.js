@@ -262,13 +262,13 @@ async function loadUserProfileHeader() {
     const { data } = res.data; // data = user dari backend
     if (!data) return;
 
-    // if (navbarProfileName) {
-    //   navbarProfileName.textContent =
-    //     (data.first_name || "") + " " + (data.last_name || "");
-    // }
-    // if (navbarProfileEmail) {
-    //   navbarProfileEmail.textContent = data.email || "";
-    // }
+    if (navbarProfileName) {
+      navbarProfileName.textContent =
+        (data.first_name || "") + " " + (data.last_name || "");
+    }
+    if (navbarProfileEmail) {
+      navbarProfileEmail.textContent = data.email || "";
+    }
 
     if (data.photo && navbarProfileImg) {
       const photoUrl = `http://localhost:8000/uploads/${data.photo}?t=${Date.now()}`;
@@ -278,7 +278,7 @@ async function loadUserProfileHeader() {
     console.error("Gagal load profile header:", err);
     if (err.response && (err.response.status === 401 || err.response.status === 403)) {
       // kalau belum login, bisa redirect ke login
-      window.location.href = "../../login.html";
+      window.location.href = "login.html";
     }
   }
 }

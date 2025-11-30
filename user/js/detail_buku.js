@@ -149,6 +149,9 @@ document.addEventListener("DOMContentLoaded", () => {
           const dipinjam = document.getElementById("dipinjam");
           const ajukan = document.getElementById("ajukan");
 
+          // BOOSTRAP ICON PINJAM
+          const starIcon = document.querySelector(".bi-star-fill");
+
           const pinjam =
             parseInt(book.total_stock) - parseInt(book.available_stock);
 
@@ -161,6 +164,14 @@ document.addEventListener("DOMContentLoaded", () => {
           deskripsi.innerHTML = book.deskripsi_buku;
           stok.innerHTML = `Stok Tersedia: ${book.available_stock}`;
           dipinjam.innerHTML = `Dipinjam: ${pinjam}`;
+
+          // --- LOGIKA BARU: CEK STATUS FAVORIT ---
+          checkFavoriteStatus(userId, idBuku, starIcon);
+
+          // --- LOGIKA BARU: KLIK BINTANG ---
+          starIcon.addEventListener("click", () => {
+            toggleFavorite(userId, idBuku, starIcon);
+          });
 
           if (book.available_stock === 0) {
             ajukan.disabled = true;
@@ -280,3 +291,46 @@ document.addEventListener("DOMContentLoaded", async function () {
     console.error("Gagal mengambil data:", err);
   }
 });
+
+// === FUNGSI TAMBAHAN UNTUK FAVORIT ===
+
+// Cek warna bintang saat loading
+async function checkFavoriteStatus(userId, bookId, iconElement) {
+  try {
+    const res = await axios.get(`http://localhost:8000/favorit/check/${userId}/${bookId}`);
+    if (res.data.isFavorite) {
+      iconElement.style.color = "yellow"; // Jika favorit, kuning
+    } else {
+      iconElement.style.color = "grey"; // Jika tidak, abu-abu
+    }
+  } catch (error) {
+    console.error("Gagal cek favorit", error);
+  }
+}
+
+// Klik Bintang (Tambah/Hapus)
+async function toggleFavorite(userId, bookId, iconElement) {
+  const currentColor = iconElement.style.color;
+  
+  try {
+    if (currentColor === "yellow") {
+      // Hapus dari favorit
+      await axios.delete("http://localhost:8000/favorit/remove", {
+        data: { id_user: userId, id_buku: bookId } // Kirim data di body delete
+      });
+      iconElement.style.color = "grey";
+      alert("Dihapus dari favorit");
+    } else {
+      // Tambah ke favorit
+      await axios.post("http://localhost:8000/favorit/add", {
+        id_user: userId,
+        id_buku: bookId
+      });
+      iconElement.style.color = "yellow";
+      alert("Ditambahkan ke favorit");
+    }
+  } catch (error) {
+    console.error("Gagal toggle favorit", error);
+    alert("Terjadi kesalahan sistem");
+  }
+}
