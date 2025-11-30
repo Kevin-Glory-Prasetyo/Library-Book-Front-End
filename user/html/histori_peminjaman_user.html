@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HISTORY</title>
+  <link rel="stylesheet" href="../css/history_peminjaman_user.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    /> -->
+</head>
+<body>
+
+  <div class="main-container">
+
+    <!-- NAVBAR -->
+    <header class="navbar" role="banner">
+      <div class="logo">
+        <img src="../image/xcode.png" alt="Logo">
+      </div>
+
+      <button class="nav-toggle" aria-label="toggle navigation">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+
+      <nav class="nav-links" role="navigation" aria-label="Main">
+        <a href="Home.html">Home</a>
+        <a href="edit_profile_user.html">Profile</a>
+        <a href="#">Favorite</a>
+        <a href="kategori.html">Categories</a>
+        <a href="histori_peminjaman_user.html">History</a>
+      </nav>
+
+      <div id="profileBtn" class="profile" aria-haspopup="true" aria-expanded="false">
+        <img src="../image/kevinstiker.png" alt="Profil">
+        <div>
+          <h4 id="nama-pengguna"></h4>
+        </div>
+        <span class="arrow-down"></span>
+      </div>
+
+      <div class="dropdown-menu" id="dropdownMenu" role="menu" aria-hidden="true">
+        <a href="edit_profile_user.html">Profile</a>
+        
+        <a href="login.html" id="logoutBtn">Logout</a>
+      </div>
+    </header>
+
+    <!-- PAGE CONTENT -->
+    <h1 class="page-title">Histori Peminjaman Buku</h1>
+    <main class="page-inner" role="main">
+      
+
+      <div class="table-container" aria-live="polite">
+        <table>
+          <thead>
+            <tr>
+              <th>No</th>
+              <th>Judul Buku</th>
+              <th>Tanggal Pinjam</th>
+              <th>Tanggal Kembali</th>
+              <th>Tanggal Pengembalian</th>
+              <th>Status Peminjamaman</th>
+              <th>Status Pengembalian</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="history-body">
+          </tbody>
+        </table>
+      </div>
+    </main>
+
+  </div>
+
+  <!-- SCRIPTS: pastikan urutan ini (axios dulu, lalu script custom) -->
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="../js/histori_peminjaman_user.js"></script>
+  <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+      integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js"
+      integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y"
+      crossorigin="anonymous"
+    ></script>
+</body>
+</html>

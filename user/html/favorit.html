@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FAVORITES - XCODE</title>
+  <link rel="stylesheet" href="../css/favorit.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="logo">
+      <img src="../image/xcode.png" alt="Logo">
+    </div>
+
+    <button class="nav-toggle" aria-label="toggle navigation">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </button>
+
+    <nav class="nav-links">
+      <a href="Home.html">Home</a>
+      <a href="edit_profile_user.html">Profile</a>
+      <a href="favorite.html">Favorite</a>
+      <a href="kategori.html">Categories</a>
+      <a href="histori_peminjaman_user.html">History</a>
+    </nav>
+    
+    <div class="profile" id="profileBtn">
+      <img src="../image/kevinstiker.png" alt="Profil">
+      <div>
+        <h4 id="nama-pengguna">Kevin Glory</h4>
+      </div>
+      <span class="arrow-down"></span>
+    </div>
+
+    <div class="dropdown-menu" id="dropdownMenu">
+      <a href="EDIT-PROFILE.html">Profile</a>
+      <a href="login.html" id="logoutBtn">Logout</a>
+    </div>
+  </header>
+
+  <main class="fav-container">
+    
+    <h1 class="fav-heading">My Favorites</h1>
+
+    <div class="fav-grid" id="favoriteBooks">
+      
+      <div class="fav-item">
+        <div class="fav-img-wrapper">
+          <img src="../image/Book1.jpg" alt="Ratan Tata">
+        </div>
+        <div class="fav-info">
+          <div class="info-header">
+            <h3 class="book-title">Ratan Tata Biography</h3>
+            <span class="heart-icon btn-remove">
+                <img src="../image/icon-star.png" alt="Remove">
+            </span> 
+          </div>
+          <p class="book-desc">An iconic Indian industrialist, Ratan Tata, has been a stalwart of the Indian business ecosystem.</p>
+          <div class="info-footer">
+            <span class="book-author">Thomas Mathew</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="fav-item">
+        <div class="fav-img-wrapper">
+          <img src="../image/Book2.webp" alt="Inspiring Stories">
+        </div>
+        <div class="fav-info">
+          <div class="info-header">
+            <h3 class="book-title">Inspiring Stories</h3>
+             <span class="heart-icon btn-remove">
+                <img src="../image/icon-star.png" alt="Remove">
+            </span>
+          </div>
+          <p class="book-desc">We all have some sort of negativity that demotivates and surrounds us all the time.</p>
+          <div class="info-footer">
+            <span class="book-author">G. Francis</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="fav-item">
+        <div class="fav-img-wrapper">
+          <img src="../image/Book3.jpeg" alt="World Best">
+        </div>
+        <div class="fav-info">
+          <div class="info-header">
+            <h3 class="book-title">The World's Best</h3>
+             <span class="heart-icon btn-remove">
+                <img src="../image/icon-star.png" alt="Remove">
+            </span>
+          </div>
+          <p class="book-desc">The best inspiring stories from around the world collected in one masterpiece.</p>
+          <div class="info-footer">
+             <span class="book-author">C. N. Phillips</span>
+          </div>
+        </div>
+      </div>
+
+       <div class="fav-item">
+        <div class="fav-img-wrapper">
+          <img src="../image/Book1.jpg" alt="Another Book">
+        </div>
+        <div class="fav-info">
+          <div class="info-header">
+            <h3 class="book-title">Angkasa dan 56 Hari</h3>
+             <span class="heart-icon btn-remove">
+                <img src="../image/icon-star.png" alt="Remove">
+            </span>
+          </div>
+          <p class="book-desc">Sebuah perjuangan perihal apa yang belum usai. Kisah tentang harapan dan waktu.</p>
+          <div class="info-footer">
+            <span class="book-author">Destashya WDP</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="fav-item">
+        <div class="fav-img-wrapper">
+          <img src="../image/Book2.webp" alt="Atomic Habits">
+        </div>
+        <div class="fav-info">
+          <div class="info-header">
+            <h3 class="book-title">Atomic Habits</h3>
+             <span class="heart-icon btn-remove">
+                <img src="../image/icon-star.png" alt="Remove">
+            </span>
+          </div>
+          <p class="book-desc">An easy & proven way to build good habits and break bad ones.</p>
+          <div class="info-footer">
+            <span class="book-author">James Clear</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="fav-item">
+        <div class="fav-img-wrapper">
+          <img src="../image/Book3.jpeg" alt="Deep Work">
+        </div>
+        <div class="fav-info">
+          <div class="info-header">
+            <h3 class="book-title">Deep Work</h3>
+             <span class="heart-icon btn-remove">
+                <img src="../image/icon-star.png" alt="Remove">
+            </span>
+          </div>
+          <p class="book-desc">Rules for focused success in a distracted world.</p>
+          <div class="info-footer">
+            <span class="book-author">Cal Newport</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="fav-item">
+        <div class="fav-img-wrapper">
+          <img src="../image/Book1.jpg" alt="Psychology of Money">
+        </div>
+        <div class="fav-info">
+          <div class="info-header">
+            <h3 class="book-title">Psychology of Money</h3>
+             <span class="heart-icon btn-remove">
+                <img src="../image/icon-star.png" alt="Remove">
+            </span>
+          </div>
+          <p class="book-desc">Timeless lessons on wealth, greed, and happiness.</p>
+          <div class="info-footer">
+            <span class="book-author">Morgan Housel</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="fav-item">
+        <div class="fav-img-wrapper">
+          <img src="../image/Book2.webp" alt="Rich Dad Poor Dad">
+        </div>
+        <div class="fav-info">
+          <div class="info-header">
+            <h3 class="book-title">Rich Dad Poor Dad</h3>
+             <span class="heart-icon btn-remove">
+                <img src="../image/icon-star.png" alt="Remove">
+            </span>
+          </div>
+          <p class="book-desc">What the rich teach their kids about money that the poor and middle class do not!</p>
+          <div class="info-footer">
+            <span class="book-author">Robert Kiyosaki</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="fav-item">
+        <div class="fav-img-wrapper">
+          <img src="../image/Book3.jpeg" alt="Sapiens">
+        </div>
+        <div class="fav-info">
+          <div class="info-header">
+            <h3 class="book-title">Sapiens</h3>
+             <span class="heart-icon btn-remove">
+                <img src="../image/icon-star.png" alt="Remove">
+            </span>
+          </div>
+          <p class="book-desc">A brief history of humankind from the stone age to the modern age.</p>
+          <div class="info-footer">
+            <span class="book-author">Yuval Noah Harari</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="fav-item">
+        <div class="fav-img-wrapper">
+          <img src="../image/Book1.jpg" alt="Clean Code">
+        </div>
+        <div class="fav-info">
+          <div class="info-header">
+            <h3 class="book-title">Clean Code</h3>
+             <span class="heart-icon btn-remove">
+                <img src="../image/icon-star.png" alt="Remove">
+            </span>
+          </div>
+          <p class="book-desc">A handbook of agile software craftsmanship for developers.</p>
+          <div class="info-footer">
+            <span class="book-author">Robert C. Martin</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="fav-item">
+        <div class="fav-img-wrapper">
+          <img src="../image/Book2.webp" alt="The Pragmatic Programmer">
+        </div>
+        <div class="fav-info">
+          <div class="info-header">
+            <h3 class="book-title">Pragmatic Programmer</h3>
+             <span class="heart-icon btn-remove">
+                <img src="../image/icon-star.png" alt="Remove">
+            </span>
+          </div>
+          <p class="book-desc">Your journey to mastery, from journeyman to master.</p>
+          <div class="info-footer">
+            <span class="book-author">Andrew Hunt</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="fav-item">
+        <div class="fav-img-wrapper">
+          <img src="../image/Book3.jpeg" alt="Start With Why">
+        </div>
+        <div class="fav-info">
+          <div class="info-header">
+            <h3 class="book-title">Start With Why</h3>
+             <span class="heart-icon btn-remove">
+                <img src="../image/icon-star.png" alt="Remove">
+            </span>
+          </div>
+          <p class="book-desc">How great leaders inspire everyone to take action.</p>
+          <div class="info-footer">
+            <span class="book-author">Simon Sinek</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="fav-item">
+        <div class="fav-img-wrapper">
+          <img src="../image/Book1.jpg" alt="Zero to One">
+        </div>
+        <div class="fav-info">
+          <div class="info-header">
+            <h3 class="book-title">Zero to One</h3>
+             <span class="heart-icon btn-remove">
+                <img src="../image/icon-star.png" alt="Remove">
+            </span>
+          </div>
+          <p class="book-desc">Notes on startups, or how to build the future.</p>
+          <div class="info-footer">
+            <span class="book-author">Peter Thiel</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="fav-item">
+        <div class="fav-img-wrapper">
+          <img src="../image/Book2.webp" alt="Alchemist">
+        </div>
+        <div class="fav-info">
+          <div class="info-header">
+            <h3 class="book-title">The Alchemist</h3>
+             <span class="heart-icon btn-remove">
+                <img src="../image/icon-star.png" alt="Remove">
+            </span>
+          </div>
+          <p class="book-desc">A fable about following your dream and listening to your heart.</p>
+          <div class="info-footer">
+            <span class="book-author">Paulo Coelho</span>
+          </div>
+        </div>
+      </div>
+
+    </div> 
+
+  </main>
+
+  <script src="../js/favorit.js"></script> 
+</body>
+</html>

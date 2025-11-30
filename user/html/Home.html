@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>XCODE-BOOK</title>
+  <link rel="stylesheet" href="../css/home.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <div class="logo">
+      <img src="../image/xcode.png" alt="Logo">
+    </div>
+
+    <button class="nav-toggle" aria-label="toggle navigation">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </button>
+
+    <nav class="nav-links">
+      <a href="Home.html">Home</a>
+      <a href="edit_profile_user.html">Profile</a>
+      <a href="#">Favorite</a>
+      <a href="kategori.html">Categories</a>
+      <a href="histori_peminjaman_user.html">History</a>
+    </nav>
+    
+
+    <div class="profile" id="profileBtn">
+      <img src="../image/kevinstiker.png" alt="Profil" id="navbarProfileImg">
+      <div>
+        <h4 id="nama-pengguna"></h4>
+      </div>
+      <span class="arrow-down"></span>
+    </div>
+
+    <!-- DROPDOWN PROFILE -->
+    <div class="dropdown-menu" id="dropdownMenu">
+      <a href="edit_profile_user.html">Profile</a>
+      <a href="login.html" id="logoutBtn">Logout</a>
+    </div>
+
+  </header>
+
+  <!-- seeNow -->
+  <div class="seeNow">
+    <h2>TEMUKAN BUKU FAVORITMU !</h2>
+    <!-- <h3></h3> -->
+    <!-- <button id="seeNowBtn">Lihat Sekarang !</button> -->
+    <a href="kategori.html" id="seeNowBtn">Lihat Sekarang</a>
+    <div class="book-display" id="bookDisplay">
+    </div>
+  </div>
+
+  <!-- TOP RATED -->
+  <div class="section">
+    <h2>Buku yang paling sering di pinjam</h2>
+    <div class="books" id="topBooks">
+    </div>
+  </div>
+
+  <!-- QUOTE -->
+  <div class="quote">
+    "The more that you read, the more things you will know. <br>The more that you learn, the more places you'll go."
+  </div>
+
+  <!-- Coming Soon Section -->
+<div class="coming-soon">
+  <div class="coming-text">
+    <h2>Segera Hadir</h2>
+    <p align = "justify">
+      Nantikan kehadiran buku terbaru kami yang akan segera hadir dengan wawasan dan inspirasi baru. Sebuah karya yang dirancang untuk memperluas perspektif, memperkaya pengetahuan, dan menemani perjalanan Anda menuju pengembangan diri yang lebih baik. Tetap ikuti kabar selanjutnya dan jadilah yang pertama menikmati setiap hal baru yang kami hadirkan.
+    </p>
+  </div>
+
+  <div class="coming-books-wrapper">
+
+    <div class="coming-books" id="bookSlider">
+      
+    </div>
+  </div>
+</div>
+
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="../js/home.js"></script>
+</body>
+</html>
