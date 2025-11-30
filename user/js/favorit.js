@@ -141,9 +141,9 @@ if (logoutBtn) {
     e.preventDefault();
     try {
       await axios.post("http://localhost:8000/auth/logout", {}, { withCredentials: true });
-      window.location.href = "login.html";
+      window.location.href = "../../login.html";
     } catch (err) {
-      window.location.href = "login.html";
+      window.location.href = "../../login.html";
     }
   });
 }

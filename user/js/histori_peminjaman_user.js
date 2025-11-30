@@ -59,7 +59,6 @@ document.addEventListener("DOMContentLoaded", async () => {
       return;
     }
 
-
     if (res.status === 200) {
       const namaPengguna = document.getElementById("nama-pengguna");
       const emailPengguna = document.getElementById("email-pengguna");
@@ -86,20 +85,18 @@ function formatTanggal(dateStr) {
 
 document.addEventListener("DOMContentLoaded", async () => {
   try {
-  
     const userRes = await axios.get("http://localhost:8000/auth/checkLogin", {
       withCredentials: true,
     });
     const idUser = userRes.data.user.id;
 
-   
     const res = await axios.get(
       `http://localhost:8000/peminjaman/peminjaman/${idUser}`
     );
-    const data = res.data.peminjaman; 
+    const data = res.data.peminjaman;
 
     let tableBody = document.getElementById("history-body");
-    tableBody.innerHTML = ""
+    tableBody.innerHTML = "";
 
     if (data.length === 0) {
       tableBody.innerHTML = `
@@ -121,41 +118,25 @@ document.addEventListener("DOMContentLoaded", async () => {
             <td>${pinjam.status_peminjaman}</td>
             <td>${pinjam.status_pengembalian || "-"}</td>
             <td>
-              ${
-                pinjam.status_peminjaman === "dipinjam"
-                  ? `<button class="btn btn-warning btn-sm kembalikan" data-id="${pinjam.id_peminjaman}">
-                  Kembalikan </i>
-                </button>`
-                  : "-"
-              }
+             ${
+               pinjam.status_peminjaman === "menunggu"
+                 ? `<i>Menunggu konfirmasi admin</i>`
+                 : pinjam.status_peminjaman === "dipinjam"
+                 ? `<i>Silahkan ambil buku di kantor</i>`
+                 : pinjam.status_peminjaman === "selesai"
+                 ? `<i>Buku telah dikembalikan</i>`
+                 : "-"
+             }
             </td>
           `;
       tableBody.appendChild(row);
     });
-
-    // Event delegation untuk tombol kembalikan
-    document.addEventListener("click", async (e) => {
-      const btn = e.target.closest(".kembalikan");
-      if (!btn) return;
-
-      const idPeminjaman = btn.dataset.id;
-      try {
-        await axios.patch(
-          `http://localhost:8000/peminjaman/kembalikan/${idPeminjaman}`
-        );
-        window.location.reload();
-      } catch (err) {
-        console.error(err);
-        alert("Gagal mengembalikan buku!");
-      }
-    });
+ 
   } catch (err) {
     console.error(err);
     alert("Gagal mengambil data peminjaman!");
   }
 });
-
-
 
 // ================== LOAD DATA PROFILE UNTUK HEADER ==================
 async function loadUserProfileHeader() {
@@ -180,14 +161,43 @@ async function loadUserProfileHeader() {
     }
 
     if (data.photo && navbarProfileImg) {
-      const photoUrl = `http://localhost:8000/uploads/${data.photo}?t=${Date.now()}`;
+      const photoUrl = `http://localhost:8000/uploads/${
+        data.photo
+      }?t=${Date.now()}`;
       navbarProfileImg.src = photoUrl;
     }
   } catch (err) {
     console.error("Gagal load profile header:", err);
-    if (err.response && (err.response.status === 401 || err.response.status === 403)) {
+    if (
+      err.response &&
+      (err.response.status === 401 || err.response.status === 403)
+    ) {
       // kalau belum login, bisa redirect ke login
       window.location.href = "login.html";
     }
   }
+}
+
+const logoutBtn = document.getElementById("logoutBtn");
+if (logoutBtn) {
+  logoutBtn.addEventListener("click", async (e) => {
+    e.preventDefault();
+    try {
+      const res = await axios.post(
+        "http://localhost:8000/auth/logout",
+        {},
+        {
+          withCredentials: true,
+        }
+      );
+      if (res.data.statusCode === 200) {
+        window.location.href = "../../login.html";
+      } else {
+        alert(res.data.message || "Gagal logout");
+      }
+    } catch (err) {
+      console.error("Logout gagal:", err.response?.data || err);
+      window.location.href = "../../login.html";
+    }
+  });
 }

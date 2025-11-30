@@ -136,6 +136,7 @@ btnAjukan.addEventListener("click", async () => {
       {}
     );
     alert("Buku Berhasil Dipinjam");
+    window.location.href = "histori_peminjaman_user.html"
   } catch (err) {
     console.error(err);
     alert("Gagal Pinjam");
@@ -177,3 +178,28 @@ async function loadUserProfileHeader() {
     }
   }
 }
+
+const logoutBtn = document.getElementById("logoutBtn");
+if (logoutBtn) {
+  logoutBtn.addEventListener("click", async (e) => {
+    e.preventDefault();
+    try {
+      const res = await axios.post(
+        "http://localhost:8000/auth/logout",
+        {},
+        {
+          withCredentials: true,
+        }
+      );
+      if (res.data.statusCode === 200) {
+        window.location.href = "../../login.html";
+      } else {
+        alert(res.data.message || "Gagal logout");
+      }
+    } catch (err) {
+      console.error("Logout gagal:", err.response?.data || err);
+      window.location.href = "../../login.html";
+    }
+  });
+}
+

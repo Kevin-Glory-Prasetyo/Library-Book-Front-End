@@ -49,20 +49,20 @@
         <nav class="navbar bg-light navbar-light">
           <a href="index.html" class="navbar-brand mx-4 mb-3">
             <h3 class="text-primary">
-              <img src="../img/xcode-removebg-preview.png" alt="" />
+               <img src="../img/xcode-removebg-preview.png" alt="">
             </h3>
           </a>
           <div class="navbar-nav w-100">
             <a href="index.html" class="nav-item nav-link"
               ><i class="bi bi-speedometer me-2"></i>Dashboard</a
             >
-            <a href="data_admin.html" class="nav-item nav-link"
+            <a href="data_admin.html" class="nav-item nav-link active"
               ><i class="bi bi-person-fill-gear me-2"></i>Data Admin</a
             >
             <a href="data_user.html" class="nav-item nav-link"
               ><i class="bi bi-person-fill me-2"></i>Data User</a
             >
-            <a href="data_buku.html" class="nav-item nav-link active"
+            <a href="data_buku.html" class="nav-item nav-link"
               ><i class="bi bi-journal-bookmark me-2"></i>Data Buku</a
             >
             <a href="data_pengajuan.html" class="nav-item nav-link"
@@ -92,9 +92,12 @@
             <i class="fa fa-bars"></i>
           </a>
           <div class="navbar-nav align-items-center ms-auto">
-      
             <div class="nav-item dropdown">
-              <a href="#" class="nav-link" data-bs-toggle="dropdown">
+              <a
+                href="#"
+                class="nav-link "
+                data-bs-toggle="dropdown"
+              >
                 <span class="d-none d-lg-inline-flex" id="user-name"></span>
               </a>
             </div>
@@ -107,60 +110,77 @@
           <div class="row g-4">
             <div class="col-sm-12 col-xl">
               <div class="bg-light rounded h-100 p-4">
-                <h6 class="mb-4 fs-3 text-primary">Data Buku</h6>
-                <div class="d-flex align-items-center mb-3">
-                  <a href="form_tambah_buku.html" class="btn btn-primary me-3">
-                    <i class="bi bi-plus-lg me-2"></i> Tambah Buku
-                  </a>
-                </div>
-                <div id="alert-delete">
-                </div>
-                <div id="alert-tambah">
-                </div>
-                <div id="alert-edit">
-                </div>
-                <table class="table table-striped text-center">
-                  <thead>
-                    <tr>
-                      <th scope="col">No</th>
-                      <th scope="col">Judul Buku</th>
-                      <th scope="col">Penulis</th>
-                      <th scope="col">Kategori</th>
-                      <th scope="col">Tahun</th>
-                      <th scope="col">Penerbit</th>
-                      <th scope="col">Total</th>
-                      <th scope="col">Tersedia</th>
-                      <th scope="col">Dipinjam</th>
-                      <th scope="col">Action</th>
-                    </tr>
-                  </thead>
-                  <tbody id="data">
-                    <tr>
-                      <th scope="row">1</th>
-                      <td>New Journey To The Center Of Earth</td>
-                      <td>Doe</td>
-                      <td>Pendidikan</td>
-                      <td>2015</td>
-                      <td>Citra Digital</td>
-                      <td>30</td>
-                      <td>15</td>
-                      <td>15</td>
-                      <td>
-                        <div class="d-flex justify-content-center gap-1">
-                          <button type="button" class="btn btn-info btn-sm">
-                            <i class="bi bi-eye"></i>
-                          </button>
-                          <button type="button" class="btn btn-warning btn-sm">
-                            <i class="bi bi-pencil-square"></i>
-                          </button>
-                          <button type="button" class="btn btn-danger btn-sm">
-                            <i class="bi bi-trash"></i>
-                          </button>
-                        </div>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
+                <h6 class="mb-4 fs-3 text-primary">Form Tambah Admin</h6>
+                <form>
+                  <div class="row">
+                    <!-- Bagian kiri -->
+                    <div class="col-md-6">
+                      <div class="mb-3">
+                        <label for="nama_depan" class="form-label"
+                          >Nama Depan</label
+                        >
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="nama_depan"
+                          placeholder="Masukkan Nama Depan"
+                          required
+                        />
+                      </div>
+                      <div class="mb-3">
+                        <label for="nama_belakang" class="form-label"
+                          >Nama Belakang</label
+                        >
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="nama_belakang"
+                          placeholder="Masukkan Nama Belakang"
+                          required
+                        />
+                      </div>
+                    </div>
+
+
+                    <div class="col-md-6">
+                      <div class="mb-3">
+                        <label for="email" class="form-label"
+                          >Eamil</label
+                        >
+                        <input
+                          type="email"
+                          class="form-control"
+                          id="email"
+                          placeholder="Masukkan Email"
+                          required
+                        />
+                      </div>
+                      <div class="mb-3">
+                        <label for="passowrd" class="form-label"
+                          >Password</label
+                        >
+                        <input
+                          type="password"
+                          class="form-control"
+                          id="password"
+                          placeholder="Masukkan Password"
+                          required
+                        />
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-12 text-end">
+                      <a href="data_admin.html" class="btn btn-secondary" id="kembali">
+                       Kembali
+                      </a>
+                      <button type="submit" class="btn btn-primary" id="tambah">
+                       Tambah
+                      </button>
+                    </div>
+                  </div>
+                </form>
               </div>
             </div>
           </div>
@@ -202,6 +222,6 @@
     <!-- Template Javascript -->
     <script src="../js/main.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="../js/data_buku.js"></script>
+    <script src="../js/form_tambah_admin.js"></script>
   </body>
 </html>

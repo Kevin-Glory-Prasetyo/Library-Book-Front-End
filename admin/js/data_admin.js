@@ -62,3 +62,59 @@ async function checkLoginUser() {
 
 document.addEventListener("DOMContentLoaded", checkLoginUser);
 document.addEventListener("DOMContentLoaded", laodDataAdmin);
+
+
+window.addEventListener("load", () => {
+  const status = localStorage.getItem("tambahSuccess");
+
+  if (status) {
+    const tambahAlert = document.getElementById("alert-tambah");
+
+    tambahAlert.classList.add(
+      "alert",
+      "alert-success",
+      "alert-dismissible",
+      "fade",
+      "show"
+    );
+    tambahAlert.setAttribute("role", "alert");
+
+    tambahAlert.innerHTML = `
+      <i class="fa fa-exclamation-circle me-2"></i>
+      Data Admin Berhasil Ditambahkan
+      <button
+        type="button"
+        class="btn-close"
+        data-bs-dismiss="alert"
+        aria-label="Close">
+      </button>
+    `;
+    
+    localStorage.removeItem("tambahSuccess");
+  }
+});
+
+const logoutBtn = document.getElementById("logoutBtn");
+if (logoutBtn) {
+  logoutBtn.addEventListener("click", async (e) => {
+    e.preventDefault();
+    try {
+      const res = await axios.post(
+        "http://localhost:8000/auth/logout",
+        {},
+        {
+          withCredentials: true,
+        }
+      );
+      if (res.data.statusCode === 200) {
+        window.location.href = "../../login.html";
+      } else {
+        alert(res.data.message || "Gagal logout");
+      }
+    } catch (err) {
+      console.error("Logout gagal:", err.response?.data || err);
+      window.location.href = "../../login.html";
+    }
+  });
+}
+

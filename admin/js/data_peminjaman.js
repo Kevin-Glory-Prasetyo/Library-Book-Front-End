@@ -6,7 +6,6 @@ async function checkLoginUser() {
 
     const data = res.data.user;
 
-
     if (data.role !== "admin") {
       window.location.href = "../../login.html";
       return;
@@ -16,14 +15,12 @@ async function checkLoginUser() {
       const namaPengguna = document.getElementById("user-name");
 
       namaPengguna.innerHTML = `${data.first_name} ${data.last_name}`;
-      
 
       return true;
     } else {
       alert(data.message || "Terjadi kesalahan");
       return false;
     }
-
   } catch (err) {
     console.error("Fetch gagal:", err);
     if (err.status === 401 || err.status === 403) {
@@ -33,7 +30,7 @@ async function checkLoginUser() {
   }
 }
 
-document.addEventListener("DOMContentLoaded", checkLoginUser)
+document.addEventListener("DOMContentLoaded", checkLoginUser);
 
 function formatTanggal(tanggal) {
   if (!tanggal) return "-";
@@ -45,8 +42,6 @@ function formatTanggal(tanggal) {
 }
 
 document.addEventListener("DOMContentLoaded", async () => {
- 
-
   try {
     const response = await axios.get(
       "http://localhost:8000/peminjaman/peminjaman"
@@ -84,6 +79,17 @@ document.addEventListener("DOMContentLoaded", async () => {
         <td>${formatTanggal(pinjam.tanggal_pengembalian) || "-"}</td>
         <td>${pinjam.status_peminjaman}</td>
         <td>${pinjam.status_pengembalian || "-"}</td>
+        <td>
+          ${
+            pinjam.status_peminjaman === "selesai"
+              ? `<i>Buku dikembalikan</i>`
+              : pinjam.status_peminjaman === "dipinjam"
+              ? `<button class="btn btn-warning btn-sm kembalikan" data-id="${pinjam.id_peminjaman}">
+           Done
+        </button>`
+              : `-`
+          }
+        </td>
       `;
       tableBody.appendChild(row);
     });
@@ -91,3 +97,45 @@ document.addEventListener("DOMContentLoaded", async () => {
     console.error("Gagal mengambil data peminjaman:", error);
   }
 });
+
+const logoutBtn = document.getElementById("logoutBtn");
+if (logoutBtn) {
+  logoutBtn.addEventListener("click", async (e) => {
+    e.preventDefault();
+    try {
+      const res = await axios.post(
+        "http://localhost:8000/auth/logout",
+        {},
+        {
+          withCredentials: true,
+        }
+      );
+      if (res.data.statusCode === 200) {
+        window.location.href = "../../login.html";
+      } else {
+        alert(res.data.message || "Gagal logout");
+      }
+    } catch (err) {
+      console.error("Logout gagal:", err.response?.data || err);
+      window.location.href = "../../login.html";
+    }
+  });
+}
+
+
+document.addEventListener("click", async (e) => {
+  const btn = e.target.closest(".kembalikan");
+  if (!btn) return;
+
+  const idPeminjaman = btn.dataset.id;
+
+  try {
+    await axios.patch(`http://localhost:8000/peminjaman/kembalikan/${idPeminjaman}`);
+    window.location.reload();
+  } catch (err) {
+    console.error(err);
+    alert("Gagal mengembalikan buku!");
+  }
+});
+
+

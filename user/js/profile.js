@@ -4,11 +4,11 @@ if (logoutBtn) {
   logoutBtn.addEventListener("click", async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("http://localhost:5000/auth/logout", {}, {
+      const res = await axios.post("http://localhost:8000/auth/logout", {}, {
         withCredentials: true,
       });
       if (res.data.statusCode === 200) {
-        window.location.href = "login.html";
+        window.location.href = "../../login.html";
       } else {
         alert(res.data.message || "Gagal logout");
       }
