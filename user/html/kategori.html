@@ -42,8 +42,17 @@
       <a href="edit_profile_user.html">Profile</a>
       <a href="#" id="logoutBtn">Logout</a>
     </div>
-
   </header>
+  
+  <!-- Search dan Filter -->
+  <div class="kategori-tools" >
+  <input type="text" id="searchInput" placeholder="Cari buku...">
+  
+  <select id="filterKategori">
+    <option value="all">Semua Kategori</option>
+  </select>
+</div>
+
 <main id="categoriesContainer"></main>
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script src="../js/kategori.js"></script>

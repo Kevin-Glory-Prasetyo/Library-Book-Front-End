@@ -213,6 +213,46 @@ header.navbar {
   transform: rotate(-45deg) translate(7px, -7px);
 }
 
+
+/* === SEARCH & FILTER BAR === */
+.kategori-tools {
+  width: 100%;
+  padding: 20px 60px;
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  background: #fff;
+}
+
+.kategori-tools input,
+.kategori-tools select {
+  padding: 10px 15px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 15px;
+}
+
+.kategori-tools input {
+  flex: 1;
+}
+
+.kategori-tools select {
+  width: 200px;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .kategori-tools {
+    flex-direction: column;
+    padding: 15px 20px;
+  }
+
+  .kategori-tools select {
+    width: 100%;
+  }
+}
+
+
 /* === MAIN SECTION === */
 section {
   padding: 40px 60px;

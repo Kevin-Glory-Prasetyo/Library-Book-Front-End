@@ -1,3 +1,6 @@
+let semuaKategori = [];
+let semuaBukuPerKategori = {};
+
 // ================== SLIDER SCROLL (untuk element yang dibuat dinamis) ==================
 function initSliders() {
   document.querySelectorAll(".book-slider").forEach((slider) => {
@@ -100,6 +103,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Load kategori + buku
   loadKategoriDanBuku();
+
+  // == Tambahkan kategori ke dropdown filter ==
+const kategoriSelect = document.getElementById("filterKategori");
+kategoriSelect.innerHTML = `<option value="all">Semua Kategori</option>`;
+
+semuaKategori.forEach(k => {
+  const opt = document.createElement("option");
+  opt.value = k.id_kategori;
+  opt.textContent = k.name;
+  kategoriSelect.appendChild(opt);
+});
+
+
 });
 
 // ================== LOAD DATA PROFILE UNTUK HEADER ==================
@@ -155,6 +171,7 @@ async function loadKategoriDanBuku() {
     });
 
     const { kategori } = kategoriRes.data; // dari controller kategoriBuku
+    semuaKategori = kategori;
     if (!kategori || kategori.length === 0) {
       container.innerHTML = "<p>Tidak ada kategori.</p>";
       return;
@@ -189,6 +206,8 @@ async function loadKategoriDanBuku() {
       );
 
       const { data } = bukuRes.data; // array buku
+      semuaBukuPerKategori[k.id_kategori] = data; // simpan buku berdasarkan kategori
+
       if (!data || data.length === 0) {
         bookContainer.innerHTML ="<p style='padding: 1rem; text-align:center;'>Belum ada buku di kategori ini.</p>";
         bookContainer.style.display = "flex";
@@ -218,6 +237,18 @@ async function loadKategoriDanBuku() {
 
     // Setelah semua section dibuat, aktifkan slider
     initSliders();
+
+    // == Tambahkan kategori ke dropdown filter ==
+const kategoriSelect = document.getElementById("filterKategori");
+kategoriSelect.innerHTML = `<option value="all">Semua Kategori</option>`;
+
+semuaKategori.forEach(k => {
+  const opt = document.createElement("option");
+  opt.value = k.id_kategori;
+  opt.textContent = k.name;
+  kategoriSelect.appendChild(opt);
+});
+
   } catch (err) {
     console.error("Gagal load kategori & buku:", err);
     container.innerHTML = "<p>Terjadi kesalahan saat memuat data kategori.</p>";
@@ -232,3 +263,81 @@ document.addEventListener("click", function (e) {
 
   window.location.href = `detail_buku.html?id=${idBuku}`;
 });
+
+function renderKategori(filteredData) {
+  const container = document.getElementById("categoriesContainer");
+  container.innerHTML = "";
+
+  filteredData.forEach(({ kategori, buku }) => {
+    const section = document.createElement("section");
+    section.classList.add("category");
+
+    section.innerHTML = `
+      <h2>${kategori.name}</h2>
+      <div class="book-slider">
+        <button class="scroll-btn left">&#10094;</button>
+        <div class="book-container"></div>
+        <button class="scroll-btn right">&#10095;</button>
+      </div>
+    `;
+
+    const bookContainer = section.querySelector(".book-container");
+
+    if (buku.length === 0) {
+      bookContainer.innerHTML =
+        "<p style='padding:1rem; text-align:center;'>Tidak ada buku.</p>";
+      bookContainer.style.display = "flex";
+      bookContainer.style.justifyContent = "center";
+      return container.appendChild(section);
+    }
+
+    buku.forEach(b => {
+      const card = document.createElement("div");
+      card.classList.add("book-card");
+
+      const imgSrc = `http://localhost:8000${b.gambar_buku}`;
+
+      card.innerHTML = `
+        <img src="${imgSrc}" alt="${b.judul_buku}">
+        <h4>${b.judul_buku}</h4>
+        <p>${kategori.name}</p>
+        <button class="pinjam-btn pinjam" data-id="${b.id_buku}">Pinjam</button>
+      `;
+
+      bookContainer.appendChild(card);
+    });
+
+    container.appendChild(section);
+  });
+
+  initSliders();
+}
+
+function filterDanSearch() {
+  const keyword = document.getElementById("searchInput").value.toLowerCase();
+  const filterKat = document.getElementById("filterKategori").value;
+
+  const hasil = [];
+
+  Object.entries(semuaBukuPerKategori).forEach(([id, bukuList]) => {
+    const kategori = semuaKategori.find(k => k.id_kategori == id);
+
+    // Filter berdasarkan kategori
+    if (filterKat !== "all" && filterKat != id) return;
+
+    // Search berdasarkan judul
+    const bukuFiltered = bukuList.filter(b =>
+      b.judul_buku.toLowerCase().includes(keyword)
+    );
+
+    hasil.push({
+      kategori,
+      buku: bukuFiltered
+    });
+  });
+
+  renderKategori(hasil);
+}
+
+document.getElementById("searchInput").addEventListener("input", filterDanSearch);
+document.getElementById("filterKategori").addEventListener("change", filterDanSearch);
